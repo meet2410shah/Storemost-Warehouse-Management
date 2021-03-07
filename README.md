@@ -1,1 +1,2 @@
-# warehouse-management
+# Warehouse Management
+### IT314 Software Engineering Course Project
