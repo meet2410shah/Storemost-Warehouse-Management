@@ -1,4 +1,4 @@
-# Warehouse Management
+# Storemost - Warehouse Management Pvt. Ltd.
 ### IT314 Software Engineering Course Project
 
 ---
@@ -10,5 +10,5 @@
   > b. Mobile displays from 360×640 through 414×896.  
   > c. Tablet displays from 601×962 through 1280×800.  
  
- Also create a Logo for the website.
+ Also create a Logo for the website (Name : Storemost - Warehouse Management Pvt. Ltd.).  
  Note: The units are in pixels.
