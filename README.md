@@ -55,4 +55,9 @@ The role of a Content Specialist is to collect content for the company and manag
 
 ### 3. Frontend Developer 
 ### 4. Backend Developer
+
+Create APIs for different user, manage database payment details and other related work.
+APIs:
+https://docs.google.com/spreadsheets/d/1fye9cb4ePjmc95HWr9LLaEDYgSeHS8eX9RpoTYHyku0/edit#gid=0
+
 ### 5. Database Developer
