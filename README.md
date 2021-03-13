@@ -15,6 +15,8 @@ This may have permission issues so please make sure that you have run the comman
 
 ### Setup Details
 After downloading the repository to setup the application in the localhost you need to follow the steps below in the same directory as your repository:  
+Step 0: Make the filename from '.default.env' to '.env' to get the appropriate environment variables.  
+
 Step 1: Download and install all the dependencies required for the project.  
 `npm install`
 
@@ -61,3 +63,5 @@ APIs:
 https://docs.google.com/spreadsheets/d/1fye9cb4ePjmc95HWr9LLaEDYgSeHS8eX9RpoTYHyku0/edit#gid=0
 
 ### 5. Database Developer
+
+Create Schema for Different Users and other enitiy and connect them with each other. Using Mongoose and MongoDB write effective schema to ensure the integrity of the database and have an optimized query, that will provide an efficient database communication.
