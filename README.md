@@ -65,3 +65,24 @@ https://docs.google.com/spreadsheets/d/1fye9cb4ePjmc95HWr9LLaEDYgSeHS8eX9RpoTYHy
 ### 5. Database Developer
 
 Create Schema for Different Users and other enitiy and connect them with each other. Using Mongoose and MongoDB write effective schema to ensure the integrity of the database and have an optimized query, that will provide an efficient database communication.
+
+---
+## Database Description & Usage:
+
+- The Database Schema is divided into the following five Different parts. 
+1. The Admin:  
+  The Admin Schema consist of the following six properties.
+  a. first_name,
+  b. last_name,
+  c. username,
+  d. password,
+  e. email,
+  f. mobile
+
+2. The Supervisor:  
+3. The Farmer:  
+4. Payment:  
+5. Warehouse:  
+
+- There is a specific folder attached in the repository in the root directory which consist of models implemented in Mongoose. There are specific documentation available to access the models and use them to make effective queries. Please go through this [Link](https://mongoosejs.com/docs/guide.html). This section is specifically intended for Backend Developer.
+
