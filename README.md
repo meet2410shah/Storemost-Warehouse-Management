@@ -14,7 +14,7 @@ This may have permission issues so please make sure that you have run the comman
 
 
 ### Setup Details
-To setup the application in the localhost you need to follow the steps below:  
+After downloading the repository to setup the application in the localhost you need to follow the steps below in the same directory as your repository:  
 Step 1: Download and install all the dependencies required for the project.  
 `npm install`
 
