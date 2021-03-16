@@ -1,11 +1,13 @@
-const Joi = require('joi');
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const { User } = require('../models/user');
-const express = require('express');
-const router = express.Router();
+const { User } = require('../../database/models/admin');
+const { validate } = require('./auth_validate');
 
-router.post('/', async (req, res) => {
+
+// This function checks the user's login credentials in database and respond accordingly.
+
+
+var authorize=async (req, res) => {
     // First Validate The HTTP Request
     const { error } = validate(req.body);
     if (error) {
@@ -26,15 +28,7 @@ router.post('/', async (req, res) => {
     }
 
     res.send(true);
-});
 
-function validate(req) {
-    const schema = {
-        email: Joi.string().min(5).max(255).required().email(),
-        password: Joi.string().min(5).max(255).required()
-    };
-
-    return Joi.validate(req, schema);
 }
 
-module.exports = router;
+exports.authorize = authorize;
