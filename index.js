@@ -8,6 +8,9 @@ const PORT = process.env.PORT || 3000;
 
 // Routes
 const admin = require('./routes/admin');
+const supervisor = require('./routes/super');
+const farmer = require('./routes/farmer');
+
 const auth = require('./routes/auth');
 
 app.use(express.json());
@@ -16,7 +19,12 @@ app.use(express.static('dist'));
 
 // Routes
 app.use(`${version}/admin`, admin);
+app.use(`${version}/supervisor`, supervisor);
+app.use(`${version}/farmer`, farmer);
+
 app.use(`${version}/auth`, auth);
+
+
 
 app.get('/api/', (req, res) => {
   return res.send({ data: "Meet Shah" });

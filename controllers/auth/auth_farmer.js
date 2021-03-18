@@ -1,13 +1,13 @@
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const { User } = require('../../database/models/admin');
+const { User } = require('../../database/models/farmer');
 const { validate } = require('./auth_validate');
 
 
 // This function checks the user's login credentials in database and respond accordingly.
 
 
-var authorize=async (req, res) => {
+var authorize_farmer=async (req, res) => {
     // First Validate The HTTP Request
     const { error } = validate(req.body);
     if (error) {
@@ -31,4 +31,4 @@ var authorize=async (req, res) => {
 
 }
 
-exports.authorize = authorize;
+exports.authorize_farmer = authorize_farmer;

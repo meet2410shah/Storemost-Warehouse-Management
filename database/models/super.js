@@ -1,7 +1,7 @@
 const mongoose = require(`mongoose`);
 const Schema = mongoose.Schema;
 
-const superSchema = new Schema({
+const superSchema = mongoose.model('Super',new mongoose.Schema({
   first_name: String,
   last_name: String,
   username: String,
@@ -9,6 +9,6 @@ const superSchema = new Schema({
   email: String,
   mobile: String,
   warehouse_id: String
-});
+}));
 
-module.exports = mongoose.model(`Super`, superSchema);
+exports.User=superSchema;
