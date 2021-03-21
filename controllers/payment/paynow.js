@@ -1,14 +1,16 @@
 const https = require("https");
 
 
-const checksum_lib = require("./Paytm/checksum");
-const config = require("./Paytm/config");
+const checksum_lib = require("../Paytm/checksum");
+const config = require("../Paytm/config");
 
 
-const parseUrl = express.urlencoded({ extended: false });
-const parseJson = express.json({ extended: false });
 
-app.post('/paynow', function (req, res, next) {
+
+// const parseUrl = express.urlencoded({ extended: false });
+// const parseJson = express.json({ extended: false });
+
+var pay_now = async function (req, res, next) {
     var paymentDetails = {
         amount: req.body.amount,
         customerId: req.body.name,
@@ -50,4 +52,7 @@ app.post('/paynow', function (req, res, next) {
             res.end();
         });
     }
-});
+}
+
+
+exports.paynow = pay_now;

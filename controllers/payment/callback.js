@@ -1,5 +1,14 @@
+const https = require("https");
 
-app.post("/callback", (req, res, next) => {
+
+const checksum_lib = require("./Paytm/checksum");
+const config = require("./Paytm/config");
+
+
+const parseUrl = express.urlencoded({ extended: false });
+const parseJson = express.json({ extended: false });
+
+var call_back = async (req, res, next) => {
     // Route for verifiying payment
 
     console.log("callback url called");
@@ -71,4 +80,6 @@ app.post("/callback", (req, res, next) => {
         post_req.end();
     });
     // });
-});
+}
+
+exports.callback = call_back;
