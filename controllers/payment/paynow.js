@@ -4,8 +4,8 @@ const https = require("https");
 const checksum_lib = require("../Paytm/checksum");
 const config = require("../Paytm/config");
 
-
-
+const PORT = process.env.PORT || 3000;
+const version = process.env.VERSION;
 
 // const parseUrl = express.urlencoded({ extended: false });
 // const parseJson = express.json({ extended: false });
@@ -16,6 +16,7 @@ var pay_now = async function (req, res, next) {
         customerId: req.body.name,
         customerEmail: req.body.email,
         customerPhone: req.body.phone
+
         // amount: "124",
         // customerId: "hello",
         // customerEmail: "maywh@gmail.com",
@@ -32,7 +33,7 @@ var pay_now = async function (req, res, next) {
         params['ORDER_ID'] = 'TEST_' + new Date().getTime();
         params['CUST_ID'] = paymentDetails.customerId;
         params['TXN_AMOUNT'] = paymentDetails.amount;
-        params['CALLBACK_URL'] = 'http://localhost:3000/callback';
+        params['CALLBACK_URL'] = 'http://localhost:' + PORT + version + '/payment/callback';
         params['EMAIL'] = paymentDetails.customerEmail;
         params['MOBILE_NO'] = paymentDetails.customerPhone;
 
