@@ -1,12 +1,14 @@
 const Joi = require('joi');
 
 
-//This function checks the validity of the inputs provided by user. 
+//This function checks the validity of the inputs provided by user.
 
 
 function validate(req) {
     const schema = Joi.object({
-        email: Joi.string().min(5).max(255).required().email(),
+        // username: Joi.string().min(5).max(255),
+        // email: Joi.string().min(5).max(255),
+        user_email : Joi.string().min(5).max(255).required(),
         password: Joi.string().min(5).max(255).required()
     });
 

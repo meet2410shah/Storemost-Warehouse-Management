@@ -15,9 +15,12 @@ var authorize_super=async (req, res) => {
     }
 
     //  Now find the user by their email address
-    let user = await User.findOne({ email: req.body.email });
+    let user = await User.findOne({ email: req.body.user_email });
     if (!user) {
-        return res.status(400).send('Incorrect email or password.');
+      user = await User.findOne({ username: req.body.user_email });
+      if(!user){
+        return res.status(400).send('Incorrect email/username or password.');
+      }
     }
 
     // Then validate the Credentials in MongoDB match

@@ -15,6 +15,13 @@ if (error) {
 }
 
 // Check if this user already exisits
+
+let userName=await User.findOne({ username: req.body.username });
+
+if(userName!=null){
+  return res.status(400).send('That username has already been taken!');
+}
+
 let user = await User.findOne({ email: req.body.email });
 if (user) {
     return res.status(400).send('That user already exisits!');
