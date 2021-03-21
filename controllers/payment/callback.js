@@ -21,8 +21,7 @@ var call_back = async (req, res, next) => {
         body += data;
     });
 
-    // req.on('end', function () {
-    //   var html = "";
+
     var post_data = req.body;
 
     // received params in callback
@@ -80,7 +79,6 @@ var call_back = async (req, res, next) => {
         post_req.write(post_data);
         post_req.end();
     });
-    // });
 }
 
 exports.callback = call_back;
