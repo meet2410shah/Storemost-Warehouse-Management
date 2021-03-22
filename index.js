@@ -4,12 +4,6 @@ require('./database/connection');
 const express = require('express');
 const app = express();
 
-
-// added ------
-
-
-//-------------------
-
 const version = process.env.VERSION;
 const PORT = process.env.PORT || 3000;
 
@@ -23,25 +17,16 @@ app.use(express.static('dist'));
 
 // Routes 
 app.use(`${version}/admin`, admin);
-
-
 app.use(`${version}/payment`, payment);
 
 app.get('/api/', (req, res) => {
   return res.send({ data: "Meet Shah" });
 });
 
-
-
 app.get('/pay', function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
-
-
-
-
-
 app.listen(PORT, () => {
   console.log("Server Listening");
-})
+});
