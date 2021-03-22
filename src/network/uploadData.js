@@ -6,16 +6,18 @@
  *
  */
 
-import HTTPError from "./HTTPError.js";
+import HTTPError from './HTTPError.js';
 
-export default async (url, { method, headers, body, file }) => {
+export default async (url, {
+  method, headers, body, file,
+}) => {
   const data = new FormData();
   if (body) {
     Object.entries(body).forEach((key, value) => {
       data.set(key, value);
     });
   }
-  data.set("file", file);
+  data.set('file', file);
   const fetchOptions = {
     method,
     body: data,

@@ -6,17 +6,18 @@
  *
  */
 
-import HTTPError from "./HTTPError.js";
-import cookie from "react-cookies";
+import HTTPError from './HTTPError.js';
 
-const requiredBody = ["GET", "POST", "PUT", "DELETE"];
+const requiredBody = ['GET', 'POST', 'PUT', 'DELETE'];
 
-export default async (url, { method, headers, body, ...otherOptions }) => {
+export default async (url, {
+  method, headers, body, ...otherOptions
+}) => {
   const fetchOptions = {
     method,
-    mode: "cors",
+    mode: 'cors',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body,
     ...otherOptions,

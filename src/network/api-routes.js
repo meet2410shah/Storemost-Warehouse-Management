@@ -9,5 +9,5 @@
 // const version = "/api/v1";
 
 export const auth = {
-  hello: `/api/`,
+  hello: '/api/',
 };

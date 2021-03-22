@@ -1,12 +1,13 @@
-const mongoose = require(`mongoose`);
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 
 const warehouseSchema = new Schema({
   description: String,
   location: {
     address: String,
     longitude: Number,
-    latitude: Number
+    latitude: Number,
   },
   storage: Number,
   staff_details: [
@@ -16,9 +17,9 @@ const warehouseSchema = new Schema({
       last_name: String,
       salary: Number,
       role: String,
-      mobile: String
-    }
-  ]
+      mobile: String,
+    },
+  ],
 });
 
-module.exports = mongoose.model(`Warehouse`, warehouseSchema);
+module.exports = mongoose.model('Warehouse', warehouseSchema);

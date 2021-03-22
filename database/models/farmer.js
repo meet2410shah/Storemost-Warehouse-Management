@@ -1,7 +1,8 @@
-const mongoose = require(`mongoose`);
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-const farmerSchema = mongoose.model('Farmer',new mongoose.Schema({
+const { Schema } = mongoose;
+
+const farmerSchema = mongoose.model('Farmer', new mongoose.Schema({
   first_name: String,
   last_name: String,
   username: String,
@@ -15,8 +16,8 @@ const farmerSchema = mongoose.model('Farmer',new mongoose.Schema({
       warehouse_id: String,
       payment_id: String,
       type: String,
-    }
-  ]
+    },
+  ],
 }));
 
-exports.User=farmerSchema;
+exports.User = farmerSchema;

@@ -1,11 +1,11 @@
-import fetchData from "../../network/fetchData";
-import { auth } from "../../network/api-routes";
+import fetchData from '../../network/fetchData';
+import { auth } from '../../network/api-routes';
 
 export default async () => {
   const fetchOptions = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   };
   const url = auth.hello;
