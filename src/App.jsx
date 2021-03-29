@@ -15,7 +15,7 @@ export default () => {
   }, []);
 	return (
 		<div>
-			<h1>Hello World!!! {temp}</h1>
+			<h1>Hello Universe!!! {temp}</h1>
 		</div>
 	);
 }
