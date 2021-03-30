@@ -1,5 +1,60 @@
-$bg: #d3d3d3;
+//Custom Fonts
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
-body {
-	background-color: $bg;
+.btn {
+  font-size: 21px;
+  padding: 5px 110px;
+  border: 0;
+  background-color: #D3B04F;
+  color: #fff;
+  border-radius: 3px;
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: #2386c8;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.button-box{
+ /* top: 145px;
+  left: 733px;
+  width: 455px;
+  height: 790px;
+  position: relative;
+  background: #353535 0% 0% no-repeat padding-box;
+  opacity: 1;*/
+
+  width: 400px;
+  height: 660px;
+  margin: 40px auto;
+  position: relative;
+  //box-shadow: 0 0 20px 9px #ff61241f;
+  background: #353535;
+ // border-radius: 30px;
+}
+
+.navbar{
+  display: inline-block;
+}
+
+.toggle-btn{
+  display: inline-block;
+  font-size: 20px;
+// padding: 10px 50px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relativie;
+  padding: 10px 25px;
+  
+}
+
+.linkbar{
+color: white;
+text-decoration: none;
+padding: 10px 30px;
 }

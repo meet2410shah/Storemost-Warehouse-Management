@@ -8,8 +8,8 @@ mongoose.set('useUnifiedTopology', true);
 mongoose
   .connect(CONNECTION_URL, { useNewUrlParser: true })
   .then(() => {
-    // console.log('Database Connection Successful');
+    console.log('Database Connection Successful');
   })
   .catch((err) => {
-    // console.log('ERROR:', err);
+    console.log('ERROR:', err);
   });

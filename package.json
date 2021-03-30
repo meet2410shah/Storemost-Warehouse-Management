@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start": "nodemon",
-    "start:dev": "nodemon && webpack-dev-server"
+    "start:dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -63,9 +63,9 @@
     "webpack-dev-server": "3.11.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
+    "pre-commit": ""
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.js": ""
   }
 }

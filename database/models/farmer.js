@@ -1,20 +1,18 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
-
 const farmerSchema = mongoose.model('Farmer', new mongoose.Schema({
-  first_name: String,
-  last_name: String,
+  firstName: String,
+  lastName: String,
   username: String,
   password: String,
   email: String,
   mobile: String,
   crop: [
     {
-      storage_time: Date,
+      storageTime: Date,
       quantity: Number,
-      warehouse_id: String,
-      payment_id: String,
+      warehouseId: String,
+      paymentId: String,
       type: String,
     },
   ],

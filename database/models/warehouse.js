@@ -10,11 +10,11 @@ const warehouseSchema = new Schema({
     latitude: Number,
   },
   storage: Number,
-  staff_details: [
+  staffDetails: [
     {
-      staff_id: String,
-      first_name: String,
-      last_name: String,
+      staffId: String,
+      firstName: String,
+      lastName: String,
       salary: Number,
       role: String,
       mobile: String,

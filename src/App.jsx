@@ -1,21 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import './App.scss';
+import React from "react";
+import "./App.scss";
+import style from "./components/admin/style.scss"
+import Login  from "./components/admin/login" 
+import Register from "./components/admin/register"
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { hello } from "./services/auth/";
+class App extends React.Component {
+     render(){
+        return(
+         <BrowserRouter>
+         <div className="button-box" >
+            <nav class = "navbar">
+              <ul>
+              <li type="button" class = "toggle-btn">
+                 <Link class="linkbar" to = '/login'>SIGN IN</Link>
+              </li>
+              <li type="button" class = "toggle-btn">
+                 <Link class="linkbar" to = '/register'>SIGN UP</Link>
+              </li>
+              </ul>
+           </nav>
+            <Switch>
+                <Route exact path="/" component={Login}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/register" component={Register}/>
+			</Switch>
 
-export default () => {
-	const [temp, setTemp] = useState("");
-	useEffect(() => {
-    // fetch(`/api/`).then(res => res.json()).then(json => setTemp(json.data));
-		const init = async () => {
-			const response = await hello()
-			setTemp(response.data);
-		}
-		init();
-  }, []);
-	return (
-		<div>
-			<h1>Hello Universe!!! {temp}</h1>
-		</div>
-	);
-}
+          </div>
+         </BrowserRouter>
+       )
+     }
+};
+
+export default App;
