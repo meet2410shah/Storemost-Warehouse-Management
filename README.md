@@ -70,7 +70,7 @@ TYPE 1 : Successful Response
   data: {
     <somedata>
   },
-  err: null
+  error: null
 }
 ```
 
@@ -79,7 +79,7 @@ TYPE 2 : Erroneous Response
 {
   sucess: false,
   data: null,
-  err: {
+  error: {
     code: xxxx,
     msg: "Reason for Error"
   }
@@ -96,13 +96,13 @@ Create Schema for Different Users and other enitiy and connect them with each ot
 
 - The Database Schema is divided into the following five Different parts. 
 1. The Admin:  
-  The Admin Schema consist of the following six properties.
-  a. first_name,
-  b. last_name,
-  c. username,
-  d. password,
-  e. email,
-  f. mobile
+  The Admin Schema consist of the following six properties.  
+  a. firstName,  
+  b. lastName,  
+  c. username,  
+  d. password,  
+  e. email,  
+  f. mobile  
 
 2. The Supervisor:  
 3. The Farmer:  
