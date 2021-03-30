@@ -62,6 +62,31 @@ Create APIs for different user, manage database payment details and other relate
 APIs:
 https://docs.google.com/spreadsheets/d/1fye9cb4ePjmc95HWr9LLaEDYgSeHS8eX9RpoTYHyku0/edit#gid=0
 
+API Format for All the Request will be as follows:  
+TYPE 1 : Successful Response
+```
+{
+  success: true,
+  data: {
+    <somedata>
+  },
+  err: null
+}
+```
+
+TYPE 2 : Erroneous Response
+```
+{
+  sucess: false,
+  data: null,
+  err: {
+    code: xxxx,
+    msg: "Reason for Error"
+  }
+}
+```
+
+
 ### 5. Database Developer
 
 Create Schema for Different Users and other enitiy and connect them with each other. Using Mongoose and MongoDB write effective schema to ensure the integrity of the database and have an optimized query, that will provide an efficient database communication.
