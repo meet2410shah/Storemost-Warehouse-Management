@@ -1,9 +1,12 @@
-const express = require('express');
+// Required Modules
+const router = require('express').Router();
 
-const router = express.Router();
+// Controllers
+const { register, getProfile } = require('../controllers/farmer/');
 
-const { registerFarmer } = require('../controllers/farmer/register');
+// Router Settings
+router.post('/register', register);
+router.get('/getProfile', getProfile);
 
-router.post('/register', registerFarmer);
-
+// Export the router
 module.exports = router;

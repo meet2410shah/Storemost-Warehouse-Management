@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const farmerSchema = mongoose.model('Farmer', new mongoose.Schema({
+module.exports = mongoose.model('Farmer', new mongoose.Schema({
   firstName: String,
   lastName: String,
   username: String,
@@ -17,5 +17,3 @@ const farmerSchema = mongoose.model('Farmer', new mongoose.Schema({
     },
   ],
 }));
-
-exports.User = farmerSchema;

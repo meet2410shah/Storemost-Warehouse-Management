@@ -1,40 +1,52 @@
-// This file registers the data of farmer
-
+// Required Modules
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const { User } = require('../../database/models/farmer');
-const { validate } = require('./validate');
+
+// Database Model
+const Farmer = require('../../database/models/farmer');
+
+// Utilities
+const validate = require('./validate');
 const { errorCustom } = require('../error/error');
 
-const registerFarmer = async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) {
-    // return res.status(400).send(error.details[0].message);
+// Router Definition
+module.exports = async (req, res) => {
+  const { err } = validate(req.body);
+  console.log(req.body);
+  if (err) {
     const errorBlock = errorCustom(error.details[0].path[0], error.details[0].type);
-    return res.send({ status: 'Fail', data: null, error: errorBlock });
+    return res.send({ success: false, data: null, error: errorBlock });
+  }
+  
+  // Check if the Farmer Already Exists (Same Username)
+  const username = await Farmer.findOne({ username: req.body.username });
+  if(username != null) {
+    return res.send({ success: false, data: null, error: { code: 1021, msg: 'This username has already been taken.' }});
   }
 
-  // Check if this user already exisits
-
-  const userName = await User.findOne({ username: req.body.username });
-
-  if (userName != null) {
-    // return res.status(400).send('That username has already been taken!');
-    return res.send({ status: 'Fail', data: null, error: { errCode: 1021, msg: 'This username has already been taken.' } });
+  // Check if the Farmer Already Exists (Same Email Address)
+  const email = await Farmer.findOne({ email: req.body.email });
+  if (email) {
+    return res.send({ success: false, data: null, error: { code: 1022, msg: 'User already exists.'}});
   }
-
-  let user = await User.findOne({ email: req.body.email });
-  if (user) {
-    // return res.status(400).send('That user already exisits!');
-    return res.send({ status: 'Fail', data: null, error: { errCode: 1022, msg: 'User already exists' } });
-  }
-  // Insert the new user if they do not exist yet
-  user = new User(_.pick(req.body, ['firstName', 'lastName', 'username', 'password', 'email', 'mobile']));
+  
+  // Insert the new Farmer
+  let farmer = new Farmer(_.pick(req.body, ['firstName', 'lastName', 'username', 'password', 'email', 'mobile']));
+  
+  // Encrypt the password
   const salt = await bcrypt.genSalt(10);
-  user.password = await bcrypt.hash(user.password, salt);
-  await user.save();
-  // res.send(_.pick(user, ['_id', 'username', 'email']));
-  res.send({ status: 'Pass', data: _.pick(user, ['_id', 'firstName', 'lastName', 'username', 'password', 'email', 'mobile']), error: null });
+  farmer.password = await bcrypt.hash(farmer.password, salt);
+  
+  // Save the Farmer in the Database
+  const response = await farmer.save();
+  
+  // Database Error
+  if(!response) {
+    return res.send({ success: false, data: null, error: { code: 1100, msg: "Database Error"}});
+  }
+  
+  // Return Successfully
+  return res.send({ success: true, data: _.pick(farmer, ['_id', 'firstName', 'lastName', 'username', 'password', 'email', 'mobile']), error: null });
 };
 
-exports.registerFarmer = registerFarmer;
+
