@@ -1,0 +1,113 @@
+.background{
+    min-width: 1520px;
+    min-height: 750px;
+    border: 2px solid pink;
+    background: #353535 0% 0% no-repeat padding-box;
+   // background-attachment: scroll;
+
+}
+.input{
+    margin-top: 1%;
+    //top: 1300px;
+    margin-left: 1%;
+    width: 400px;
+    height: 40px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 4.5px;
+}
+
+.logodetail{
+    font-size: 50px;
+    color: #FFFFFF;
+}
+
+/*.base-container {
+    //width: 100%;
+   // display: flex;
+  //  flex-direction: column;
+    margin-left: 75px;
+    color: #FFFFFF;
+}*/
+
+.conta{
+    margin-left: 1%;
+    margin-top: 10px;
+    height: 170px;
+    width: 1390px;
+    border: 2px  solid rgb(221, 77, 77);
+}
+
+.link{
+    color: #D3B04F;
+    margin-left: 150px;
+    text-align: left;
+    font: normal normal bold 40px/50px Trueno;
+    letter-spacing: 0px;
+    display: inline;
+    cursor: pointer;
+}
+
+.addr{
+    display: inline;
+    text-align: right;
+    margin-left: 680px;
+   // padding-inline-end: 20px;
+    font: normal normal normal 20px/32px Trueno;
+    letter-spacing: 0px;
+    color: #D3B04F;
+}
+
+.addr2{
+    color: #FFFFFF;
+    margin-left: 1070px;
+    text-align: left;
+    font: normal normal normal 24px/32px Trueno;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.addr3{
+    display: inline;
+    color: #FFFFFF;
+    margin-left: 740px;
+    text-align: left;
+    font: normal normal normal 24px/32px Trueno;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.occp{
+    display: inline;
+    text-align: left;
+    font: normal normal normal 24px/32px Trueno;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-left: 150px;
+}
+
+ 
+.vandit{
+    border: 2px  solid rgb(43, 98, 160);
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.sibol{
+    font-size: 30px;
+    display: inline;
+}
+
+.vandit2{
+    border: 2px  solid rgb(0, 98, 160);
+    display: flex;
+}
+
+.detailsimg{
+    border: 2px  solid rgb(80, 98, 50);  
+    padding: 2px;
+    margin: 3px;
+    margin-top: 5px;
+}
