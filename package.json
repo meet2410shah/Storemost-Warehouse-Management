@@ -69,9 +69,16 @@
     "webpack-dev-server": "^3.11.2"
   },
   "simple-git-hooks": {
+<<<<<<< HEAD
     "pre-commit": " "
   },
   "lint-staged": {
     "*.js": " "
+=======
+    "pre-commit": ""
+  },
+  "lint-staged": {
+    "*.js": ""
+>>>>>>> 4743a126d939500837735f9868d84d5679acf799
   }
 }

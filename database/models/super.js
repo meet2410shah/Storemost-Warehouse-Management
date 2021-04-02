@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
-
 const superSchema = mongoose.model('Super', new mongoose.Schema({
-  first_name: String,
-  last_name: String,
+  firstName: String,
+  lastName: String,
   username: String,
   password: String,
   email: String,
   mobile: String,
-  warehouse_id: String,
+  warehouseId: String,
 }));
 
 exports.User = superSchema;

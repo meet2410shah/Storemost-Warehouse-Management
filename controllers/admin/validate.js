@@ -4,8 +4,8 @@ const Joi = require('joi');
 
 function validateUser(user) {
   const schema = Joi.object({
-    first_name: Joi.string().min(5).max(50).required(),
-    last_name: Joi.string().min(5).max(50).required(),
+    firstName: Joi.string().min(5).max(50).required(),
+    lastName: Joi.string().min(5).max(50).required(),
     username: Joi.string().min(5).max(50).required()
       .token(),
     password: Joi.string().min(5).max(255).required(),
@@ -13,6 +13,7 @@ function validateUser(user) {
       .email(),
     mobile: Joi.string().min(5).max(50).required()
       .pattern(/^[0-9]+$/),
+    confirmPassword: Joi.string().min(5).max(255).required(),
   });
 
   return schema.validate(user);

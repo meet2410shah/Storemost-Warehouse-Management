@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
-
 const adminSchema = mongoose.model('Admin', new mongoose.Schema({
-  first_name: String,
-  last_name: String,
+  firstName: String,
+  lastName: String,
   username: String,
   password: String,
   email: String,
