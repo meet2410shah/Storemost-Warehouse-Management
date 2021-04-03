@@ -27,6 +27,7 @@ app.use(`${version}/auth`, auth);
 app.use(`${version}/payment`, payment);
 
 app.get('/api/', (req, res) => res.send({ data: 'Meet Shah' }));
+
 app.get('/pay', (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
 });
