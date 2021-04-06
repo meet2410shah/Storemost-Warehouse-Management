@@ -5,7 +5,7 @@ const express = require('express');
 
 const app = express();
 const version = process.env.VERSION;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Routes
 const admin = require('./routes/admin');
@@ -29,9 +29,9 @@ app.use(`${version}/payment`, payment);
 
 app.get('/api/', (req, res) => res.send({ data: 'Meet Shah' }));
 app.get('/pay', (req, res) => {
-  res.sendFile(`${__dirname}/index.html`);
+	res.sendFile(`${__dirname}/index.html`);
 });
 
 app.listen(PORT, () => {
-  console.log('Server Listening');
+	console.log('Server Listening');
 });
