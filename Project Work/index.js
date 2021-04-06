@@ -18,6 +18,7 @@ const auth = require('./routes/auth');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('dist'));
+app.use(express.static('public'));
 
 // Routes
 app.use(`${version}/admin`, admin);
