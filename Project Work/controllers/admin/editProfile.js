@@ -6,29 +6,41 @@ const { validate } = require('./validate_admin');
 
 
 const admin = async function (req, res) {
+    let errRes = {
+        sucess: false,
+        data: null,
+        error: {
+            code: 1100,
+            msg: "Email not added in request"
+        }
+    }
 
     if (!req.body.email) {
-        res.send('error');
+        res.send(errRes);
     }
     const filter = { email: req.body.email };
-    if (!User.findOne(filter)) {
-        res.send('error');
+    const user = await User.findOne(filter);
+    if (!user) {
+        errRes.error = {
+            code: 1101,
+            msg: "User not found  in database"
+        }
+        res.send(errRes);
     }
 
-    const pass = _.pick(User.find(filter), ['password']);
 
-    if (req.bosy.password) {
-        pass = req.body.password;
-    }
+
     const update = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         username: req.body.username,
-        password: pass,
         mobile: req.body.mobile
     };
+    if (req.body.password) {
+        update.password = req.body.password;
+    }
 
-    const { error } = validate(req.body);
+    const { error } = validate(update);
     if (error) {
         return res.status(400).send(error.details[0].message);
     }
