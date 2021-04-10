@@ -5,15 +5,32 @@ const Farmers = require('../../database/models/farmer');
 
 const ListFarmer = async function (req, res) {
 
-    const wid = req.body.wid;
+    let errRes = {
+        sucess: false,
+        data: null,
+        error: {
+            code: 1100,
+            msg: "Email not added in request"
+        }
+    }
+
+    const wid = req.body.warehouseId;
     if (!wid) {
-        res.send('error');
+        errRes.error = {
+            code: 1110,
+            msg: "Warehouse id not found in request"
+        }
+        res.send(errRes);
     }
     const warehouse = await Warehouse.findOne({
         _id: wid
     });
     if (!warehouse) {
-        res.send('error');
+        errRes.error = {
+            code: 1111,
+            msg: "Warehouse not found in databse"
+        }
+        res.send(errRes);
     }
 
     const FarmersList = await Farmers.find({
@@ -21,7 +38,12 @@ const ListFarmer = async function (req, res) {
             $elemMatch: { warehouseId: wid }
         }
     });
-    res.send(FarmersList);
+    const resObj = {
+        success: true,
+        data: FarmersList,
+        error: null
+    };
+    res.send(resObj);
 }
 
 module.exports = ListFarmer;

@@ -4,9 +4,9 @@ const router = express.Router();
 
 const { registerAdmin } = require('../controllers/admin/register');
 
-const getWarehouses = require('../controllers/warehouse/getwarehouse');
+const getWarehouses = require('../controllers/admin/getwarehouse');
 
-const getWarehousesById = require('../controllers/warehouse/getwarehousebyid');
+const getWarehousesById = require('../controllers/admin/getwarehousebyid');
 
 const ListFarmerByWID = require('../controllers/admin/listfarmerbywid');
 
@@ -26,9 +26,9 @@ router.get("/getWarehouses", getWarehouses);
 
 router.post('/getWarehousesById', getWarehousesById);
 
-router.get("/ListFarmerByWID", ListFarmerByWID);
+router.post("/ListFarmerByWID", ListFarmerByWID);
 
-router.get('/ListStaffByWID', ListStaffByWID);
+router.post('/ListStaffByWID', ListStaffByWID);
 
 
 
