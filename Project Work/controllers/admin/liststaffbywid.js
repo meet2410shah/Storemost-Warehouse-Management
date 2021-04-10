@@ -5,14 +5,31 @@ const Farmers = require('../../database/models/farmer');
 
 const ListStaff = async function (req, res) {
 
-    const wid = req.body.wid;
+    let errRes = {
+        sucess: false,
+        data: null,
+        error: {
+            code: 1100,
+            msg: "Email not added in request"
+        }
+    }
+    const wid = req.body.warehouseId;
     if (!wid) {
-        res.send('error');
+        errRes.error = {
+            code: 1110,
+            msg: "Warehouse id not found in request"
+        }
+        res.send(errRes);
     }
     const StaffList = await Warehouse.find({
         description: req.body.id
     });
-    res.send(StaffList);
+    const resObj = {
+        success: true,
+        data: StaffList,
+        error: null
+    };
+    res.send(resObj);
 }
 
 module.exports = ListStaff;
