@@ -34,7 +34,7 @@ const admin = async function (req, res, error) {
     }
     const resObj = {
         success: true,
-        data: _.pick(profile, ['_id', 'first_name', 'last_name', 'username', 'password', 'email', 'mobile']),
+        data: _.pick(profile, ['_id', 'firstName', 'lastName', 'username', 'password', 'email', 'mobile']),
         error: null
     };
 
