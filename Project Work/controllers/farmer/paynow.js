@@ -83,7 +83,7 @@ const pay_now = async function (req, res, next) {
   params.ORDER_ID = `TEST_${new Date().getTime()}`;
   params.CUST_ID = paymentDetails.customerId;
   params.TXN_AMOUNT = paymentDetails.amount;
-  params.CALLBACK_URL = `http://localhost:${PORT}${version}/payment/callback`;
+  params.CALLBACK_URL = `http://localhost:${PORT}${version}/farmer/callback`;
   params.EMAIL = paymentDetails.customerEmail;
   params.MOBILE_NO = paymentDetails.customerPhone;
 
