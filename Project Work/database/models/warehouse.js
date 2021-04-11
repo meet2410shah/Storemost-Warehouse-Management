@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
-
-const warehouseSchema = new Schema({
+const warehouseSchema = mongoose.model('Warehouse', new mongoose.Schema({
   description: String,
   location: {
     address: String,
@@ -20,6 +18,6 @@ const warehouseSchema = new Schema({
       mobile: String,
     },
   ],
-});
+}));
 
-module.exports = mongoose.model('Warehouse', warehouseSchema);
+exports.warehouseUser = warehouseSchema;
