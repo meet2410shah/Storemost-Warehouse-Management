@@ -1,23 +1,24 @@
-module.exports = async (req, res) => {
-	const warehouses = [
-		{
-			description: 'Mera Warehouse',
-			location: {
-				address: 'ABC, Near XYZ Road',
-				longitude: 10.00202,
-				latitude: 12.0392,
-			},
-			storage: 50,
-		},
-	];
-	
-	const response = {
-		success: true,
-		data: {
-			warehouses
-		},
-		error: null
-	}
+const { warehouseUser } = require('../../database/models/warehouse');
 
-	return res.send(response);
+module.exports = async (req, res) => {
+	try {
+		const warehouses = await warehouseUser.find({});
+		const response = {
+			success: true,
+			data: {
+				warehouses,
+			},
+			error: null,
+		};
+		return res.send(response);
+	} catch (err) {
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1004,
+				msg: 'Database Error',
+			},
+		});
+	}
 };

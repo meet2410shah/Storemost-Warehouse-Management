@@ -20,6 +20,7 @@ module.exports = async (req, res) => {
 		const data = jwt.verify(token, process.env.SECRET);
 		const userId = data.userId;
 		farmerUser.findOne({ _id: userId }, (err, data) => {
+			// Check if there is an error from mongoose or not
 			if (err) {
 				return res.send({
 					success: false,
@@ -31,6 +32,7 @@ module.exports = async (req, res) => {
 				});
 			}
 
+			// Generation of Response
 			const { firstName, lastName, email, mobile, address } = data;
 			const profile = {
 				firstName,
