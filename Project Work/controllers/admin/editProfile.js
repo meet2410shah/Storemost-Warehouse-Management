@@ -17,7 +17,7 @@ const admin = async function (req, res) {
     }
 
     if (!req.body.email) {
-        res.send(errRes);
+        return res.send(errRes);
     }
     const filter = { email: req.body.email };
     const user = await User.findOne(filter);
@@ -26,7 +26,7 @@ const admin = async function (req, res) {
             code: 1101,
             msg: "User not found  in database"
         }
-        res.send(errRes);
+        return res.send(errRes);
     }
     var arr = ["firstName", "lastName", "username", "email", "mobile"];
 
@@ -47,7 +47,7 @@ const admin = async function (req, res) {
                 code: 1102,
                 msg: "confirm Password not match"
             }
-            res.send(errRes);
+            return res.send(errRes);
         }
         update.password = req.body['password'];
         // console.log(update);

@@ -18,6 +18,8 @@ const editProfile = require('../controllers/admin/editProfile');
 
 const addWarehouse = require('../controllers/admin/addWarehouse');
 
+const addStaff = require('../controllers/admin/addStaff');
+
 router.post('/register', registerAdmin);
 
 router.get('/getProfile', getProfile);
@@ -33,5 +35,7 @@ router.post("/ListFarmerByWID", ListFarmerByWID);
 router.post('/ListStaffByWID', ListStaffByWID);
 
 router.post('/addWarehouse', addWarehouse);
+
+router.post('/addStaff', addStaff);
 
 module.exports = router;

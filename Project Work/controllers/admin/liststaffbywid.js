@@ -22,7 +22,7 @@ const ListStaff = async function (req, res) {
         res.send(errRes);
     }
     const StaffList = await Warehouse.find({
-        description: req.body.id
+        warehouseId: wid
     });
     const resObj = {
         success: true,
