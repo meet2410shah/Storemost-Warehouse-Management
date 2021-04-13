@@ -21,6 +21,6 @@ const warehouseSchema = new Schema({
       mobile: String,
     },
   ],
-}));
+});
 
 exports.warehouseUser = warehouseSchema;
