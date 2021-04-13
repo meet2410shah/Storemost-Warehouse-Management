@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const { User } = require('../../database/models/admin');
-const { validate } = require('./validate_admin');
+const { adminUser } = require('../../database/models/admin');
+const { validate } = require('./validate_login');
 const { validatewp } = require('./validatewp');
-
+const { checkCookie } = require('../cookies/checkCookie')
 
 
 const admin = async function (req, res) {
@@ -16,11 +16,12 @@ const admin = async function (req, res) {
         }
     }
 
+
     if (!req.body.email) {
         return res.send(errRes);
     }
     const filter = { email: req.body.email };
-    const user = await User.findOne(filter);
+    const user = await adminUser.findOne(filter);
     if (!user) {
         errRes.error = {
             code: 1101,
@@ -69,10 +70,10 @@ const admin = async function (req, res) {
 
 
     // `doc` is the document _before_ `update` was applied
-    let profile = await User.findOneAndUpdate(filter, update);
+    let profile = await adminUser.findOneAndUpdate(filter, update);
 
 
-    profile = await User.findOne(filter);
+    profile = await adminUser.findOne(filter);
 
     res.send(_.pick(profile, ['_id', 'firstName', 'lastName', 'username', 'password', 'email', 'mobile']));
 }

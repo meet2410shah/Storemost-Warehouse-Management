@@ -4,6 +4,8 @@ const router = express.Router();
 
 const { registerAdmin } = require('../controllers/admin/register');
 
+const loginAdmin = require('../controllers/admin/login');
+
 const getWarehouses = require('../controllers/admin/getwarehouse');
 
 const getWarehousesById = require('../controllers/admin/getwarehousebyid');
@@ -21,6 +23,8 @@ const addWarehouse = require('../controllers/admin/addWarehouse');
 const addStaff = require('../controllers/admin/addStaff');
 
 router.post('/register', registerAdmin);
+
+router.post('/login', loginAdmin);
 
 router.get('/getProfile', getProfile);
 

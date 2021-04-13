@@ -5,6 +5,7 @@ const { _filter } = require('lodash');
 const _ = require('lodash');
 const Warehouse = require('../../database/models/warehouse');
 
+const { checkCookie } = require('../cookies/checkCookie')
 
 const getWarehouses = async function (req, res) {
 
@@ -16,6 +17,10 @@ const getWarehouses = async function (req, res) {
             msg: "No warehouse found"
         }
     }
+    const objt = checkCookie(req.cookies);
+
+    const mainObj = JSON.parse(objt.cookiedata);
+
     let sortfilter = {
         "sort": "asc",
         "filter": "name"

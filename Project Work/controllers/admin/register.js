@@ -3,7 +3,7 @@
 const bcrypt = require("bcrypt");
 const _ = require("lodash");
 const { adminUser } = require("../../database/models/admin");
-const { validate } = require("./validate");
+const { validate } = require("./validate_register");
 const { errorCustom } = require("../error/error");
 
 const registerAdmin = async (req, res) => {
@@ -51,6 +51,13 @@ const registerAdmin = async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
+
+  let data = {
+    userEmail: user.email,
+  };
+
+  res.cookie("cookiedata", JSON.stringify(data));
+
   res.send({
     status: "Pass",
     data: _.pick(user, [
