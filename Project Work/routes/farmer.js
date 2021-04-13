@@ -8,7 +8,10 @@ const { callback } = require('../controllers/farmer/callback.js');
 
 // Router Settings
 router.post('/register', register);
-router.get('/getProfile', getProfile);
+router.post('/login', login);
+router.post('/getProfile', getProfile);
+router.get('/getWarehouses', getWarehouses);
+router.post('/getCrops', getCrops);
 
 router.post('/paynow', paynow);
 router.post('/callback', callback);
