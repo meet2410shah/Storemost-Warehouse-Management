@@ -1,8 +1,7 @@
 // const bcrypt = require('bcrypt');
 // const _ = require('lodash');
-const { warehouseUser } = require("../../database/models/warehouse.js");
-const { superUser } = require("../../database/models/super.js");
-const { checkCookie } = require("../cookies/checkCookie");
+const { Supervisor, Warehouse } = require('../../database/models/');
+const { checkCookie } = require('../cookies/checkCookie');
 
 // const { User } = require('../../database/models/warehouse.js');
 
@@ -10,45 +9,44 @@ const { checkCookie } = require("../cookies/checkCookie");
 // const { errorCustom } = require('../error/error');
 
 const staffList = async (req, res) => {
-  
-  const objt = checkCookie(req.cookies);
+	const objt = checkCookie(req.cookies);
 
-  // if(objt!=0){
+	// if(objt!=0){
 
-  const mainObj = JSON.parse(objt.cookiedata).userEmail;
+	const mainObj = JSON.parse(objt.cookiedata).userEmail;
 
-  var n = -1;
+	var n = -1;
 
-  n = mainObj.indexOf("@");
+	n = mainObj.indexOf('@');
 
-  let mainUser = [];
+	let mainUser = [];
 
-  if (n != -1) {
-    mainUser = await superUser.find({ email: mainObj });
-  } else {
-    mainUser = await superUser.find({ username: mainObj });
-  }
+	if (n != -1) {
+		mainUser = await Supervisor.find({ email: mainObj });
+	} else {
+		mainUser = await Supervisor.find({ username: mainObj });
+	}
 
-  const ware = warehouseUser.find({ description: mainUser[0].warehouseId });
+	const ware = Warehouse.find({ description: mainUser[0].warehouseId });
 
-  let list = [];
+	let list = [];
 
-  ware[0].staffDetails.forEach(function (item) {
-    let staffOne = new Object();
+	ware[0].staffDetails.forEach(function (item) {
+		let staffOne = new Object();
 
-    staffOne.firstName = item.firstName;
-    staffOne.lastName = item.lastName;
-    staffOne.mobile = item.mobile;
-    staffOne.role = item.role;
-    list.push(staffOne);
-  });
+		staffOne.firstName = item.firstName;
+		staffOne.lastName = item.lastName;
+		staffOne.mobile = item.mobile;
+		staffOne.role = item.role;
+		list.push(staffOne);
+	});
 
-  res.send(list);
+	res.send(list);
 
-  // }
-  // else{
-  // res.redirect("/login");
-  // }
+	// }
+	// else{
+	// res.redirect("/login");
+	// }
 };
 
 exports.staffList = staffList;

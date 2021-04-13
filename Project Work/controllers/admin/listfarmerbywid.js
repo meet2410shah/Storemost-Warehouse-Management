@@ -1,6 +1,5 @@
 const _ = require('lodash');
-const Warehouse = require('../../database/models/warehouse');
-const Farmers = require('../../database/models/farmer');
+const { Warehouse, Farmer } = require('../../database/models/');
 
 const ListFarmer = async function (req, res) {
 	let errRes = {
@@ -31,7 +30,7 @@ const ListFarmer = async function (req, res) {
 		res.send(errRes);
 	}
 
-	const FarmersList = await Farmers.find({
+	const FarmersList = await Farmer.find({
 		crops: {
 			$elemMatch: { warehouseId: wid },
 		},

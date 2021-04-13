@@ -26,11 +26,11 @@ router.get('/getProfile', getProfile);
 
 router.post('/editProfile', editProfile);
 
-router.get("/getWarehouses", getWarehouses);
+router.get('/getWarehouses', getWarehouses);
 
 router.post('/getWarehousesById', getWarehousesById);
 
-router.post("/ListFarmerByWID", ListFarmerByWID);
+router.post('/ListFarmerByWID', ListFarmerByWID);
 
 router.post('/ListStaffByWID', ListStaffByWID);
 
