@@ -1,6 +1,7 @@
 
 // req.params
 // req.query
+const { filter } = require('lodash');
 const _ = require('lodash');
 const Warehouse = require('../../database/models/warehouse');
 
@@ -15,26 +16,32 @@ const getWarehouses = async function (req, res) {
             msg: "No warehouse found"
         }
     }
-
-    const Warehouses = await Warehouse.find();
-    console.log(Warehouses);
-    if (!Warehouses) {
-        res.send(errRes);
+    let sortfilter = {
+        "sort": "asc",
+        "filter": "name"
     }
 
-    let filters = {
-        sort: "ASC",
-        filter: "NAME",
-    }
     if (req.query.sort) {
-        filters.sort = req.query.sort;
+        sortfilter.sort = req.query.sort;
     }
     if (req.query.filter) {
-        filters.filter = req.query.filter;
+        sortfilter.filter = req.query.filter;
     }
-    const resObj = {
+
+    const sortObj = {}
+
+    sortObj[sortfilter.filter] = sortfilter.sort
+    console.log(sortObj);
+
+    const warehouses = await Warehouse.find().sort(sortObj);
+
+    console.log(warehouses);
+    if (!warehouses) {
+        res.send(errRes);
+    }
+    let resObj = {
         success: true,
-        data: Warehouses,
+        data: warehouses,
         error: null
     };
     res.send(resObj);
