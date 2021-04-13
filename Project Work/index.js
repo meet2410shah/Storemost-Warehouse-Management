@@ -1,15 +1,24 @@
 require('dotenv').config();
 require('./database/connection');
+
+var cors = require('cors')
+
+
 const express = require('express');
+
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const version = process.env.VERSION;
 const PORT = process.env.PORT || 3000;
 
 
-// add role after login or register to cokkkies so to check user can perfome only action according to that role
-// add superwiser to warehouse database when register
-// except list of warehouse under farmer we need to check user logged in using prorper credentials 
+app.use(cookieParser());
+
+
+app.use(cors());
+
+
 
 // Routes
 const admin = require('./routes/admin');

@@ -6,8 +6,8 @@ const superSchema = mongoose.model('Super', new mongoose.Schema({
   username: String,
   password: String,
   email: String,
-  mobile: String,
+  mobile: Number,
   warehouseId: Number,
 }));
 
-exports.User = superSchema;
+exports.superUser = superSchema;

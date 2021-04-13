@@ -21,6 +21,6 @@ const warehouseSchema = new Schema({
       mobile: String,
     },
   ],
-});
+}));
 
-module.exports = mongoose.model('Warehouse', warehouseSchema);
+exports.warehouseUser = warehouseSchema;

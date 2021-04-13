@@ -2,7 +2,7 @@
 const Joi = require('joi');
 
 // Checks the validity of the Inputs of a Farmer during Registration
-module.exports = (user) => {
+function validateUser(user) {
   const schema = Joi.object({
     firstName: Joi.string().min(3).max(50).required(),
     lastName: Joi.string().min(3).max(50).required(),
@@ -14,3 +14,5 @@ module.exports = (user) => {
   });
   return schema.validate(user);
 }
+
+exports.validate = validateUser;
