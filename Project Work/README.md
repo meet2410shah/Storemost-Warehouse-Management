@@ -70,7 +70,7 @@ TYPE 1 : Successful Response
   data: {
     <somedata>
   },
-  error: null
+  err: null
 }
 ```
 
@@ -79,7 +79,7 @@ TYPE 2 : Erroneous Response
 {
   sucess: false,
   data: null,
-  error: {
+  err: {
     code: xxxx,
     msg: "Reason for Error"
   }
