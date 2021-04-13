@@ -20,6 +20,7 @@ const ListFarmer = async function (req, res) {
             code: 1110,
             msg: "Warehouse id not found in request"
         }
+
         return res.send(errRes);
     }
     const warehouse = await Warehouse.findOne({
