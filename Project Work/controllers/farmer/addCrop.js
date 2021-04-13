@@ -22,10 +22,10 @@ module.exports = async (req, res) => {
 
 		const crop = {
 			storageTime: Date.now(),
-			quantity: 10,
-			warehouseId: 10,
-			paymentId: '12312',
-			cropType: 'Wheat',
+			quantity: req.body.quantity,
+			warehouseId: req.body.warehouseId,
+			paymentId: req.body.paymentId,
+			cropType: req.body.cropType,
 		};
 
 		await farmerUser.findOneAndUpdate(
