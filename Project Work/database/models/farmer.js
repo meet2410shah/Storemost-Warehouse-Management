@@ -9,7 +9,7 @@ exports.farmerUser = mongoose.model(
 		password: String,
 		email: String,
 		mobile: String,
-		crop: [
+		crops: [
 			{
 				storageTime: Date,
 				quantity: Number,

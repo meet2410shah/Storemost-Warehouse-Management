@@ -1,4 +1,5 @@
 const getCrops = require('./getCrops');
+const addCrop = require('./addCrop');
 const getProfile = require('./getProfile');
 const getWarehouses = require('./getWarehouses');
 const register = require('./register');
@@ -9,6 +10,7 @@ module.exports = {
 	getProfile,
 	getWarehouses,
 	getCrops,
+	addCrop,
 	register,
 	validate,
 	login,

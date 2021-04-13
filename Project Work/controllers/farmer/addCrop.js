@@ -19,32 +19,42 @@ module.exports = async (req, res) => {
 	try {
 		const data = jwt.verify(token, process.env.SECRET);
 		const userId = data.userId;
-		farmerUser.findOne({ _id: userId }, (err, data) => {
-			// Check if there is an error from mongoose or not
-			if (err) {
+
+		const crop = {
+			storageTime: Date.now(),
+			quantity: 10,
+			warehouseId: 10,
+			paymentId: '12312',
+			cropType: 'Wheat',
+		};
+
+		await farmerUser.findOneAndUpdate(
+			{ _id: userId },
+			{
+				$push: {
+					crops: crop,
+				},
+			},
+			(err, data) => {
+				if (err) {
+					return res.send({
+						success: false,
+						data: null,
+						err: {
+							code: 1007,
+							msg: 'Not able to add the crop! Sorry of Inconvinence',
+						},
+					});
+				}
 				return res.send({
-					success: false,
-					data: null,
-					error: {
-						code: 1003,
-						msg: 'Database Error',
+					success: true,
+					data: {
+						msg: 'Crop Added Successfully',
 					},
+					err: null,
 				});
 			}
-
-			// Generation of Response
-			const { crops } = data;
-
-			const response = {
-				success: true,
-				data: {
-					crops,
-				},
-				error: null,
-			};
-
-			return res.send(response);
-		});
+		);
 	} catch (err) {
 		return res.send({
 			success: false,
