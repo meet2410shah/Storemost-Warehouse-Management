@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { farmerUser } = require('../../database/models/farmer');
+const { Farmer } = require('../../database/models/');
 
 module.exports = async (req, res) => {
 	const token = req.cookies.token;
@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
 	try {
 		const data = jwt.verify(token, process.env.SECRET);
 		const userId = data.userId;
-		farmerUser.findOne({ _id: userId }, (err, data) => {
+		Farmer.findOne({ _id: userId }, (err, data) => {
 			// Check if there is an error from mongoose or not
 			if (err) {
 				return res.send({

@@ -1,8 +1,8 @@
-const { warehouseUser } = require('../../database/models/warehouse');
+const { Warehouse } = require('../../database/models/');
 
 module.exports = async (req, res) => {
 	try {
-		const warehouses = await warehouseUser.find({});
+		const warehouses = await Warehouse.find({});
 		const response = {
 			success: true,
 			data: {

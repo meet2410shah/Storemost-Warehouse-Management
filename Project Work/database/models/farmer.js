@@ -1,21 +1,23 @@
-const mongoose = require('mongoose');
-
-exports.farmerUser = mongoose.model(
+module.exports = require('mongoose').model(
 	'Farmer',
-	new mongoose.Schema({
-		firstName: String,
-		lastName: String,
-		username: String,
-		password: String,
-		email: String,
-		mobile: String,
+	new require('mongoose').Schema({
+		firstName: { type: String, required: true },
+		lastName: { type: String, required: true },
+		username: { type: String, required: true },
+		password: { type: String, required: true },
+		email: { type: String, required: true },
+		mobile: { type: String, required: true },
 		crops: [
 			{
-				storageTime: Date,
-				quantity: Number,
-				warehouseId: Number,
-				paymentId: String,
-				cropType: String,
+				cropType: { type: String, required: true },
+				warehouseId: { type: Number, required: true },
+				quantity: { type: Number, required: true },
+				depositDate: { type: Date, default: Date.now(), required: true },
+				dueDate: { type: Date, default: Date.now(), required: true },
+				description: { type: String },
+				amount: { type: Number, required: true },
+				orderId: { type: String, required: true },
+				paymentId: { type: String, required: true },
 			},
 		],
 	})

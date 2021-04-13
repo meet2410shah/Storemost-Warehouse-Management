@@ -5,6 +5,8 @@ const getWarehouses = require('./getWarehouses');
 const register = require('./register');
 const login = require('./login');
 const validate = require('./validate_register');
+const paynow = require('./paynow');
+const callback = require('./callback');
 
 module.exports = {
 	getProfile,
@@ -14,4 +16,6 @@ module.exports = {
 	register,
 	validate,
 	login,
+	paynow,
+	callback,
 };

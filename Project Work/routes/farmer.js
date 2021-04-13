@@ -9,6 +9,8 @@ const {
 	getCrops,
 	addCrop,
 	login,
+	paynow,
+	callback,
 } = require('../controllers/farmer/');
 
 // Router Settings
@@ -18,7 +20,6 @@ router.post('/getProfile', getProfile);
 router.get('/getWarehouses', getWarehouses);
 router.post('/getCrops', getCrops);
 router.post('/addCrop', addCrop);
-
 router.post('/paynow', paynow);
 router.post('/callback', callback);
 // Export the router

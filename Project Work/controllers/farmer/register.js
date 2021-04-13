@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const _ = require('lodash');
 
 // Database Model
-const { farmerUser } = require('../../database/models/farmer');
+const { Farmer } = require('../../database/models/');
 
 // Utilities
 const { validate } = require('./validate_register');
@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
 	}
 
 	// Check if the Farmer Already Exists (Same Username)
-	const username = await farmerUser.findOne({ username: req.body.username });
+	const username = await Farmer.findOne({ username: req.body.username });
 	if (username != null) {
 		return res.send({
 			status: 'Fail',
@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
 	}
 
 	// Check if the Farmer Already Exists (Same Email Address)
-	const email = await farmerUser.findOne({ email: req.body.email });
+	const email = await Farmer.findOne({ email: req.body.email });
 	if (email) {
 		return res.send({
 			status: 'Fail',
@@ -41,7 +41,7 @@ module.exports = async (req, res) => {
 	}
 
 	// Insert the new Farmer
-	let farmer = new farmerUser(
+	let farmer = new Farmer(
 		_.pick(req.body, [
 			'firstName',
 			'lastName',

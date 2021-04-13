@@ -1,10 +1,10 @@
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const { farmerUser } = require('../../database/models/farmer');
+const { Farmer } = require('../../database/models/');
 const { validate } = require('./validate_login');
 const { errorCustom } = require('../error/error');
 
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 // This function checks the user's login credentials in database and respond accordingly.
 
@@ -20,9 +20,9 @@ module.exports = async (req, res) => {
 	}
 
 	//  Now find the user by their email address
-	let user = await farmerUser.findOne({ email: req.body.userEmail });
+	let user = await Farmer.findOne({ email: req.body.userEmail });
 	if (!user) {
-		user = await farmerUser.findOne({ username: req.body.userEmail });
+		user = await Farmer.findOne({ username: req.body.userEmail });
 		if (!user) {
 			return res.send({
 				success: false,

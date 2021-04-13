@@ -1,5 +1,5 @@
 module.exports = require('mongoose').model(
-	'Admin',
+	'Supervisor',
 	new require('mongoose').Schema({
 		firstName: { type: String, required: true },
 		lastName: { type: String, required: true },
@@ -7,5 +7,6 @@ module.exports = require('mongoose').model(
 		password: { type: String, required: true },
 		email: { type: String, required: true },
 		mobile: { type: String, required: true },
+		warehouseId: { type: Number, required: true },
 	})
 );

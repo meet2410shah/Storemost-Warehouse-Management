@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { farmerUser } = require('../../database/models/farmer');
-const { warehouseUser } = require('../../database/models/warehouse');
+const { Farmer, Warehouse } = require('../../database/models/');
 
 module.exports = async (req, res) => {
 	const token = req.cookies.token;
@@ -34,7 +33,7 @@ module.exports = async (req, res) => {
 	// Check if the warehouse is there or not.
 	const userId = data.userId;
 	try {
-		data = await warehouseUser.find({
+		data = await Warehouse.find({
 			warehouseId: req.body.warehouseId,
 		});
 	} catch (err) {
@@ -57,7 +56,36 @@ module.exports = async (req, res) => {
 			},
 		});
 	}
+	const warehouseStorage = data[0].storage;
 
+	try {
+		data = await Farmer.find();
+	} catch (err) {
+		return res.send('error');
+	}
+
+	let total = 0;
+	for (let i = 0; i < data.length; i++) {
+		for (let j = 0; j < data[i].crops.length; j++) {
+			if (data[i].crops[j].warehouseId == req.body.warehouseId) {
+				total += parseInt(data[i].crops[j].quantity);
+				console.log(parseInt(data[i].crops[j].quantity));
+			}
+		}
+	}
+	if (total + req.body.quantity > warehouseStorage) {
+		return res.send({
+			success: false,
+			data: null,
+			err: {
+				code: 1008,
+				msg: 'Insufficient capacity',
+				remaning: warehouseStorage - total,
+			},
+		});
+	}
+
+	// console.log('Remaining', warehouseStorage - total - req.body.quantity);
 	const crop = {
 		storageTime: Date.now(),
 		quantity: req.body.quantity,
@@ -67,7 +95,7 @@ module.exports = async (req, res) => {
 	};
 
 	try {
-		data = await farmerUser.findOneAndUpdate(
+		data = await Farmer.findOneAndUpdate(
 			{ _id: userId },
 			{
 				$push: {
