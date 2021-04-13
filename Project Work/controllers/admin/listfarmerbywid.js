@@ -23,7 +23,7 @@ const ListFarmer = async function (req, res) {
         res.send(errRes);
     }
     const warehouse = await Warehouse.findOne({
-        _id: wid
+        warehouseId: wid
     });
     if (!warehouse) {
         errRes.error = {

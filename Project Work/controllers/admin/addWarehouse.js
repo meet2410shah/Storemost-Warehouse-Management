@@ -1,4 +1,4 @@
-const { toInteger } = require('lodash');
+const { all } = require('lodash');
 const _ = require('lodash');
 const Warehouse = require('../../database/models/warehouse');
 const { validate } = require('./validatewarehouse');

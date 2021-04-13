@@ -1,7 +1,7 @@
 
 // req.params
 // req.query
-const { filter } = require('lodash');
+const { _filter } = require('lodash');
 const _ = require('lodash');
 const Warehouse = require('../../database/models/warehouse');
 
