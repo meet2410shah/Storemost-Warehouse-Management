@@ -19,14 +19,14 @@ const ListStaff = async function (req, res) {
             code: 1110,
             msg: "Warehouse id not found in request"
         }
-        res.send(errRes);
+        return  res.send(errRes);
     }
-    const StaffList = await Warehouse.find({
+    const StaffList = await Warehouse.findOne({
         warehouseId: wid
     });
     const resObj = {
         success: true,
-        data: StaffList,
+        data: StaffList.staffDetails,
         error: null
     };
     res.send(resObj);

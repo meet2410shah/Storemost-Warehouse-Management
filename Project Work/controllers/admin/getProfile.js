@@ -19,7 +19,7 @@ const admin = async function (req, res, error) {
             code: 1100,
             msg: "Email not added in request"
         }
-        res.send(errRes);
+        return res.send(errRes);
     }
 
     const profile = await User.findOne({
@@ -30,7 +30,7 @@ const admin = async function (req, res, error) {
             code: 1101,
             msg: "User not found  in database"
         }
-        res.send(errRes);
+        return res.send(errRes);
     }
     const resObj = {
         success: true,

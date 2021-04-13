@@ -11,7 +11,7 @@ module.exports = mongoose.model('Farmer', new mongoose.Schema({
     {
       storageTime: Date,
       quantity: Number,
-      warehouseId: String,
+      warehouseId: Number,
       paymentId: String,
       type: String,
     },

@@ -13,21 +13,21 @@ const addWarehouse = async function (req, res) {
         }
     }
     if (!req.body.name) {
-        res.send(errRes);
+        return res.send(errRes);
     }
     if (!req.body.storage) {
         errRes.error = {
             code: 1053,
             msg: "storage is empty"
         }
-        res.send(errRes);
+        return res.send(errRes);
     }
     if (!req.body.address) {
         errRes.error = {
             code: 1054,
             msg: "address is empty"
         }
-        res.send(errRes);
+        return res.send(errRes);
     }
 
     let warehouse = {
@@ -43,12 +43,30 @@ const addWarehouse = async function (req, res) {
             code: 400,
             msg: error.details[0].message
         }
-        res.send(errRes);
+        return res.send(errRes);
     }
     warehouse.warehouseId = await Warehouse.count() + 1;
     console.log(warehouse);
-    warehouse = new Warehouse(warehouse);
-    await warehouse.save();
+    try {
+        warehouse = new Warehouse(warehouse);
+    } catch (MongoError) {
+        errRes.error = {
+            code: 1300,
+            msg: MongoError
+        }
+        return res.send(errRes);
+
+    }
+    try {
+        await warehouse.save();
+    } catch (MongoError) {
+        errRes.error = {
+            code: 1300,
+            msg: MongoError
+        }
+        return res.send(errRes);
+    }
+
 
     const warehouses = await Warehouse.find({});
     console.log(warehouses);

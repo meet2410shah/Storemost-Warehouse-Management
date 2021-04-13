@@ -7,7 +7,7 @@ const superSchema = mongoose.model('Super', new mongoose.Schema({
   password: String,
   email: String,
   mobile: String,
-  warehouseId: String,
+  warehouseId: Number,
 }));
 
 exports.User = superSchema;

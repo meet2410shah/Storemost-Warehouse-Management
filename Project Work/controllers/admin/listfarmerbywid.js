@@ -20,7 +20,7 @@ const ListFarmer = async function (req, res) {
             code: 1110,
             msg: "Warehouse id not found in request"
         }
-        res.send(errRes);
+        return  res.send(errRes);
     }
     const warehouse = await Warehouse.findOne({
         warehouseId: wid
@@ -30,12 +30,12 @@ const ListFarmer = async function (req, res) {
             code: 1111,
             msg: "Warehouse not found in databse"
         }
-        res.send(errRes);
+        return res.send(errRes);
     }
 
     const FarmersList = await Farmers.find({
         crop: {
-            $elemMatch: { warehouseId: wid }
+            $elemMatch: { "warehouseId": wid }
         }
     });
     const resObj = {

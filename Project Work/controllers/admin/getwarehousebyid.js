@@ -18,7 +18,7 @@ const getWarehousesById = async function (req, res) {
             code: 1122,
             msg: "warehouse Id not found in request"
         }
-        res.send(errRes);
+        return  res.send(errRes);
     }
     const Warehouses = await Warehouse.findOne({ _id: req.body.warehouseId });
     console.log(Warehouses);
@@ -27,7 +27,7 @@ const getWarehousesById = async function (req, res) {
             code: 1121,
             msg: "No warehouse found with id"
         }
-        res.send(errRes);
+        return res.send(errRes);
     }
     const resObj = {
         success: true,
