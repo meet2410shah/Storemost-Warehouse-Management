@@ -2,14 +2,24 @@
 const router = require('express').Router();
 
 // Controllers
-const { register, getProfile } = require('../controllers/farmer/');
-const { paynow } = require('../controllers/farmer/paynow.js');
-const { callback } = require('../controllers/farmer/callback.js');
+const {
+	register,
+	getProfile,
+	getWarehouses,
+	getCrops,
+	addCrop,
+	login,
+	paynow,
+	callback,
+} = require('../controllers/farmer/');
 
 // Router Settings
 router.post('/register', register);
-router.get('/getProfile', getProfile);
-
+router.post('/login', login);
+router.post('/getProfile', getProfile);
+router.get('/getWarehouses', getWarehouses);
+router.post('/getCrops', getCrops);
+router.post('/addCrop', addCrop);
 router.post('/paynow', paynow);
 router.post('/callback', callback);
 // Export the router

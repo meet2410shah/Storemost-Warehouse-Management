@@ -33,19 +33,12 @@ module.exports = async (req, res) => {
 			}
 
 			// Generation of Response
-			const { firstName, lastName, email, mobile, address } = data;
-			const profile = {
-				firstName,
-				lastName,
-				email,
-				mobile,
-				address,
-			};
+			const { crops } = data;
 
 			const response = {
 				success: true,
 				data: {
-					profile,
+					crops,
 				},
 				error: null,
 			};

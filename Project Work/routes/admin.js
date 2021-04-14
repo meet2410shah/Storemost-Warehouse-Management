@@ -2,41 +2,33 @@ const express = require('express');
 
 const router = express.Router();
 
-const { registerAdmin } = require('../controllers/admin/register');
+const { register,
+    login,
+    addStaff,
+    addWarehouse,
+    editProfile,
+    getProfile,
+    getWarehouseById,
+    getWarehouses,
+    listFarmerByWarehouseId,
+    listStaffByWarehouseId
+} = require('../controllers/admin/')
 
-const loginAdmin = require('../controllers/admin/login');
+router.post('/register', register);
 
-const getWarehouses = require('../controllers/admin/getwarehouse');
-
-const getWarehousesById = require('../controllers/admin/getwarehousebyid');
-
-const ListFarmerByWID = require('../controllers/admin/listfarmerbywid');
-
-const ListStaffByWID = require('../controllers/admin/liststaffbywid');
-
-const getProfile = require('../controllers/admin/getProfile');
-
-const editProfile = require('../controllers/admin/editProfile');
-
-const addWarehouse = require('../controllers/admin/addWarehouse');
-
-const addStaff = require('../controllers/admin/addStaff');
-
-router.post('/register', registerAdmin);
-
-router.post('/login', loginAdmin);
+router.post('/login', login);
 
 router.get('/getProfile', getProfile);
 
 router.post('/editProfile', editProfile);
 
-router.get("/getWarehouses", getWarehouses);
+router.get('/getWarehouses', getWarehouses);
 
-router.post('/getWarehousesById', getWarehousesById);
+router.post('/getWarehousesById', getWarehouseById);
 
-router.post("/ListFarmerByWID", ListFarmerByWID);
+router.post('/ListFarmerByWID', listFarmerByWarehouseId);
 
-router.post('/ListStaffByWID', ListStaffByWID);
+router.post('/ListStaffByWID', listStaffByWarehouseId);
 
 router.post('/addWarehouse', addWarehouse);
 
