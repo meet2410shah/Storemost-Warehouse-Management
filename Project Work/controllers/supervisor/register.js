@@ -3,7 +3,7 @@
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const { Supervisor } = require('../../database/models/');
-const { validate } = require('./validate');
+const { validate } = require('./validateRegister');
 const { errorCustom } = require('../error/error');
 
 const registerSuper = async (req, res) => {

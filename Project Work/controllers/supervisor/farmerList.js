@@ -1,27 +1,45 @@
 const { Supervisor } = require('../../database/models/');
 const { Farmer } = require('../../database/models/');
-const { checkCookie } = require('../cookies/checkCookie');
+const jwt = require('jsonwebtoken');
+
 
 const farmerList = async (req, res) => {
-	const objt = checkCookie(req.cookies);
 
-	const mainObj = JSON.parse(objt.cookiedata).userEmail;
+	const token = req.cookies.token;
+  // Check the Existance of Token
+  if (!token) {
+    return res.send({
+      success: false,
+      data: null,
+      error: {
+        code: 1001,
+        msg: "User Does'nt exists",
+      },
+    });
+  }
 
-	var n = -1;
+  // Check if Token is not corrupted
+  try {
+    const data = jwt.verify(token, process.env.SECRET);
+    const userId = data.userId;
+    Supervisor.findOne({ _id: userId }, (err, data) => {
+      // Check if there is an error from mongoose or not
+      if (err) {
+        return res.send({
+          success: false,
+          data: null,
+          error: {
+            code: 1003,
+            msg: 'Database Error',
+          },
+        });
+      }
 
-	n = mainObj.indexOf('@');
 
-	let mainUser = [];
-
-	if (n != -1) {
-		mainUser = await Supervisor.find({ email: mainObj });
-	} else {
-		mainUser = await Supervisor.find({ username: mainObj });
-	}
-
-	const cursor = await Farmer.find({
-		'crop.warehouseId': mainUser[0].warehouseId,
-	});
+  //Find the farmer with the specific warehouseId
+	Farmer.find({
+		'crop.warehouseId': data.warehouseId,
+	}, (err,cursor) => {
 
 	let list = [];
 
@@ -30,7 +48,7 @@ const farmerList = async (req, res) => {
 		let inform = new Object();
 
 		item.crop.forEach(function (cropItem) {
-			if (cropItem.warehouseId === 101) {
+			if (cropItem.warehouseId === data.warehouseId) {
 				tCrop = tCrop + cropItem.quantity;
 			}
 		});
@@ -45,10 +63,21 @@ const farmerList = async (req, res) => {
 
 	res.send(list);
 
-	// }
-	// else{
-	// res.redirect("/login");
-	// }
+
+	});
+
+
+});
+}catch (err) {
+return res.send({
+	success: false,
+	data: null,
+	error: {
+		code: 1002,
+		msg: 'Token is Corrupted',
+	},
+});
+}
 };
 
 exports.farmerList = farmerList;

@@ -1,37 +1,56 @@
-// const bcrypt = require('bcrypt');
-// const _ = require('lodash');
 const { Supervisor, Warehouse } = require('../../database/models/');
-const { checkCookie } = require('../cookies/checkCookie');
-
-// const { User } = require('../../database/models/warehouse.js');
-
-// const { validate } = require('./validate');
-// const { errorCustom } = require('../error/error');
+const jwt = require('jsonwebtoken');
 
 const staffList = async (req, res) => {
-	const objt = checkCookie(req.cookies);
 
-	// if(objt!=0){
 
-	const mainObj = JSON.parse(objt.cookiedata).userEmail;
+	const token = req.cookies.token;
+  // Check the Existance of Token
+  if (!token) {
+    return res.send({
+      success: false,
+      data: null,
+      error: {
+        code: 1001,
+        msg: "User Does'nt exists",
+      },
+    });
+  }
 
-	var n = -1;
+  // Check if Token is not corrupted
+  try {
+    const data = jwt.verify(token, process.env.SECRET);
+    const userId = data.userId;
+    Supervisor.findOne({ _id: userId }, (err, data) => {
+      // Check if there is an error from mongoose or not
+      if (err) {
+        return res.send({
+          success: false,
+          data: null,
+          error: {
+            code: 1003,
+            msg: 'Database Error',
+          },
+        });
+      }
 
-	n = mainObj.indexOf('@');
 
-	let mainUser = [];
-
-	if (n != -1) {
-		mainUser = await Supervisor.find({ email: mainObj });
-	} else {
-		mainUser = await Supervisor.find({ username: mainObj });
-	}
-
-	const ware = Warehouse.find({ description: mainUser[0].warehouseId });
+  //Find the warehouse using warehouseID
+	Warehouse.find({ warehouseId: data.warehouseId }, (err,cursor) => {
 
 	let list = [];
 
-	ware[0].staffDetails.forEach(function (item) {
+	//Adding supervisor as a staff first
+	let staffOne = new Object();
+	staffOne.firstName = data.firstName;
+	staffOne.lastName = data.lastName;
+	staffOne.mobile = data.mobile;
+	staffOne.role = "Supervisor";
+	list.push(staffOne);
+
+
+  //Iterate and save up datails of the staff
+	cursor.staffDetails.forEach(function (item) {
 		let staffOne = new Object();
 
 		staffOne.firstName = item.firstName;
@@ -43,10 +62,20 @@ const staffList = async (req, res) => {
 
 	res.send(list);
 
-	// }
-	// else{
-	// res.redirect("/login");
-	// }
+});
+
+});
+}catch (err) {
+	return res.send({
+		success: false,
+		data: null,
+		error: {
+			code: 1002,
+			msg: 'Token is Corrupted',
+		},
+	});
+}
 };
+
 
 exports.staffList = staffList;
