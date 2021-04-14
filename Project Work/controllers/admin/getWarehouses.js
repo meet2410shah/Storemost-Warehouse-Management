@@ -5,6 +5,16 @@ const _ = require('lodash');
 const { Warehouse, Farmer } = require('../../database/models');
 const farmer = require('../../database/models/farmer');
 
+function compare(a, b) {
+	if (a.available < b.available) {
+		return -1;
+	}
+	if (a.available > b.available) {
+		return 1;
+	}
+	return 0;
+}
+
 const getWarehouses = async function (req, res) {
 	let errRes = {
 		sucess: false,
@@ -64,6 +74,14 @@ const getWarehouses = async function (req, res) {
 			}
 		}
 		warehouses[i]['available'] = warehouses[i].storage - total;
+	}
+	// console.log(warehouses);
+	if (sortfilter.filter == 'available') {
+		warehouses.sort(compare);
+		console.log(warehouses);
+		if (typ == -1) {
+			warehouses = warehouses.reverse();
+		}
 	}
 	let resObj = {
 		success: true,
