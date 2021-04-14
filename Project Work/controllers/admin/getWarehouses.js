@@ -2,7 +2,8 @@
 // req.query
 const { _filter } = require('lodash');
 const _ = require('lodash');
-const { Warehouse } = require('../../database/models');
+const { Warehouse, Farmer } = require('../../database/models');
+const farmer = require('../../database/models/farmer');
 
 const getWarehouses = async function (req, res) {
 	let errRes = {
@@ -27,14 +28,42 @@ const getWarehouses = async function (req, res) {
 
 	const sortObj = {};
 
-	sortObj[sortfilter.filter] = sortfilter.sort;
-	console.log(sortObj);
+	let typ = 1;
+	if (sortfilter.sort == "desc") {
+		typ = -1;
+	}
+	sortObj[sortfilter.filter] = sortfilter.sort
+	// console.log(sortObj);
+	let warehouses;
+	if (sortfilter.filter == "storage")
+		warehouses = await Warehouse.find().select({ "warehouseId": 1, "name": 1, "storage": 1, "location": 1, "_id": 0 }).sort(sortObj);
+	else {
+		warehouses = await Warehouse.aggregate([
+			{ $project: { _id: 0, lname: { $toLower: "$name" }, location: 1, storage: 1, name: 1, warehouseId: 1 } },
+			{ $sort: { "lname": typ } },
+			{ $project: { _warehouseId: "$warehouseId", _name: "$name", _storage: "$storage", _location: "$location" } },
+			{ $project: { warehouseId: "$_warehouseId", name: "$_name", storage: "$_storage", location: "$_location" } }]
+		);
+	}
 
-	const warehouses = await Warehouse.find().sort(sortObj);
-
-	console.log(warehouses);
+	// console.log(warehouses);
 	if (!warehouses) {
-		res.send(errRes);
+		return res.send(errRes);
+	}
+	const farmer = await Farmer.find();
+	// console.log(farmer);
+
+	for (var i = 0; i < warehouses.length; i++) {
+		var total = 0;
+		for (var f = 0; f < farmer.length; f++) {
+			for (var j = 0; j < farmer[f].crops.length; j++) {
+				if (farmer[f].crops[j].warehouseId == warehouses[i].warehouseId) {
+					total += parseInt(farmer[f].crops[j].quantity);
+					// console.log(total);
+				}
+			}
+		}
+		warehouses[i]['available'] = warehouses[i].storage - total;
 	}
 	let resObj = {
 		success: true,

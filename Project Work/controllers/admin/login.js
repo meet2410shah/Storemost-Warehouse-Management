@@ -1,8 +1,9 @@
 const bcrypt = require("bcrypt");
 const _ = require("lodash");
-const { adminUser } = require("../../database/models/admin");
+const { Admin } = require("../../database/models/");
 const { validate } = require("./validate_login");
 const { errorCustom } = require("../error/error");
+const jwt = require('jsonwebtoken');
 
 const LoginAdmin = async (req, res) => {
 
@@ -27,9 +28,9 @@ const LoginAdmin = async (req, res) => {
         return res.send(errRes);
     }
 
-    let user = await adminUser.findOne({ email: req.body.userEmail });
+    let user = await Admin.findOne({ email: req.body.userEmail });
     if (!user) {
-        user = await adminUser.findOne({ username: req.body.userEmail });
+        user = await Admin.findOne({ username: req.body.userEmail });
     }
     if (!user) {
         errRes.error = {
@@ -48,11 +49,16 @@ const LoginAdmin = async (req, res) => {
         });
     }
 
-    let data = {
-        userEmail: user.email,
-    };
 
-    res.cookie("cookiedata", JSON.stringify(data));
+
+    const token = jwt.sign(
+        {
+            userEmail: user.email,
+        },
+        process.env.SECRET
+    );
+
+    res.cookie('token', token);
 
     return res.send({
         status: "Pass",

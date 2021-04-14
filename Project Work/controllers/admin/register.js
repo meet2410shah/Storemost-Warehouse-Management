@@ -5,6 +5,7 @@ const _ = require('lodash');
 const { Admin } = require('../../database/models/');
 const { validate } = require('./validate_register');
 const { errorCustom } = require('../error/error');
+const jwt = require('jsonwebtoken');
 
 const registerAdmin = async (req, res) => {
 	const { error } = validate(req.body);
@@ -51,6 +52,17 @@ const registerAdmin = async (req, res) => {
 	const salt = await bcrypt.genSalt(10);
 	user.password = await bcrypt.hash(user.password, salt);
 	await user.save();
+
+
+	const token = jwt.sign(
+		{
+			userEmail: user.email,
+		},
+		process.env.SECRET
+	);
+
+	res.cookie('token', token);
+
 	res.send({
 		status: 'Pass',
 		data: _.pick(user, [

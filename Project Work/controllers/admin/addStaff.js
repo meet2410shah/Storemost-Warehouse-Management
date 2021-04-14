@@ -22,7 +22,7 @@ const addWarehouse = async function (req, res) {
 		'mobile',
 	];
 	const data = req.body;
-	console.log(data);
+	// console.log(data);
 
 	for (var i = 0; i < arr.length; i++) {
 		// console.log(arr[i] in data);

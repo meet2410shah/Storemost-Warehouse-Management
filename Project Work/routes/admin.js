@@ -2,7 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
-const { register,
+const {
+    register,
     login,
     addStaff,
     addWarehouse,
@@ -24,11 +25,11 @@ router.post('/editProfile', editProfile);
 
 router.get('/getWarehouses', getWarehouses);
 
-router.post('/getWarehousesById', getWarehouseById);
+router.post('/getWarehouseById', getWarehouseById);
 
-router.post('/ListFarmerByWID', listFarmerByWarehouseId);
+router.post('/listFarmerByWarehouseId', listFarmerByWarehouseId);
 
-router.post('/ListStaffByWID', listStaffByWarehouseId);
+router.post('/listStaffByWarehouseId', listStaffByWarehouseId);
 
 router.post('/addWarehouse', addWarehouse);
 

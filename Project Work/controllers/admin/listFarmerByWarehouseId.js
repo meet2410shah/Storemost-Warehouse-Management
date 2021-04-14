@@ -2,8 +2,9 @@ const _ = require('lodash');
 const { Warehouse, Farmer } = require('../../database/models');
 
 
-const ListFarmer = async function (req, res) {
+const listFarmerByWarehouseId = async function (req, res) {
 
+    // console.log(req);
     let errRes = {
         sucess: false,
         data: null,
@@ -22,28 +23,59 @@ const ListFarmer = async function (req, res) {
 
         return res.send(errRes);
     }
-    const warehouse = await Warehouse.findOne({
-        warehouseId: wid
-    });
-    if (!warehouse) {
+    res.send(await Farmer.find());
+
+    let warehouselist;
+    try {
+        warehouselist = await Warehouse.findOne({
+            warehouseId: wid
+        });
+    } catch {
         errRes.error = {
-            code: 1111,
-            msg: "Warehouse not found in databse"
+            code: 1061,
+            msg: "Warehouse not found in database"
+        }
+        return res.send(errRes);
+    }
+    // console.log(warehouse);
+    if (!warehouselist) {
+        errRes.error = {
+            code: 1061,
+            msg: "Warehouse not found in database"
         }
         return res.send(errRes);
     }
 
-	const FarmersList = await Farmer.find({
-		crops: {
-			$elemMatch: { warehouseId: wid },
-		},
-	});
-	const resObj = {
-		success: true,
-		data: FarmersList,
-		error: null,
-	};
-	res.send(resObj);
+    let FarmersList
+    try {
+        FarmersList = await Farmer.find({
+            crops: { $elemMatch: { warehouseId: wid } },
+        });
+        // FarmersList = await Farmer.aggregate([
+        //     { $match: { crops: { $elemMatch: { warehouseId: wid } } } }
+        // ])
+    } catch {
+        errRes.error = {
+            code: 1064,
+            msg: "No Farmer found in given warehouse"
+        }
+        return res.send(errRes);
+    }
+
+    if (!FarmersList) {
+        errRes.error = {
+            code: 1064,
+            msg: "No Farmer found in given warehouse"
+        }
+        return res.send(errRes);
+    }
+    // console.log(FarmersList);
+    const resObj = {
+        success: true,
+        data: FarmersList,
+        error: null,
+    };
+    res.send(resObj);
 };
 
-module.exports = ListFarmer;
+module.exports = listFarmerByWarehouseId;

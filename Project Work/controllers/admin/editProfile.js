@@ -3,6 +3,7 @@ const _ = require('lodash');
 const { Admin } = require('../../database/models/');
 const { validate } = require('./validate_register');
 const { validatewp } = require('./validatewp');
+const jwt = require('jsonwebtoken');
 
 const admin = async function (req, res) {
 	let errRes = {
@@ -14,10 +15,32 @@ const admin = async function (req, res) {
 		},
 	};
 
-	if (!req.body.email) {
+	const token = req.cookies.token;
+	// Check the Existance of Token
+	if (!token) {
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1001,
+				msg: "Login again",
+			},
+		});
+	}
+	const data = jwt.verify(token, process.env.SECRET);
+	const userEmail = data.userEmail;
+	if (!userEmail) {
+		errRes.error = {
+			code: 1100,
+			msg: 'User not logged in',
+		};
 		return res.send(errRes);
 	}
-	const filter = { email: req.body.email };
+
+
+
+	const filter = { email: userEmail };
+	// console.log(userEmail);
 	const user = await Admin.findOne(filter);
 	if (!user) {
 		errRes.error = {
