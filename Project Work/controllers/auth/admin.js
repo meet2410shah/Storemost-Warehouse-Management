@@ -13,7 +13,7 @@ const authorizeAdmin = async (req, res) => {
   if (error) {
 
     const errorBlock = errorCustom(error.details[0].path[0], error.details[0].type);
-    return res.send({ status: 'Fail', data: null, error: errorBlock });
+    return res.send({ success: false, data: null, error: errorBlock });
 
   }
 
@@ -22,7 +22,7 @@ const authorizeAdmin = async (req, res) => {
   if (user===null) {
     user = await adminUser.findOne({ username: req.body.userEmail });
     if (user===null) {
-      return res.send({ status: 'Fail', data: null, error: { errCode: 1052, msg: 'Incorrect email/username or password.' } });
+      return res.send({ status: false, data: null, error: { code: 1052, msg: 'Incorrect email/username or password.' } });
     }
   }
 
@@ -30,7 +30,7 @@ const authorizeAdmin = async (req, res) => {
   // those provided in the request
   const validPassword = await bcrypt.compare(req.body.password, user.password);
   if (!validPassword) {
-    return res.send({ status: 'Fail', data: null, error: { errCode: 1052, msg: 'Incorrect email/username or password.' } });
+    return res.send({ success: false, data: null, error: { code: 1052, msg: 'Incorrect email/username or password.' } });
   }
 
   let data={
@@ -39,7 +39,7 @@ const authorizeAdmin = async (req, res) => {
   }
 
   res.cookie("cookiedata",JSON.stringify(data))
-  return res.send({ status: 'Pass', data: _.pick(user, ['_id', 'firstName', 'lastName', 'username', 'password', 'email', 'mobile']), error: null });
+  return res.send({ success: true, data: _.pick(user, ['_id', 'firstName', 'lastName', 'username', 'password', 'email', 'mobile']), error: null });
 };
 
 exports.authorizeAdmin = authorizeAdmin;

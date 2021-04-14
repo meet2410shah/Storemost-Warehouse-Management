@@ -13,7 +13,7 @@ const login = async (req, res) => {
   const { error } = validate(req.body);
   if (error) {
     const errorBlock = errorCustom(error.details[0].path[0], error.details[0].type);
-    return res.send({ status: 'Fail', data: null, error: errorBlock });
+    return res.send({ success: false, data: null, error: errorBlock });
   }
 
   //  Now find the user by their email address
@@ -21,7 +21,7 @@ const login = async (req, res) => {
   if (!user) {
     user = await Supervisor.findOne({ username: req.body.userEmail });
     if (!user) {
-      return res.send({ status: 'Fail', data: null, error: { errCode: 1052, msg: 'Incorrect email/username or password.' } });
+      return res.send({ success: false, data: null, error: { code: 1052, msg: 'Incorrect email/username or password.' } });
     }
   }
 
@@ -29,7 +29,7 @@ const login = async (req, res) => {
   // those provided in the request
   const validPassword = await bcrypt.compare(req.body.password, user.password);
   if (!validPassword) {
-    return res.send({ status: 'Fail', data: null, error: { errCode: 1052, msg: 'Incorrect email/username or password.' } });
+    return res.send({ success: false, data: null, error: { code: 1052, msg: 'Incorrect email/username or password.' } });
   }
 
   const token = jwt.sign(
@@ -41,7 +41,7 @@ const login = async (req, res) => {
 
 	res.cookie('token', token);
 
-  return res.send({ status: 'Pass', data: _.pick(user, ['_id', 'firstName', 'lastName', 'username', 'password', 'email', 'mobile', 'warehouseId']), error: null });
+  return res.send({ success: true, data: _.pick(user, ['_id', 'firstName', 'lastName', 'username', 'password', 'email', 'mobile', 'warehouseId']), error: null });
 };
 
 exports.login = login;

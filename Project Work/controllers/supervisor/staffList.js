@@ -38,6 +38,17 @@ const staffList = async (req, res) => {
   //Find the warehouse using warehouseID
 	Warehouse.find({ warehouseId: data.warehouseId }, (err,cursor) => {
 
+		if (err) {
+			return res.send({
+				success: false,
+				data: null,
+				error: {
+					code: 1003,
+					msg: 'Database Error',
+				},
+			});
+		}
+
 	let list = [];
 
 	//Adding supervisor as a staff first

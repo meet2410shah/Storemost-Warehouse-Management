@@ -4,8 +4,8 @@ const Joi = require("joi");
 
 function profileValidate(user) {
   const schema = Joi.object({
-    firstName: Joi.string().min(5).max(50),
-    lastName: Joi.string().min(5).max(50),
+    firstName: Joi.string().min(3).max(50),
+    lastName: Joi.string().min(3).max(50),
     // username: Joi.string().min(5).max(50).token(),
     password: Joi.string().min(5).max(255),
     // email: Joi.string().min(5).max(255).email(),

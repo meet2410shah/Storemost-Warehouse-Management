@@ -41,6 +41,17 @@ const farmerList = async (req, res) => {
 		'crop.warehouseId': data.warehouseId,
 	}, (err,cursor) => {
 
+		if (err) {
+			return res.send({
+				success: false,
+				data: null,
+				error: {
+					code: 1003,
+					msg: 'Database Error',
+				},
+			});
+		}
+
 	let list = [];
 
 	cursor.forEach(function (item) {

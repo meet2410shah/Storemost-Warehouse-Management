@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
 			return res.send({
 				success: false,
 				data: null,
-				error: { errCode: 1052, msg: 'Incorrect email/username or password.' },
+				error: { code: 1052, msg: 'Incorrect email/username or password.' },
 			});
 		}
 	}
@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
 		return res.send({
 			success: false,
 			data: null,
-			error: { errCode: 1052, msg: 'Incorrect email/username or password.' },
+			error: { code: 1052, msg: 'Incorrect email/username or password.' },
 		});
 	}
 
