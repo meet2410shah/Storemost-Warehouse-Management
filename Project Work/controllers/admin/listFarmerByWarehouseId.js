@@ -23,13 +23,15 @@ const listFarmerByWarehouseId = async function (req, res) {
 
         return res.send(errRes);
     }
-    res.send(await Farmer.find());
+
 
     let warehouselist;
     try {
         warehouselist = await Warehouse.findOne({
             warehouseId: wid
         });
+
+        // console.log(warehouselist);
     } catch {
         errRes.error = {
             code: 1061,
@@ -48,12 +50,9 @@ const listFarmerByWarehouseId = async function (req, res) {
 
     let FarmersList
     try {
-        FarmersList = await Farmer.find({
-            crops: { $elemMatch: { warehouseId: wid } },
-        });
-        // FarmersList = await Farmer.aggregate([
-        //     { $match: { crops: { $elemMatch: { warehouseId: wid } } } }
-        // ])
+        FarmersList = await Farmer.find();
+        // console.log(FarmerList);
+
     } catch {
         errRes.error = {
             code: 1064,
@@ -70,12 +69,49 @@ const listFarmerByWarehouseId = async function (req, res) {
         return res.send(errRes);
     }
     // console.log(FarmersList);
+
+    var farmers = [];
+    for (var f = 0; f < FarmersList.length; f++) {
+        var flag = 0;
+        for (var c = 0; c < FarmersList[f].crops.length; c++) {
+            if (FarmersList[f].crops[c].warehouseId == wid) {
+                flag = 1;
+            }
+        }
+        if (flag) {
+            farmers.push(_.pick(FarmersList[f], ['firstName', 'lastName', 'username', 'mobile', 'email']));
+        }
+    }
+    if (farmers.length == 0) {
+        errRes.error = {
+            code: 1064,
+            msg: "No Farmer found in given warehouse"
+        }
+        return res.send(errRes);
+    }
+    // console.log(farmers);
     const resObj = {
         success: true,
-        data: FarmersList,
+        data: farmers,
         error: null,
     };
     res.send(resObj);
 };
 
 module.exports = listFarmerByWarehouseId;
+
+function getfarmers(FarmersList, warehouseId) {
+    var farmers = [];
+    for (var f = 0; f < FarmersList.length; f++) {
+        var flag = 0;
+        for (var c = 0; c < FarmersList[f].crops.length; c++) {
+            if (FarmersList[f].crops[c].warehouseId == warehouseId) {
+                flag = 1;
+            }
+        }
+        if (flag) {
+            farmers.push(_.pick(FarmersList[f], ['firstName', 'lastName', 'username', 'mobile', 'email']));
+        }
+    }
+    return farmers;
+}

@@ -24,7 +24,5 @@ module.exports = {
 
 
 // error-> err
-// tokan 
 //payment 
-//available storage to warehoues
-//
+// farmer list in admin
