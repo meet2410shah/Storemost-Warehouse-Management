@@ -1,6 +1,7 @@
 const { func } = require('joi');
 const { Admin } = require('../../database/models/');
 
+const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 
 // validate user
@@ -13,23 +14,39 @@ const admin = async function (req, res, error) {
 			msg: 'Email not added in request',
 		},
 	};
-	if (!req.body.email) {
+
+	const token = req.cookies.token;
+	// Check the Existance of Token
+	if (!token) {
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1001,
+				msg: "user not logged in",
+			},
+		});
+	}
+	const data = jwt.verify(token, process.env.SECRET);
+	const userEmail = data.userEmail;
+	if (!userEmail) {
 		errRes.error = {
 			code: 1100,
-			msg: 'Email not added in request',
+			msg: 'login again',
 		};
-		res.send(errRes);
+		return res.send(errRes);
 	}
 
 	const profile = await Admin.findOne({
-		email: req.body.email,
+		email: userEmail,
 	});
+
 	if (!profile) {
 		errRes.error = {
 			code: 1101,
 			msg: 'User not found  in database',
 		};
-		res.send(errRes);
+		return res.send(errRes);
 	}
 	const resObj = {
 		success: true,

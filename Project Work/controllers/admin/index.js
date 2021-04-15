@@ -1,3 +1,28 @@
-const get = require('./get');
+const register = require("./register")
+const login = require("./login")
+const addStaff = require('./addStaff');
+const addWarehouse = require('./addWarehouse')
+const editProfile = require('./editProfile')
+const getProfile = require('./getProfile')
+const getWarehouses = require('./getWarehouses');
+const getWarehouseById = require('./getWarehouseById')
+const listFarmerByWarehouseId = require('./listFarmerByWarehouseId')
+const listStaffByWarehouseId = require('./listStaffByWarehouseId')
 
-module.exports = { get };
+module.exports = {
+    register,
+    login,
+    addStaff,
+    addWarehouse,
+    editProfile,
+    getProfile,
+    getWarehouseById,
+    getWarehouses,
+    listFarmerByWarehouseId,
+    listStaffByWarehouseId
+}
+
+
+// error-> err
+//payment 
+// farmer list in admin

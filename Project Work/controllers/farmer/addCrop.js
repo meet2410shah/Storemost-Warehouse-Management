@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
 			data: null,
 			error: {
 				code: 1001,
-				msg: "User Does'nt exists",
+				msg: "User Doesn't exists",
 			},
 		});
 	}
