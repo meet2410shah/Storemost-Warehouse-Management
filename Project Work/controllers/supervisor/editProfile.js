@@ -1,29 +1,43 @@
-// const bcrypt = require('bcrypt');
-// const _ = require('lodash');
+const bcrypt = require('bcrypt');
 const { Supervisor } = require('../../database/models/');
 const { errorCustom } = require('../error/error');
-
 const { profileValidate } = require('./profileValidate');
+const jwt = require('jsonwebtoken');
 // const { errorCustom } = require('../error/error');
 
 const editProfile = async (req, res) => {
-	const objt = checkCookie(req.cookies);
 
-	// if(objt!=0){
-
-	const mainObj = JSON.parse(objt.cookiedata).userEmail;
-
-	var n = -1;
-
-	n = mainObj.indexOf('@');
-
-	let mainUser = [];
-
-	if (n != -1) {
-		mainUser = await Supervisor.find({ email: mainObj });
-	} else {
-		mainUser = await Supervisor.find({ username: mainObj });
+	const token = req.cookies.token;
+	// Check the Existance of Token
+	if (!token) {
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1001,
+				msg: "User Does'nt exists",
+			},
+		});
 	}
+
+	// Check if Token is not corrupted
+	try {
+		const data = jwt.verify(token, process.env.SECRET);
+		const userId = data.userId;
+		Supervisor.findOne({ _id: userId }, (err, data) => {
+			// Check if there is an error from mongoose or not
+			if (err) {
+				return res.send({
+					success: false,
+					data: null,
+					error: {
+						code: 1003,
+						msg: 'Database Error',
+					},
+				});
+			}
+
+
 
 	const { error } = profileValidate(req.body);
 
@@ -36,40 +50,37 @@ const editProfile = async (req, res) => {
 		return res.send({ status: 'Fail', data: null, error: errorBlock });
 	}
 
-	const userName = await Supervisor.findOne({ username: req.body.username });
+	// const userName = await Supervisor.findOne({ username: req.body.username });
+	//
+	// if (userName != null) {
+	// 	return res.send({
+	// 		status: 'Fail',
+	// 		data: null,
+	// 		error: { errCode: 1021, msg: 'This username has already been taken.' },
+	// 	});
+	// }
 
-	if (userName != null) {
-		return res.send({
-			status: 'Fail',
-			data: null,
-			error: { errCode: 1021, msg: 'This username has already been taken.' },
-		});
-	}
+	// let user = await Supervisor.findOne({ email: req.body.email });
+	// if (user) {
+	// 	return res.send({
+	// 		status: 'Fail',
+	// 		data: null,
+	// 		error: { errCode: 1022, msg: 'User already exists' },
+	// 	});
+	// }
 
-	let user = await Supervisor.findOne({ email: req.body.email });
-	if (user) {
-		return res.send({
-			status: 'Fail',
-			data: null,
-			error: { errCode: 1022, msg: 'User already exists' },
-		});
-	}
-
-	const salt = await bcrypt.genSalt(10);
-	user.password = await bcrypt.hash(user.password, salt);
-	// await user.save();
-
-	// const profile = Supervisor.find({ email: req.body.email});
+	const salt = bcrypt.genSalt(10);
+	req.body.password = bcrypt.hash(req.body.password, salt);
 
 	const update = Supervisor.updateOne(
-		{ email: req.body.email },
+		{ email: data.email },
 		{
 			$set: {
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
 				mobile: req.body.mobile,
 				warehouseId: req.body.warehouseId,
-				email: req.body.email,
+				// email: req.body.email,
 				password: user.password,
 			},
 		}
@@ -77,10 +88,17 @@ const editProfile = async (req, res) => {
 
 	res.send(update);
 
-	// }
-	// else{
-	// res.redirect("/login");
-	// }
+});
+}catch (err) {
+return res.send({
+	success: false,
+	data: null,
+	error: {
+		code: 1002,
+		msg: 'Token is Corrupted',
+	},
+});
+}
 };
 
 exports.editProfile = editProfile;

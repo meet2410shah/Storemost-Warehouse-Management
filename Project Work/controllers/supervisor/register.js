@@ -3,7 +3,7 @@
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const { Supervisor } = require('../../database/models/');
-const { validate } = require('./validate');
+const { validate } = require('./validateRegister');
 const { errorCustom } = require('../error/error');
 
 const registerSuper = async (req, res) => {
@@ -13,7 +13,7 @@ const registerSuper = async (req, res) => {
 			error.details[0].path[0],
 			error.details[0].type
 		);
-		return res.send({ status: 'Fail', data: null, error: errorBlock });
+		return res.send({ success: false, data: null, error: errorBlock });
 	}
 
 	// Check if this user already exisits
@@ -22,18 +22,18 @@ const registerSuper = async (req, res) => {
 
 	if (userName != null) {
 		return res.send({
-			status: 'Fail',
+			success: false,
 			data: null,
-			error: { errCode: 1021, msg: 'This username has already been taken.' },
+			error: { code: 1021, msg: 'This username has already been taken.' },
 		});
 	}
 
 	let user = await Supervisor.findOne({ email: req.body.email });
 	if (user) {
 		return res.send({
-			status: 'Fail',
+			success: false,
 			data: null,
-			error: { errCode: 1022, msg: 'User already exists' },
+			error: { code: 1022, msg: 'User already exists' },
 		});
 	}
 
@@ -53,7 +53,7 @@ const registerSuper = async (req, res) => {
 	user.password = await bcrypt.hash(user.password, salt);
 	await user.save();
 	res.send({
-		status: 'Pass',
+		success: true,
 		data: _.pick(user, [
 			'_id',
 			'firstName',

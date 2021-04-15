@@ -1,41 +1,53 @@
-// const bcrypt = require('bcrypt');
-// const _ = require('lodash');
 const { Supervisor } = require('../../database/models/');
-// const { validate } = require('./validate');
-// const { errorCustom } = require('../error/error');
+const jwt = require('jsonwebtoken');
+
 
 const getProfile = async (req, res) => {
-	const objt = checkCookie(req.cookies);
 
-	// if(objt!=0){
+  const token = req.cookies.token;
+  // Check the Existance of Token
+  if (!token) {
+    return res.send({
+      success: false,
+      data: null,
+      error: {
+        code: 1001,
+        msg: "User Does'nt exists",
+      },
+    });
+  }
 
-	const mainObj = JSON.parse(objt.cookiedata).userEmail;
+  // Check if Token is not corrupted
+  try {
+    const data = jwt.verify(token, process.env.SECRET);
+    const userId = data.userId;
+    Supervisor.findOne({ _id: userId }, (err, data) => {
+      // Check if there is an error from mongoose or not
+      if (err) {
+        return res.send({
+          success: false,
+          data: null,
+          error: {
+            code: 1003,
+            msg: 'Database Error',
+          },
+        });
+      }
 
-	var n = -1;
 
-	n = mainObj.indexOf('@');
+	res.send(data);
 
-	let mainUser = [];
-
-	if (n != -1) {
-		mainUser = await Supervisor.find({ email: mainObj });
-	} else {
-		mainUser = await Supervisor.find({ username: mainObj });
-	}
-
-	//   const profile = await Supervisor.find({ email: "super1@gmail.com"},function(err, doc){
-	//   if(doc.length === 0 || err){
-	//     res.send('Error');
-	//   }
-	// }
-	// )
-
-	res.send(mainUser);
-
-	// }
-	// else{
-	// res.redirect("/login");
-	// }
+  });
+}catch (err) {
+  return res.send({
+    success: false,
+    data: null,
+    error: {
+      code: 1002,
+      msg: 'Token is Corrupted',
+    },
+  });
+}
 };
 
 exports.getProfile = getProfile;

@@ -17,16 +17,16 @@ module.exports = async (req, res) => {
 			error.details[0].path[0],
 			error.details[0].type
 		);
-		return res.send({ status: 'Fail', data: null, error: errorBlock });
+		return res.send({ success: false, data: null, error: errorBlock });
 	}
 
 	// Check if the Farmer Already Exists (Same Username)
 	const username = await Farmer.findOne({ username: req.body.username });
 	if (username != null) {
 		return res.send({
-			status: 'Fail',
+			success: false,
 			data: null,
-			error: { errCode: 1021, msg: 'This username has already been taken.' },
+			error: { code: 1021, msg: 'This username has already been taken.' },
 		});
 	}
 
@@ -34,9 +34,9 @@ module.exports = async (req, res) => {
 	const email = await Farmer.findOne({ email: req.body.email });
 	if (email) {
 		return res.send({
-			status: 'Fail',
+			success: false,
 			data: null,
-			error: { errCode: 1022, msg: 'User already exists' },
+			error: { code: 1022, msg: 'User already exists' },
 		});
 	}
 
