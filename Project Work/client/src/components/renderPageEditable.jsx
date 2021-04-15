@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import Form from "./form";
 import Joi from "joi-browser";
+import logo from "./prologo.png";
 
 class RenderPageEditable extends Form {
   state = {
@@ -34,16 +35,25 @@ class RenderPageEditable extends Form {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-expand-lg col-4 px-md-5">
-          <div className="row">
-            <div className="col">
-              <h1>Profile</h1>
-            </div>
-          </div>
-        </nav>
+        {/* <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand" href="#">
+            Navbar
+          </a>
+        </nav> */}
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+          crossorigin="anonymous"
+        />
+        <div className="container">
+          <h1 id="profile">
+            <b>Profile</b>
+          </h1>
+        </div>
         <div className="row">
-          <div className="col-4 px-md-5">
-            <img src={"./logo192.png"} className="img-thumbnail" />
+          <div className="col-4 px-md-5" id="vline">
+            <img src={logo} alt="Avatar" className="img-thumbnail" id="img" />
+            {/* <img src={"./logo192.png"} className="img-thumbnail" /> */}
           </div>
           <div className="col">
             <form onSubmit={this.handleSubmit}>
@@ -51,7 +61,7 @@ class RenderPageEditable extends Form {
                 <tbody>
                   <tr>
                     <td>
-                      <h5 className="data">
+                      <h5 className="data" id="mkt1">
                         <b>Name</b>
                       </h5>
                     </td>

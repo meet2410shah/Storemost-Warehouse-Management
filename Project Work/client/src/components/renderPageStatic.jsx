@@ -1,42 +1,50 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
+import logo from "./prologo.png";
 
 class RenderPageStatic extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-expand-lg col-4 px-md-5">
-          <div className="row">
-            <div className="col">
-              <h1>Profile</h1>
-            </div>
-            <div className="col-2">
-              <button
-                onClick={this.props.onClick}
-                type="button"
-                className="btn btn-outline-light btn p-2 pr-5 pl-5 js-scroll-trigger"
-              >
-                <i className="fa fa-pencil" aria-hidden="true"></i>
-                {/* <img src={"./pencil.png"} className="img-thumbnail" /> */}
-                Edit
-              </button>
-            </div>
-          </div>
-        </nav>
+        {/* <div class="d-flex bd-highlight">
+          <div class="p-2 flex-shrink-1 bd-highlight">Flex item</div>
+          <div class="p-2 w-100 bd-highlight">Flex item</div>
+        </div> */}
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+          crossorigin="anonymous"
+        />
+        <div className="container">
+          <h1 id="profile">
+            <b>Profile</b>
+          </h1>
+          <button
+            onClick={this.props.onClick}
+            type="button"
+            className="btn btn-outline-light btn p-2 pr-5 pl-5 js-scroll-trigger"
+            id="editbtn"
+          >
+            <i className="fas fa-pencil-alt"></i> Edit
+          </button>
+        </div>
+
         <div className="row">
-          <div className="col-4 px-md-5">
-            <img src={"./logo192.png"} className="img-thumbnail" />
+          <div className="col-4 px-md-5" id="vline">
+            <img src={logo} alt="Avatar" className="img-thumbnail" id="img" />
+            {/* <img src={"./logo192.png"} className="img-thumbnail" /> */}
           </div>
           <div className="col">
             <table className="table">
               <tbody>
                 <tr>
                   <td>
-                    <h5 className="data">
+                    <h5 className="data" id="mkt1">
                       <b>Name</b>
                     </h5>
                   </td>
+
                   <td className="dataContent">{this.props.name}</td>
                 </tr>
                 <tr>
@@ -58,7 +66,7 @@ class RenderPageStatic extends Component {
                 <tr>
                   <td>
                     <h5 className="data">
-                      <b>address</b>
+                      <b>Address</b>
                     </h5>
                   </td>
                   <td className="dataContent">{this.props.address}</td>
@@ -66,7 +74,7 @@ class RenderPageStatic extends Component {
                 <tr>
                   <td>
                     <h5 className="data">
-                      <b>dueDate</b>
+                      <b>DueDate</b>
                     </h5>
                   </td>
                   <td className="dataContent">{this.props.dueDate}</td>
