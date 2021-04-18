@@ -19,7 +19,6 @@ font-size: 32px!important;
 line-height: 48px !important;
 font-family: sans-serif !important;
 letter-spacing: 0.32px!important;
-
 }
 
 .newheight{
@@ -147,4 +146,23 @@ overflow: hidden !important;
   font-family: sans-serif;
 
   
+}
+
+
+/*    instantpayments */
+.box{
+          
+  border-left: 3px solid #707070;
+  height: 130px;
+}
+
+
+.instant1{
+   color: #D3B04F;
+   font-size: 55px !important;
+}
+
+.instant2{
+  background-color: #707070 !important;
+  color: white!important;
 }
