@@ -1,25 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+// import ProfilePage from "./components/Profile/ProfilePage";
+import WareList from "./components/warehouseList/warehouseList.jsx";
 
 function App() {
-	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Frontend Developer is Learning React for Software Engineering!!!
-				</a>
-			</header>
-		</div>
-	);
+  return (
+    <>
+    <WareList />
+    </>
+  );
 }
 
 export default App;
