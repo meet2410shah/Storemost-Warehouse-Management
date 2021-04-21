@@ -1,0 +1,34 @@
+.supervisor-staff-main-div{
+    border-bottom: #707070 2px solid;
+    padding-bottom: 10px;
+    background-color: #353535;
+    min-width: 1470px;
+    min-height: 680px;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.supervisor-title{
+    color: #FFFFFF;
+    margin-left: 55px;
+    display: inline;
+    font-size: 32px;
+    text-align: left;
+    font: normal normal normal 32px/32px DM Serif Text;
+    letter-spacing: 0.32px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.supervisor-staffcustomers-div{
+    border-bottom: #707070 2px solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.supervisor-staffcustomers-2nd-main-div{
+    border-left: #707070 2px solid;
+    padding-top: 10px;
+}

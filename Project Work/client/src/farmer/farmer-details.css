@@ -1,0 +1,189 @@
+.main-background{
+    min-width: 1456px;
+    min-height: 750px;
+    border-left: 2px solid #707070;
+    background: #353535 0% 0% no-repeat padding-box;
+   /* background-attachment: scroll;*/
+
+}
+.input{
+    margin-top: 1%;
+    /*top: 1300px;*/
+    margin-left: 1%;
+    width: 400px;
+    height: 40px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 4.5px;
+}
+
+.main-logo-div{
+    font-size: 50px;
+    color: #FFFFFF;
+    background-color: #797979;
+    width: 1519px;
+}
+
+.farmer-name-main-conta{
+    margin-left: 1%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    height: 180px;
+    width: 1390px;
+   /* border: 2px  solid rgb(221, 77, 77);*/
+    border-bottom: #707070 1px solid;
+} 
+.main-search-div{
+    /*border: 2px  solid rgb(43, 98, 160);*/
+    margin-left: 1%;
+    margin-top: 1%;
+}
+.main-slied-bar-div{
+   /* border: 2px  solid rgb(0, 98, 160);*/
+    display: flex;
+}
+
+.details-img{
+   /* border: 2px  solid rgb(80, 98, 50); */ 
+    padding: 8px;
+   /* margin: 3px;*/
+    margin-top: 15px;
+}
+
+.details-img-person{
+   /*  border: 2px  solid rgb(80, 98, 50); */
+     padding-left: 10px;
+    /* margin: 3px;*/
+     margin-top: 10px;
+     border-radius: 60%;
+     background-color: #D3B04F;
+ }
+
+.buttenclass{
+    height: 40px;
+    width: 40px;
+}
+
+.farmer-btnsort {
+    font-size: 21px;
+    padding: 5px 20px;
+    border: 0;
+    background-color: #D3B04F;
+    color: #fff;
+    border-radius: 3px;
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+.filterimg{
+    width: 15px;
+    height: 15px;
+}
+
+.farmer-searchdiv{
+    display: inline;
+
+}
+
+.farmer-buttendiv{
+    display: inline;
+    padding-left: 830px;
+}
+
+.logo-side-img{
+    width: 40px;
+    height: 40px;
+    padding-left: 15px;
+}
+
+.logo-side-img-2{
+    width: 156px;
+    height: 40px;
+}
+
+.farmer-warehouse-img{
+    display: inline;
+    height: 400px;
+    width: 400px;
+    padding-left: 180px;
+    padding-bottom: 130px;
+    padding-top: 20px;
+    margin: 10px;
+    background: #797979 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    opacity: 0.5;
+}
+
+.result-div{
+    color: white;
+    padding-left: 30px;
+    padding-top: 10px;
+    text-align: left;
+    font: normal normal normal 24px/32px DM Serif Text;
+    letter-spacing: 0.24px;
+    opacity: 1;
+    display: inline;
+}
+
+.warehouse-details-div{
+    display: flex;
+    flex-direction: row;
+    margin-top: -50px;
+}
+
+.flex-1st-div{
+    padding-left: 210px;
+    width: 450px;
+}
+
+.link-flex-1st-div{
+    color: #D3B04F;
+    margin-left: 10px;
+    text-align: left;
+    font: normal normal bold 40px/50px Trueno;
+    letter-spacing: 0px;
+    cursor: pointer;
+    margin-top: 7px;
+}
+
+.flex-2nd-div{
+    padding-left: 150px;
+    width: 250px;
+    color: white;
+    font: normal normal normal 20px/32px Trueno;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.flex-3rd-div{
+    padding-left: 150px;
+    width: 250px;
+    color: white;
+    font: normal normal normal 20px/32px Trueno;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.occupied-flex-1st-div{
+    margin-top: 50px;
+    font: normal normal normal 24px/32px Trueno;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    padding-left: 10px;
+    text-align: left;
+    opacity: 1;
+}
+
+.addr-1-flex-2nd-div{
+    font: normal normal normal 20px/32px Trueno;
+    letter-spacing: 0px;
+    color: #D3B04F;
+}
+
+.addr-2-flex-2nd-div{
+    color: #FFFFFF;
+    font: normal normal normal 20px/32px Trueno;
+    letter-spacing: 0px;
+    opacity: 1;
+}

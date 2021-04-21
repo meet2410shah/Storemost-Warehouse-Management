@@ -1,0 +1,34 @@
+.supervisor-main-slied-bar-div{
+    /* border: 2px  solid rgb(0, 98, 160);*/
+     display: flex;
+     min-height: 680px;
+ }
+
+ .supervisor-side-bar-div{
+    font-size: 30px;
+    display: inline;
+    border-right: #707070 2px solid;
+    padding-left: 3px;
+    padding-right: 3px;
+    background-color: #353535;
+    padding-top: 20px;
+}
+
+.supervisor-details-img-person{
+    /*  border: 2px  solid rgb(80, 98, 50); */
+      padding-left: 10px;
+     /* margin: 3px;*/
+      margin-top: 10px;
+      border-radius: 60%;
+      background-color: #D3B04F;
+  }
+
+.supervisor-buttenclass{
+    height: 40px;
+    width: 40px;
+}
+
+.supervisor-sidebar-link{
+    display: inline;
+
+}

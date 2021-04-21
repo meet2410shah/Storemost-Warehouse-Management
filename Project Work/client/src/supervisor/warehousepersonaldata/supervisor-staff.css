@@ -1,0 +1,103 @@
+.supervisor-background{
+    min-width: 1453px;
+    min-height: 750px;
+    /*border: 2px solid black;*/
+    background: #353535 0% 0% no-repeat padding-box;
+   /* background-attachment: scroll;*/
+}
+
+.supervisor-logo{
+    color: white;
+    padding-bottom: 20px;
+    width: 1400px;
+}
+
+.supervisor-title{
+    color: #FFFFFF;
+    margin-left: 75px;
+    display: inline;
+    font-size: 32px;
+    text-align: left;
+    font: normal normal normal 32px/32px DM Serif Text;
+    letter-spacing: 0.32px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.supervisor-hade1{
+    /*display: inline;*/
+    margin-left: 20px;
+    text-align: left;
+    font: normal normal bold 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;  
+    width: 400px; 
+    margin-top: 1px;
+}
+
+.supervisor-hade12{
+    /*display: inline;*/
+    margin-left: 50px;
+    text-align: left;
+    font: normal normal bold 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;  
+    width: 100px; 
+    margin-top: 1px;
+}
+
+.supervisor-staff-main-div{
+   /* border-bottom: #707070 2px solid;*/
+    padding-bottom: 10px;
+}
+
+.supervisor-pargra{
+    /*display: inline;*/
+    text-align: left;
+    font: normal normal normal 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    width: 420px;
+    margin-top: 0px;
+}
+
+.supervisor-pargra221{
+    display: inline;
+    margin-left: 30px;
+    text-align: left;
+    font: normal normal normal 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-top: 0px;
+}
+
+.supervisor-main-contan{
+    margin-left: 15px;
+    margin-top: 0px;
+    height: 35px;
+    width: 1200px;
+    border-bottom: 2px  solid #707070;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.supervisor-namediv{
+    background: #797979 0% 0% no-repeat padding-box;
+    height: 35px; 
+    width: 1218px;
+    display: flex;
+    flex-direction: row;
+}
+
+.supervisor-main-div-for-line{
+ /*   border-left: #707070 2px solid;*/
+    padding-top: 5px;
+    padding-left: 30px;
+}
+
