@@ -46,7 +46,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-	res.render("AdminSidePage");
+	res.render("farmer-crop-popup");
 });
 
 app.listen(PORT, () => {
