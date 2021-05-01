@@ -26,6 +26,10 @@ app.use(`${version}/admin`, admin);
 app.use(`${version}/supervisor`, supervisor);
 app.use(`${version}/farmer`, farmer);
 
+// app.get('/pay', function (req, res) {
+// 	res.sendFile(__dirname + "/index.html");
+// });
+
 app.listen(PORT, () => {
 	console.log('Server Listening on PORT ' + PORT);
 });
