@@ -3,7 +3,7 @@ const _ = require('lodash');
 const { Warehouse } = require('../../database/models/');
 const { validate } = require('./validateStaff');
 
-const addWarehouse = async function (req, res) {
+const addStaff = async function (req, res) {
 	let errRes = {
 		sucess: false,
 		data: null,
@@ -35,9 +35,20 @@ const addWarehouse = async function (req, res) {
 		}
 	}
 
-	const wid = req.body.warehouseId;
+	const wid = Number(req.body.warehouseId);
 
-	let warehouse = await Warehouse.findOne({ warehouseId: wid });
+	console.log(wid);
+	// console.log(data);
+	try {
+		warehouse = await Warehouse.findOne({ warehouseId: wid });
+		console.log(warehouse);
+	} catch (MongoError) {
+		errRes.error = {
+			code: 1056,
+			msg: 'warehouse not found with given warehouseId',
+		};
+		return res.send(errRes);
+	}
 	if (!warehouse) {
 		errRes.error = {
 			code: 1056,
@@ -85,4 +96,4 @@ const addWarehouse = async function (req, res) {
 	res.send(resObj);
 };
 
-module.exports = addWarehouse;
+module.exports = addStaff;

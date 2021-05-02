@@ -1,6 +1,6 @@
 module.exports = require('mongoose').model(
 	'Supervisor',
-	new require('mongoose').Schema({
+	require('mongoose').Schema({
 		firstName: { type: String, required: true },
 		lastName: { type: String, required: true },
 		username: { type: String, required: true },
