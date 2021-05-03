@@ -1,0 +1,76 @@
+html, body {
+    min-height: 100% !important;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sideBox{
+  width: 300px;
+  height: 100%;
+  background-color: #353535;
+  text-align: center;
+}
+
+.userLogo{
+  margin-top: 30px;
+  margin-left: 40px;
+  width: 200px;
+  height: 190px;
+}
+
+.userName{
+  margin-bottom: 0;
+  color: #D3B04F;
+}
+
+.userDesig{
+  margin-bottom: 25px;
+  color: grey;
+}
+
+.userOptionProfile{
+  width: 45px;
+}
+
+.table td{
+  padding: 0;
+  border-top-width: 0;
+  height: 40px;
+}
+
+.rightBox{
+  text-align: left;
+  color: #fff;
+  padding-top: 7px !important;
+  padding-bottom: 5px !important;
+}
+
+.leftBox{
+  padding-left: 30px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+
+.table{
+  width: 250px;
+  margin: auto;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 0px;
+}
+
+.userOption{
+  height: 30px;
+  width: 30px;
+}
+
+.adjust{
+  padding-top: 10px !important;
+}
+
+.close{
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  margin: 5px;
+}

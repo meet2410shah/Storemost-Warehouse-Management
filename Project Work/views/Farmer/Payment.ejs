@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/Farmer/Payment.css">
+    <!-- <link rel="stylesheet" href="instantpayment.css"> -->
+
+    <style type="text/css">
+      *,
+      *::before,
+      *::after {
+        box-sizing: content-box !important; // 1
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <div class = "topBar">
+        <img src = "/images/sort.svg" class ="topBar-openbtn" onclick="openNav()"/>
+        <img src = "/images/SM-Warehouse-Logo.png" class ="topBar-storeMostLogo"/>
+    </div>
+
+
+
+    <div class = "sideBar">
+         <!-- <div class = "side-bar-div"> -->
+            <div class = "sideLogo">
+              <img src = "/images/image.png" class = "buttonclass person-image" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "/images/48-512.png" class = "buttonclass cropAdjust1" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "/images/inventory.svg" class = "buttonclass" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "/images/receipt-24px.svg" class = "buttonclass" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "/images/logout.svg" class = "buttonclass" />
+            </div>
+    </div>
+
+
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <div class="sideBox">
+        <img src="/images/image.png" alt="User Logo" class="userLogo">
+        <p class="userName"> <%= Farmer.firstName %> <%= Farmer.lastName %> </p>
+        <p class="userDesig">Farmer</p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="leftBox anotherAdjust"><img src="/images/image.png" alt="" class="userOptionProfile"></td>
+              <td class="rightBox adjust"><p>Profile</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/48-512.png" alt="" class="userOption cropAdjust"></td>
+              <td class="rightBox"><p>My Crops</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/inventory.svg" alt="" class="userOption"></td>
+              <td class="rightBox"><p>Warehouses</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/receipt-24px.svg" alt="" class="userOption"></td>
+              <td class="rightBox"><p>Payment</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/logout.svg" alt="" class="userOption"></td>
+              <td class="rightBox"><p>Logout</p></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+<!-- <div class="mainBody">
+
+
+
+
+
+
+</div> -->
+
+
+
+<div class="back newheight">
+    <div class="jumbotron text-center back text-white" style="padding-bottom: 10px;">
+          <h2 class="white"> PAYMENT OPTIONS </h2>
+    </div>
+    <div class=" container-md mt-4 ">
+         <div class="row " >
+         <div class="col-sm-4 w-100">
+         <div class="card mx-auto text-center  border-top-0 border-bottom-0 border-left-0" >
+             <div class="back">
+              <img src='/images/credit_score-24px.svg' class= "img-fluid h-75 rounded-circle p-5 yup" alt="..." />
+              </div>
+             <div class="card-body   back text-white">
+             <h5 class="text-center card-title font mb-0"> Instant</h5>
+               <h5 class="text-center card-title font"> Payment</h5>
+                <p class="mx-auto text-center w-50 card-text  textcolor mt-2 mb-4">Instantly request for space to store your crop into your wareshouse</p>
+                <a type="button" class=" btn  but btn-dark but" data-toggle="modal" data-target="#myModal">Select</a>
+              </div>
+
+         </div>
+         </div>
+
+         <div class="col-sm-4 w-100 ">
+         <div class="card  text-center  border-top-0 border-bottom-0 border-left-0" >
+             <div class="back ">
+              <img src='/images/replay.png' class= " img-fluid rounded-circle h-75 p-4 yup yup1" alt="..." />
+              </div>
+             <div class="card-body   back text-white">
+             <h5 class="text-center card-title font mb-0"> Crop</h5>
+               <h5 class="text-center card-title font"> Renewal</h5>
+                <p class="mx-auto text-center w-50 card-text  textcolor mt-2 mb-4">Instantly request for space to store your crop into your wareshouse</p>
+                <a href="#" class=" btn  but btn-dark  but">Select</a>
+              </div>
+
+         </div>
+         </div>
+
+         <div class="col-sm-4 w-100 ">
+         <div class="card  text-center border-0" >
+             <div class="back ">
+              <img src='/images/card_membership-24px.svg' class= " img-fluid h-75 rounded-circle p-5 yup yup2" alt="..." />
+              </div>
+             <div class="card-body   back text-white">
+               <h5 class="text-center card-title font mb-0"> Advance</h5>
+               <h5 class="text-center card-title font"> Payment</h5>
+                <p class="mx-auto text-center w-50 card-text textcolor mt-2 mb-4">Instantly request for space to store your crop into your wareshouse</p>
+                <a type="button" class=" btn  but btn-dark but" data-toggle="modal" data-target="#myModal1">Select</a>
+              </div>
+
+         </div>
+         </div>
+
+         </div>
+
+     </div>
+
+ </div>
+
+
+
+
+
+
+
+
+ <!-- for instant payment-->
+      <div class="modal" id="myModal">
+         <div class="modal-dialog modal-xl modal-dialog-centered">
+           <div class="modal-content header back ">
+
+
+             <!--div class="" !-->
+                 <div class="container p-3 m-3 text-light ml-0">
+                      <div class="row">
+                          <div class="col-sm-2  text-right mr-5"><img class= "img-fluid rounded-circle p-4 yup yupAdjust" src='/images/credit_score-24px.svg' alt='credit'></img></div>
+                          <div class="col-sm-0 box"></div>
+                          <div class="col-sm-8">
+                              <h1 class="instant1">Instant Payment</h1>
+                              <p class="text-secondary h5">Instantly request for space to store your crop into your wareshouse</p>
+                         </div>
+                         <div class="col-sm-1 ml-5 mt-0" >
+                             <button type="button" class="close instant4 text" data-dismiss="modal">&times;</button>
+                         </div>
+
+                     </div>
+                 </div>
+                <div class="container-fluid text-light mt-2">
+                 <form class="w-100">
+                     <div class="form-group row border-bottom ml-3 mr-5 rowAdjust">
+                      <label htmlFor="Crop" class="col-sm-2 ml-3 h5 font-weight-bold">Crop</label>
+                      <div class="col-sm-8 rowAdjust2">
+                         <input type="text" class="form-control instant2" name="Crop" >
+                      </div>
+                     </div>
+
+                     <div class="form-group row border-bottom ml-3 mr-5">
+                      <label htmlFor="Warehouse" class="col-sm-2 ml-3 h5 font-weight-bold">Warehouse</label>
+                      <div class="col-sm-8">
+                         <input type="text" class="form-control instant2" name="Warehouse"  />
+                      </div>
+                     </div>
+
+                     <div class="form-group row border-bottom ml-3 mr-5">
+                      <label htmlFor="Amount" class="col-sm-2 ml-3 h5 font-weight-bold">Amount</label>
+                      <div class="col-sm-8">
+                         <input type="number" class="form-control w-25 instant2"  name="Amount"  />
+                      </div>
+                     </div>
+
+
+                     <div class="form-group row border-bottom ml-3 mr-5">
+                      <label htmlFor="Deposit" class="col-sm-2 ml-3 h5 font-weight-bold">Deposit Date</label>
+                      <div class="col-sm-8">
+                         <input type="text" class="form-control-plaintext text-light" value="Today"/>
+                      </div>
+                     </div>
+
+                     <div class="form-group row border-bottom ml-3 mr-5">
+                      <label htmlFor="DueDate" class="col-sm-2 ml-3 h5 font-weight-bold">Due Date</label>
+                      <div class="col-sm-8">
+                         <input type="date" class="form-control instant2"name="DueDate"   />
+                      </div>
+                     </div>
+
+                     <div class="form-group row ml-3 mr-5">
+                      <label htmlFor="Condition" class="col-sm-2 ml-3 h5 font-weight-bold">Condition</label>
+                      <div class="col-sm-8">
+                         <textarea type="comment" class="form-control w-50 instant2"  name="Condition"></textarea>
+                      </div>
+                     </div>
+                 </form>
+                 </div>
+                 <div class="row ml-3">
+                    <div class="col-sm-2 ml-4"><a type="submit" class="btn-lg btn-dark  but text-decoration-none" data-toggle="modal" data-target="#myModal2">Proceed</a></div>
+                    <div class="col-sm-8 text-left"><a type="button"  class="btn-lg btn-dark  text-decoration-none  " data-dismiss="modal">Cancel</a></div>
+
+                 </div>
+
+
+                 <!--/div !-->
+
+
+
+
+
+           </div>
+         </div>
+       </div>
+
+        <!-- for advance payment -->
+       <div class="modal" id="myModal1">
+         <div class="modal-dialog modal-xl modal-dialog-centered">
+           <div class="modal-content header back ">
+
+
+
+             <div class="container p-3 m-3 text-light">
+                 <div class="row">
+                     <div class="col-sm-2  text-right mr-5"> <img class= "img-fluid rounded-circle p-4 yup yuoAdjust" src='/images/card_membership-24px.svg' alt='credit'></img></div>
+                     <div class="col-sm-0 box"></div>
+                     <div class="col-sm-8">
+                         <h1 class="instant1">Advance Payment</h1>
+                         <p class="text-secondary h5 ">Reserve space for your crops in advance with just a reasonable amount in deposit now!</p>
+                    </div>
+                    <div class="col-sm-1 ml-5" >
+                     <button type="button" class="close instant4" data-dismiss="modal">&times;</button>
+                 </div>
+
+                </div>
+            </div>
+           <div class="container-fluid text-light mt-2">
+            <form class="w-100">
+                <div class="form-group row border-bottom ml-3 mr-5">
+                 <label htmlFor="Crop" class="col-sm-2 ml-3 h5">Crop</label>
+                 <div class="col-sm-8 ">
+                    <input type="text" class="form-control instant2" name="Crop"></input>
+                 </div>
+                </div>
+
+                <div class="form-group row border-bottom ml-3 mr-5">
+                 <label htmlFor="Warehouse" class="col-sm-2 ml-3 h5">Warehouse</label>
+                 <div class="col-sm-8">
+                    <input type="text" class="form-control instant2" name="Warehouse"   />
+                 </div>
+                </div>
+
+                <div class="form-group row border-bottom ml-3 mr-5">
+                 <label htmlFor="Amount" class="col-sm-2 ml-3 h5">Amount</label>
+                 <div class="col-sm-8">
+                    <input type="number" class="form-control w-25 instant2" name="Amount"  />
+                 </div>
+                </div>
+
+
+                <div class="form-group row border-bottom ml-3 mr-5">
+                 <label htmlFor="Deposit" class="col-sm-2 ml-3 h5">Deposit Date</label>
+                 <div class="col-sm-8">
+                    <input type="date" class="form-control instant2" name="Deposit"  />
+                 </div>
+                </div>
+
+                <div class="form-group row border-bottom ml-3 mr-5">
+                 <label htmlFor="DueDate" class="col-sm-2 ml-3 h5">Due Date</label>
+                 <div class="col-sm-8">
+                    <input type="date" class="form-control instant2"name="DueDate"  />
+                 </div>
+                </div>
+
+                <div class="form-group row ml-3 mr-5">
+                 <label htmlFor="Condition" class="col-sm-2 ml-3 h5">Condition</label>
+                 <div class="col-sm-8">
+                    <textarea type="comment" class="form-control w-50 instant2"  name="Condition"></textarea>
+                 </div>
+                </div>
+            </form>
+            </div>
+            <div class="row ml-3">
+               <div class="col-sm-2 ml-4"><a type="button" class="btn-lg btn-dark  but text-decoration-none" data-toggle="modal" data-target="#myModal2">Proceed</a></div>
+               <div class="col-sm-8 text-left"><a type="button" class="btn-lg btn-dark  text-decoration-none  " data-dismiss="modal">Cancel</a></div>
+
+            </div>
+
+
+
+
+
+
+
+
+           </div>
+         </div>
+       </div>
+
+   <!-- for confirm popUP-->
+       <div class="container ">
+
+
+
+         <!-- The Modal -->
+         <div class="modal" id="myModal2">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content back">
+
+               <!-- Modal Header -->
+               <div class="modal-header justify-content-center  mt-4 mb-0 border-0  ">
+ <i class="fa fa-exclamation-circle img-fluid btn-lg"></i>
+                 <h4 class="text-center text-light instant3 font-weight-bold" >CONFIRM PAYMENT</h4>
+               </div>
+               <span class="line ml-5 mr-5"></span>
+
+               <!-- Modal body -->
+
+
+               <div class="modal-body mt-4">
+                  <h4 class="text-light text-center">Are you sure you want to proceed further?</h4 >
+
+                  <div class="row mt-5 mb-4 ">
+                     <div class="col-sm-1" ></div>
+                     <div class="col-sm-3 mt-2 "><a href="/" class="btn-lg btn-dark but text-decoration-none"  style="font-size: 20px!important;" data-toggle="modal" data-target="#myModal3" >Yes</a></div>
+                        <div class="col-sm-6 "><a type="button"  class=" ml-5 btn-lg btn-dark  text-decoration-none" style="font-size: 20px!important;"   data-dismiss="modal">Cancel</a></div>
+                  </div>
+
+               </div>
+
+             </div>
+           </div>
+         </div>
+
+       </div>
+
+
+
+
+       <div class="container ">
+
+
+
+         <!-- The Modal -->
+         <div class="modal" id="myModal3">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content back">
+
+               <!-- Modal Header -->
+               <div class="modal-header justify-content-center  mt-4 mb-0 border-0  ">
+       <i class="fa fa-exclamation-circle img-fluid btn-lg"></i>
+                 <h4 class="text-center text-light instant3 font-weight-bold" >Payment Successful</h4>
+               </div>
+               <span class="line ml-5 mr-5"></span>
+
+               <!-- Modal body -->
+
+
+               <div class="modal-body mt-4">
+                  <h5 class="text-light text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elitsExce.</h5 >
+
+                  <div class="row mt-5 mb-4 ">
+                     <div class="col-sm-1" ></div>
+                     <!-- <div class="col-sm-3 mt-2 "><a href="/" class="btn-lg btn-dark but text-decoration-none"  style="font-size: 20px!important;"  >Yes</a></div> -->
+                        <div class="col-sm-6 "><a type="button"  class=" ml-5 btn-lg btn-dark  text-decoration-none" style="font-size: 20px!important;"   data-dismiss="modal">Ok</a></div>
+                  </div>
+
+               </div>
+
+             </div>
+           </div>
+         </div>
+
+       </div>
+
+
+
+    <script src="/css/TopSideBar.js" charset="utf-8"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,249 @@
+.admin-main-div{
+    padding: 0px;
+    margin: 0px;
+}
+
+.main-logo-div{
+    font-size: 50px;
+    background-color: #797979;
+    width: 1510px;
+    height: 103px;
+}
+
+.logo-sidebar-img{
+    width: 60px;
+    height: 60px;
+    padding-left: 15px;
+    padding-bottom: 25px;
+}
+
+.logo-side-img-2{
+    width: 200px;
+    height: 100px;
+    margin-top: 5px;
+}
+
+.main-slied-bar-div{
+    /* border: 2px  solid rgb(0, 98, 160);*/
+    display: flex;
+    min-height: 640px;
+    min-width: 50px;
+}
+
+.side-bar-div{
+    font-size: 30px;
+    display: inline;
+   /* border-right: #707070 1px solid;*/
+    padding-left: 3px;
+    padding-right: 3px;
+    background-color: #353535;
+}
+
+.details-img-person{
+    /*  border: 2px  solid rgb(80, 98, 50); */
+      padding: 3px;
+      margin: 10px;
+      margin-top: 50px;
+      border-radius: 50%;
+      background-color: #D3B04F;
+  }
+
+.details-img{
+    margin: 10px;
+    margin-top: 25px;
+}
+
+.buttenclass{
+    height: 50px;
+    width: 50px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.staff-main-div{
+    /*border-bottom: #707070 2px solid;*/
+    padding-bottom: 10px;
+    background-color: #353535;
+    min-width: 1420.5px;
+    min-height: 620px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.staffcustomers-div{
+    padding-top: 15px;
+    text-align: left;
+    font: normal normal normal 24px/32px DM Serif Text;
+    letter-spacing: 0.24px;
+    color: #FFFFFF;
+    opacity: 1;
+    padding-left: 30px;
+    border-left: #707070 2px solid;
+}
+
+.title{
+    color: #FFFFFF;
+    margin-left: 55px;
+    display: inline;
+    font-size: 32px;
+    text-align: left;
+    font: normal normal normal 32px/32px DM Serif Text;
+    letter-spacing: 0.32px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.background2{
+    min-width: 1419px;
+    min-height: 560px;
+    /*border: 2px solid black;*/
+    background: #353535 0% 0% no-repeat padding-box;
+   /* background-attachment: scroll;*/
+   border-left: #707070 2px solid;
+}
+
+.namemaindiv{
+    margin-top: -30px;
+    width: 1430px;
+}
+
+.name-2nd-main-div{
+    border: #707070 2px solid;
+    border-radius: 5px;
+    margin-left: 25px;
+    margin-right: 50px;
+    /* margin-top: 25px;*/
+    width: 1350px;
+    height: 530px;
+    overflow: scroll;
+}
+
+.admin-name-3rd-main-div{
+    border-bottom: #707070 2px solid;
+    padding: 10px;
+    width: 1550px;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-check{
+    height: 5px;
+    margin-left: 8px;
+   /* display: inline-block;*/
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    /*  transition: all 150ms;*/
+    margin-top: 20px;
+}
+
+.admin-hader20{
+    margin-left: 25px;
+    font: normal normal bold 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;    
+    width: 200px;
+}
+
+.admin-hader21{
+    font: normal normal bold 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;    
+    width: 200px;
+    margin-left: 0px;
+}
+
+.admin-hader22{
+    font: normal normal bold 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;    
+    width: 150px;
+}
+
+.admin-hader23{
+    font: normal normal bold 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;    
+    width: 200px;
+    margin-left: 50px;
+}
+
+.admin-contan2{
+    margin-left: 0px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 35px;
+    width: 1570px;
+    border-bottom: 2px  solid #707070;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-check2{
+    height: 5px;
+    margin-left: 18px;
+   /* display: inline-block;*/
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+   /* transition: all 150ms;*/
+}
+
+.admin-par20{
+    font: normal normal normal 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-decoration: none;
+    margin-top: 0px;
+    margin-left: 24px;
+    width: 200PX;
+}
+
+.admin-par21{
+    font: normal normal normal 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-decoration: none;
+    margin-top: 0px;
+    width: 200PX;
+    margin-left: 0px;
+}
+
+.admin-par22{
+    font: normal normal normal 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-decoration: none;
+    margin-top: 0px;
+    margin-left: 50px;
+    width: 50px;
+}
+
+.admin-par23{
+    font: normal normal normal 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-decoration: none;
+    margin-top: 0px;
+    width: 200px;
+    margin-left: 50px;
+}
+
+.admin-par24{
+    font: normal normal normal 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-decoration: none;
+    margin-top: 0px;
+    width: 700px;
+}

@@ -1,0 +1,534 @@
+body,html{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat';
+  }
+  
+  .topBar{
+      /* font-size: 50px; */
+      /* color: #FFFFFF; */
+      background-color: #0e0e0e;
+      width: 100%;
+      height: 70px;
+      opacity: 0.7;
+      /* position: fixed; */
+      /* display: block; */
+      /* z-index: 1; */
+  }
+  
+  .topBar-storeMostLogo{
+      width: 150px;
+      height: 60px;
+      margin-left: 20px;
+      padding-top: 5px;
+  }
+  
+  /* Style the button that is used to open the sidepanel */
+  .topBar-openbtn {
+    padding-left: 15px;
+    width: 50px;
+    padding-bottom: 10px;
+    height: 40px;
+  
+    /* font-size: 20px; */
+    cursor: pointer;
+    background-color: #111;
+    /* color: white; */
+    padding: 10px 15px;
+    border: none;
+  }
+  
+  .topBar-openbtn:hover {
+    background-color: #444;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .sideBar{
+      /* border: 2px  solid rgb(0, 98, 160);*/
+       /* display: flex; */
+       /* min-height: 680px; */
+       /* border-right: 2px solid grey; */
+       /* width: 85px; */
+       width: 50px;
+       height: -webkit-fill-available;
+       padding-left: 20px;
+       padding-right: 20px;
+       background-color: #353535;
+       padding-top: 20px;
+       position: absolute;
+       /* z-index: -1; */
+       /* display: block; */
+       border-right: 1px solid grey;
+       margin-top: 20px;
+   }
+  
+  .buttonclass{
+      height: 35px;
+      width: 35px;
+      margin-left: 5px;
+  }
+  
+  .person-image{
+    width: 45px;
+    height: 45px;
+    margin-left: 0px;
+  }
+  
+  .sideLogo{
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  
+  
+  
+  
+  
+  /* The sidepanel menu */
+  .sidepanel {
+    height: 100%; /* Specify a height */
+    width: 0px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 50px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+    /* z-index: -1; */
+  
+  
+    background-color: #353535;
+    text-align: center;
+  }
+  
+  /* The sidepanel links */
+  .sidepanel a {
+    /* padding: 8px 8px 8px 32px; */
+    text-decoration: none;
+    /* font-size: 25px; */
+    /* color: #D3B04F; */
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidepanel a:hover {
+    color: #D3B04F;
+    opacity: 0.5;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .closebtn{
+    color: #B89538;
+    margin-top: 10px;
+  }
+  
+  /* Style the button that is used to open the sidepanel */
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+  .openbtn:hover {
+    background-color: #444;
+  }
+  
+  
+  
+  
+  
+  
+  .sideBox{
+    width: 300px;
+    height: 100%;
+    background-color: #353535;
+    text-align: center;
+  }
+  
+  .userLogo{
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 200px;
+    height: 190px;
+  }
+  
+  .userName{
+    margin-bottom: 0;
+    margin-top: 10px;
+    color: #D3B04F;
+  }
+  
+  .userDesig{
+    margin-bottom: 25px;
+    color: grey;
+  }
+  
+  .userOptionProfile{
+    width: 45px;
+  }
+  
+  .table td{
+    padding: 0;
+    border-top-width: 0;
+    height: 40px;
+  }
+  
+  .rightBox{
+    text-align: left;
+    color: #fff;
+    padding-top: 7px !important;
+    padding-bottom: 5px !important;
+  }
+  
+  .leftBox{
+    padding-left: 30px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+  }
+  
+  .table{
+    width: 250px;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 0px;
+  }
+  
+  .userOption{
+    height: 30px;
+    width: 30px;
+  }
+  
+  .adjust{
+    padding-top: 0;
+  }
+  
+  .close{
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+    margin: 5px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .mainBackground{
+      /* min-width: 1452px; */
+      /* min-height: 750px; */
+      width: 100%;
+      height: auto;
+      /* border-left: 2px solid #707070; */
+      background: #353535;
+     /* background-attachment: scroll;*/
+     /* position: absolute; */
+     /* top: 200px; */
+     /* left: 105px; */
+     /* display: inline; */
+     /* float: right; */
+  }
+  .background3{
+      /* min-width: 1418.5px; */
+      margin:auto;
+      /* overflow: auto;    */
+      /* max-height: 100vh; */
+      /* border: 2px solid black; */
+      background-color: #353535;
+     /* background-attachment: scroll;*/
+     /* border-left: solid 2px #707070; */
+     padding-left: 90px;
+  
+  
+  }
+  
+  .title3{
+      text-align: left;
+      font: normal normal normal 26px "Montserrat";
+      letter-spacing: 0.32px;
+      font-weight: bold;
+      color: #FFFFFF;
+      opacity: 1;
+      margin-left: 25px;
+      margin-top: 0;
+      padding-top: 30px;
+      padding-left: 40px;
+  }
+  
+  .contenar{
+      display: flex;
+      margin: 0%;
+      padding: 0%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      /* justify-content: center; */
+      padding-top: 40px;
+      width: 1500px;
+  }
+  
+  .contan3{
+      /* margin: 10px; */
+      margin-bottom: 20px;
+      padding-right: 20px;
+      padding-left: 20px;
+      height: 16%;
+      width: 15%;
+      min-height: 200px;
+      min-width: 200px;
+      /* border-right: 1px  solid #707070; */
+      border-left: 1px  solid #707070;
+  
+  }
+  
+  .divimg{
+       margin: auto;
+       opacity: 1;
+       height: 10%;
+       width: 70%;
+       border-radius: 50%;
+       background-color: #B89538;
+  }
+  
+   .crop-img{
+      width: 140px;
+      height: 140px;
+      padding-top: 8px;
+      padding-left: 14px;
+      /* padding-top: 12px; */
+  }
+  
+  .par3{
+       margin-top: 15px;
+       text-align: center;
+       font: normal normal normal 18px "Montserrat";
+       letter-spacing: 0px;
+       color: #D3B04F;
+       opacity: 1;
+       margin-bottom: 10px;
+  }
+  
+  .pargraph3{
+      margin-top: 7px;
+      text-align: center;
+      font: normal normal normal 14px "Montserrat";
+      letter-spacing: 0px;
+      color: white;
+      opacity: 1;
+  }
+  
+
+
+  /*   */
+  /*.lst-div-back{
+    background-color: #D3B04F;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}*/
+
+html,body{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .farmer-maincon{
+      height: 500px;
+      width: 1360px;
+      background: #353535 0% 0% no-repeat padding-box;
+      border: 1px solid #707070;
+      border-radius: 10px;
+      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      margin-left: 55px;
+      margin-top: 80px;
+      /*align-items: right;*/
+      padding: 25px;
+      padding-left: 40px;
+      z-index: 3;
+      padding-top: 10px;
+  }
+  
+  .cros-class{
+      text-decoration: none;
+      font-size: 30px;
+      color: #D3B04F;
+      margin-left: 1330px;
+      margin-top: -8px;
+  }
+  
+  .contaner{
+      display: flex;
+      margin-top: -12px;
+  }
+  
+  .img-open-div{
+      display: inline;
+      /* padding: 6px; */
+      border-radius: 50%;
+      background-color: #B89538;
+      width: 150px;
+      height: 150px;
+      margin-left: 10px;
+  }
+  
+  .crop-open-img{
+      width: 130px;
+      height: 130px;
+      /* padding-left: 10px; */
+      margin-left: 18px;
+      margin-top: 18px;
+      padding-right: 25px;
+      border-right: 2px solid #4f4f4f;
+  }
+  
+  .div-img-3{
+      display: inline;
+      margin-left: 25px;
+      background: transparent 0% 0% no-repeat padding-box;
+      /* border-left: 2px  solid #707070; */
+      padding-left: 25px;
+  }
+  
+  .cropxyz{
+      text-align: left;
+      /* font : normal normal bold 40px/32px; */
+      font-weight: 800;
+      font-size: 35px;
+      letter-spacing: 0px;
+      color: #D3B04F;
+      opacity: 1;
+      margin-top: 30px;
+      margin-bottom: 0px;
+  }
+  
+  .divbutten{
+     /* position: center;
+      //display: inline;*/
+      border: 1px solid #D3B04F;
+      opacity: 1;
+      width: 75px;
+      height: 25px;
+      padding-top: 8px;
+      padding-left: 25px;
+      color:white;
+      text-decoration: none;
+      margin: 0;
+  }
+  
+  .farmer-divhadd{
+      /*border: 1px solid #D3B04F;*/
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 2px;
+      border-bottom: #4f4f4f 2px solid;
+      display: flex;
+      flex-direction: row;
+      height: 40px;
+  }
+  
+  .farmer-hadd1{
+      margin-left: 10px;
+      text-align: left;
+      /* font: normal normal 600 24px/30px; */
+      letter-spacing: 0px;
+      color: #FFFFFF;
+      opacity: 1;
+      width: 200px;
+      padding-top: 6px;
+      font-size: 19px;
+  }
+  
+  .farmer-hadd2{
+      text-align: left;
+      font: normal normal normal 20px/24px;
+      letter-spacing: 0px;
+      color: #FFFFFF;
+      opacity: 0.5;
+      width: 1100px;
+      margin: 0;
+      padding-top: 8px;
+  }
+  
+  .close{
+      width: 25px;
+      height: 25px;
+      padding: 2px;
+      margin: 5px;
+      margin-right: 0px;
+      text-align: right;
+      margin-left: auto;
+  }
+  
+  h3{
+    margin: 0;
+  }
+  
+  .someEdit{
+    height: 90px;
+    border-bottom-width: 0;
+  }
+  
+  .renewButton{
+    /* padding: 20px; */
+    text-align: center;
+    /* padding-top: 40px; */
+    /* background-color: transparent; */
+    /* text-align: center; */
+    background-color: #353535;
+    border: 1px solid #D3B04F;
+    padding: 10px 40px;
+    color: white;
+    font-size: 15px;
+  }
+  .editDescrip{
+    width: 850px;
+  }
+  

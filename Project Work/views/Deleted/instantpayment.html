@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="instantpayment.css">
+</head>
+<body>
+
+    <div class="header back">
+        <div class="container p-3 m-3 text-light">
+             <div class="row">
+                 <div class="col-sm-2  text-right"><img class= "img-fluid h-75 rounded-circle p-4 yup" src='../public/images/credit_score.png' alt='credit'></img></div>
+                 <div class="col-sm-0 box"></div>
+                 <div class="col-sm-8">
+                     <h1 class="instant1">Instant Payment</h1>
+                     <p class="text-secondary h5">Instantly request for space to store your crop into your wareshouse</p>
+                </div>
+
+            </div>
+        </div>
+       <div class="container-fluid text-light">
+        <form class="w-100">
+            <div class="form-group row border-bottom ml-3 mr-5">
+             <label htmlFor="Crop" class="col-sm-2 ml-3 h5">Crop</label>
+             <div class="col-sm-8 ">
+                <input type="text" class="form-control instant2" name="Crop" ></input>
+             </div>
+            </div>
+
+            <div class="form-group row border-bottom ml-3 mr-5">
+             <label htmlFor="Warehouse" class="col-sm-2 ml-3 h5">Warehouse</label>
+             <div class="col-sm-8">
+                <input type="text" class="form-control instant2" name="Warehouse"  />
+             </div>
+            </div>
+
+            <div class="form-group row border-bottom ml-3 mr-5">
+             <label htmlFor="Amount" class="col-sm-2 ml-3 h5">Amount</label>
+             <div class="col-sm-8">
+                <input type="number" class="form-control w-25 instant2"  name="Amount" value={this.state.Amount} onChange={this.handleChange} />
+             </div>
+            </div>
+
+
+            <div class="form-group row border-bottom ml-3 mr-5">
+             <label htmlFor="Deposit" class="col-sm-2 ml-3 h5">Deposit Date</label>
+             <div class="col-sm-8">
+                <input type="text" class="form-control-plaintext text-light" value="Today"/>
+             </div>
+            </div>
+
+            <div class="form-group row border-bottom ml-3 mr-5">
+             <label htmlFor="DueDate" class="col-sm-2 ml-3 h5">Due Date</label>
+             <div class="col-sm-8">
+                <input type="date" class="form-control instant2"name="DueDate"   />
+             </div>
+            </div>
+
+            <div class="form-group row ml-3 mr-5">
+             <label htmlFor="Condition" class="col-sm-2 ml-3 h5">Condition</label>
+             <div class="col-sm-8">
+                <textarea type="comment" class="form-control w-50 instant2"  name="Condition"></textarea>
+             </div>
+            </div>
+        </form>
+        </div>
+        <div class="row ml-3">
+           <div class="col-sm-2 ml-4"><a type="button" class="btn-lg btn-dark  but text-decoration-none" data-toggle="modal" data-target="#myModal">Proceed</a></div>
+           <div class="col-sm-8 text-left"><a href="/" class="btn-lg btn-dark  text-decoration-none  ">Cancel</a></div>
+
+        </div>
+
+
+        </div>
+        <div class="container">
+
+
+
+         <!-- The Modal -->
+         <div class="modal" id="myModal">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content back">
+
+               <!-- Modal Header -->
+               <div class="modal-header justify-content-center  mt-5 mb-3 border-0  ">
+<i class="fa fa-exclamation-circle img-fluid btn-lg"></i>
+                 <h4 class="text-center text-light instant3 font-weight-bold" >CONFIRM PAYMENT</h4>
+               </div>
+               <span class="line ml-5 mr-5"></span>
+
+               <!-- Modal body -->
+
+
+               <div class="modal-body mt-4">
+                  <h4 class="text-light text-center">Are you sure you want to proceed further?</h4 >
+
+                  <div class="row mt-5 mb-4 ">
+                     <div class="col-sm-2" ></div>
+                     <div class="col-sm-3 mt-2 "><a href="/" class="btn-lg btn-dark but text-decoration-none"  style="font-size: 25px!important;"  >YES</a></div>
+                        <div class="col-sm-6 "><a type="button"  class=" ml-5 btn-lg btn-dark  text-decoration-none" style="font-size: 25px!important;"   data-dismiss="modal">Cancel</a></div>
+                  </div>
+
+               </div>
+
+             </div>
+           </div>
+         </div>
+
+       </div>
+
+</body>
+</html>

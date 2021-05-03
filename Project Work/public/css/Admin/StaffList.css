@@ -1,0 +1,463 @@
+body,html{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat';
+}
+
+.topBar{
+    /* font-size: 50px; */
+    /* color: #FFFFFF; */
+    background-color: #0e0e0e;
+    width: 100%;
+    height: 70px;
+    opacity: 0.7;
+    /* position: fixed; */
+    /* display: block; */
+    /* z-index: 1; */
+}
+
+.topBar-storeMostLogo{
+    width: 150px;
+    height: 60px;
+    margin-left: 20px;
+    padding-top: 5px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.topBar-openbtn {
+  padding-left: 15px;
+  width: 50px;
+  padding-bottom: 10px;
+  height: 40px;
+
+  /* font-size: 20px; */
+  cursor: pointer;
+  background-color: #111;
+  /* color: white; */
+  padding: 10px 15px;
+  border: none;
+}
+
+.topBar-openbtn:hover {
+  background-color: #444;
+}
+
+
+
+
+
+
+
+
+
+
+
+.sideBar{
+    /* border: 2px  solid rgb(0, 98, 160);*/
+     /* display: flex; */
+     /* min-height: 680px; */
+     /* border-right: 2px solid grey; */
+     /* width: 85px; */
+     width: 50px;
+     height: -webkit-fill-available;
+     padding-left: 20px;
+     padding-right: 20px;
+     background-color: #353535;
+     padding-top: 20px;
+     position: absolute;
+     /* z-index: -1; */
+     /* display: block; */
+     border-right: 1px solid grey;
+     margin-top: 20px;
+ }
+
+.buttonclass{
+    height: 35px;
+    width: 35px;
+    margin-left: 5px;
+}
+
+.person-image{
+  width: 45px;
+  height: 45px;
+  margin-left: 0px;
+}
+
+.sideLogo{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+
+
+
+
+/* The sidepanel menu */
+.sidepanel {
+  height: 100%; /* Specify a height */
+  width: 0px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 50px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+  /* z-index: -1; */
+
+
+  background-color: #353535;
+  text-align: center;
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  /* padding: 8px 8px 8px 32px; */
+  text-decoration: none;
+  /* font-size: 25px; */
+  /* color: #D3B04F; */
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: #D3B04F;
+  opacity: 0.5;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.closebtn{
+  color: #B89538;
+  margin-top: 10px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+
+
+
+
+
+.sideBox{
+  width: 300px;
+  height: 100%;
+  background-color: #353535;
+  text-align: center;
+}
+
+.userLogo{
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+  width: 200px;
+  height: 190px;
+}
+
+.userName{
+  margin-bottom: 0;
+  margin-top: 10px;
+  color: #D3B04F;
+}
+
+.userDesig{
+  margin-bottom: 25px;
+  color: grey;
+}
+
+.userOptionProfile{
+  width: 45px;
+}
+
+.table td{
+  padding: 0;
+  border-top-width: 0;
+  height: 40px;
+}
+
+.rightBox{
+  text-align: left;
+  color: #fff;
+  padding-top: 7px !important;
+  padding-bottom: 5px !important;
+}
+
+.leftBox{
+  padding-left: 30px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+
+.table{
+  width: 250px;
+  margin: auto;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 0px;
+}
+
+.userOption{
+  height: 30px;
+  width: 30px;
+}
+
+.adjust{
+  padding-top: 0;
+}
+
+.close{
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.admin-main-div{
+    padding: 0px;
+    margin: 0px;
+}
+
+.main-logo-div{
+    font-size: 50px;
+    background-color: #797979;
+    width: 1510px;
+    height: 103px;
+}
+
+.logo-sidebar-img{
+    width: 60px;
+    height: 60px;
+    padding-left: 15px;
+    padding-bottom: 25px;
+}
+
+.logo-side-img-2{
+    width: 200px;
+    height: 100px;
+    margin-top: 5px;
+}
+
+.main-slied-bar-div{
+    /* border: 2px  solid rgb(0, 98, 160);*/
+    display: flex;
+    min-height: 640px;
+    min-width: 50px;
+}
+
+.side-bar-div{
+    font-size: 30px;
+    display: inline;
+   /* border-right: #707070 1px solid;*/
+    padding-left: 3px;
+    padding-right: 3px;
+    background-color: #353535;
+}
+
+.details-img-person{
+    /*  border: 2px  solid rgb(80, 98, 50); */
+      padding: 3px;
+      margin: 10px;
+      margin-top: 50px;
+      border-radius: 50%;
+      background-color: #D3B04F;
+  }
+
+.details-img{
+    margin: 10px;
+    margin-top: 25px;
+}
+
+.buttenclass{
+    height: 50px;
+    width: 50px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.staff-main-div{
+    border-bottom: #707070 2px solid;
+    padding-bottom: 10px;
+    background-color: #353535;
+    min-width: 1420.5px;
+    height: inherit;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 90px;
+}
+
+.staffcustomers-div{
+    border-bottom: #707070 2px solid;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.title{
+    color: #FFFFFF;
+    margin-left: 80px;
+    display: inline;
+    text-align: left;
+    font: normal normal normal 22px "Montserrat";
+    letter-spacing: 0.32px;
+    color: #FFFFFF;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.background{
+    min-width: 1418.5px;
+    min-height: 570px;
+    /*border: 2px solid black;*/
+    background: #353535 0% 0% no-repeat padding-box;
+   /* background-attachment: scroll;*/
+   /* border-left: #707070 2px solid; */
+   padding-top: 10px;
+}
+
+.main-div-for-line{
+    /*   border-left: #707070 2px solid;*/
+       padding-top: 5px;
+       padding-left: 30px;
+}
+
+.admin-namediv{
+    background: #797979 0% 0% no-repeat padding-box;
+    height: 40px;
+    width: 1218px;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-hade1{
+    /* display: inline;*/
+     margin-left: 50px;
+     text-align: left;
+     font: normal normal bold 18px "Montserrat";
+     letter-spacing: 0px;
+     color: #FFFFFF;
+     opacity: 1;
+     margin-top: 0px;
+     width: 400px;
+     margin-bottom: 0;
+     padding-top: 8px;
+ }
+
+.admin-hade2{
+   /* display: inline;*/
+    margin-left: 20px;
+    text-align: left;
+    font: normal normal bold 18px "Montserrat";
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-top: 0px;
+    width: 400px;
+    margin-bottom: 0;
+    padding-top: 8px;
+    margin-left: 60px;
+ }
+
+ .admin-hade3{
+     /* display: inline;*/
+      margin-left: 50px;
+      text-align: left;
+      font: normal normal bold 18px "Montserrat";
+      letter-spacing: 0px;
+      color: #FFFFFF;
+      opacity: 1;
+      margin-top: 0px;
+      width: 200px;
+      padding-top: 8px;
+}
+
+.admin-main-contan{
+    margin-left: 5px;
+    margin-top: 8px;
+    height: 30px;
+    width: 1200px;
+    border-bottom: 2px  solid #707070;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-pargra{
+    /*display: inline;*/
+    margin-left: 45px;
+   /* margin-right: 50px;
+    padding-right: 290px;*/
+    text-align: left;
+    font: normal normal normal 16px "Montserrat";
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    width: 400px;
+    margin-top: 0px;
+}
+
+.paradjust{
+    margin-left: 60px;
+}
+
+.admin-pargra22{
+  /*  display: inline;*/
+    margin-left: 40px;
+    /*margin-right: 50px;*/
+    text-align: left;
+    font: normal normal normal 16px "Montserrat";
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    width: 250px;
+    margin-top: 0px;
+}
+
+.sectionSelected{
+    border-bottom: 4px solid white;
+    padding-bottom: 8px;
+}

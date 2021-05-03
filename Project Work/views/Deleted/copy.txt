@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops Popup Page</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/farmer-crop-popup.css">
+    <link href="./farmer-crop.html">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div>
+     <div class = "farmer-maincon">
+
+        <img src="/images/closeButton.png" alt="Close Button" class="close">
+
+         <div class = "contaner">
+         <!-- Img and name -->
+             <div class = "img-open-div">
+                  <img src ="/images/crop.png" class ="crop-open-img"/>
+             </div>
+
+             <div class = "div-img-3">
+                 <h1 class = "cropxyz">Crop XYZ</h1><br/>
+                 <p class = "divbutten">Renew</p>
+             </div>
+         </div>
+
+         <!-- Details -->
+         <div>
+             <br/>
+             <div class = "farmer-divhadd">
+                 <div class = "farmer-hadd1">Warehouse </div>
+                 <div class = "farmer-hadd2">Warehouse 3</div>
+             </div>
+             <div class = "farmer-divhadd">
+                 <div class = "farmer-hadd1">Amount</div>
+                 <div class = "farmer-hadd2">21 tons</div>
+             </div>
+             <div class = "farmer-divhadd">
+                 <div class = "farmer-hadd1">Deposit Date</div>
+                 <div class = "farmer-hadd2">21/11/2020</div>
+             </div>
+             <div class = "farmer-divhadd">
+                 <div class = "farmer-hadd1">Due Date</div>
+                 <div class = "farmer-hadd2">01/04/2021</div>
+             </div>
+             <div class = "farmer-divhadd">
+                 <div class = "farmer-hadd1">Condition</div>
+                 <div class = "farmer-hadd2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum </div>
+             </div>
+         </div>
+       </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{
+    margin: 0%;
+    padding: 0%;
+}
+.admin-main-div{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    /* position: fixed; */
+    width: 100%;
+}
+
+.main-logo-div{
+    background-color: #797979;
+    margin: 0%;
+    min-height: 50px;
+    padding: 0%;
+}
+
+.logo-sidebar-img{
+    width: 3%;
+    height: 5%;
+    min-height: 35px;
+    min-width: 35px;
+   padding: 1%;
+}
+
+.logo-side-img-2{
+    width: 10%;
+    height: 5%;
+    padding: 0.5%;
+    min-width: 100px;
+    min-height: 45px;
+}
+
+.main-slied-bar-div{
+    /* border: 2px  solid rgb(0, 98, 160);*/
+    display: flex;
+    background-color: #353535;
+    /* position: fixed; */
+    /* min-width: 50px; */
+}
+
+.side-bar-div{
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
+}
+
+.details-img-person{
+    /*  border: 2px  solid rgb(80, 98, 50); */
+    margin: auto;
+    margin-top: 30%;
+    width: 50px;
+    height: 50px;
+      padding: 3px;
+      border-radius: 100%;
+      background-color: #D3B04F;
+  }
+
+.details-img{
+    margin: auto;
+    width: 50px;
+    margin-top: 30%;
+    height: 50px;
+      padding: 3px;
+      border-radius: 100%;
+
+}
+
+.buttenclass{
+    height: 100%;
+    width: 100%;
+    /* padding-left: 4px;
+    padding-right: 4px; */
+}
+
+.background3{
+    /* min-width: 1418.5px; */
+    margin:auto;
+    /* overflow: auto;    */
+    /* max-height: 100vh; */
+    /border: 2px solid black;/
+    background: #353535 0% 0% no-repeat padding-box;
+   /* background-attachment: scroll;*/
+   border-left: solid 2px #707070;
+
+
+}
+
+.title3{
+    text-align: left;
+    font: normal normal normal 24px/24px DM Serif Text;
+    letter-spacing: 0.32px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-left: 25px;
+}
+
+.contenar{
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contan3{
+    /* margin: 10px; */
+    margin-bottom: 20px;
+    padding-right: 1%;
+    padding-left: 1%;
+    height: 16%;
+    width: 15%;
+    min-height: 200px;
+    min-width: 200px;
+    border-right: 2px  solid #707070;
+    border-left: 2px  solid #707070;
+
+}
+
+.divimg{
+     margin: auto;
+     opacity: 1;
+     height: 10%;
+     width: 70%;
+     border-radius: 50%;
+     background-color: #B89538;
+}
+
+ .crop-img{
+    width: 150px;
+    height: 150px;
+    padding-top: 5px;
+    /* padding-left: 12px;
+    padding-top: 12px; */
+}
+
+.par3{
+     margin-top: 7px;
+     text-align: center;
+     font: normal normal normal 24px/29px Roboto;
+     letter-spacing: 0px;
+     color: #D3B04F;
+     opacity: 1;
+}
+
+.pargraph3{
+    margin-top: 7px;
+    text-align: center;
+    font: normal normal normal 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: white;
+    opacity: 1;
+}
