@@ -1,6 +1,6 @@
 module.exports = require('mongoose').model(
 	'Warehouse',
-	new require('mongoose').Schema({
+	 require('mongoose').Schema({
 		warehouseId: { type: Number, unique: true, required: true, dropDups: true },
 		name: { type: String, required: true },
 		location: {
