@@ -25,7 +25,7 @@ module.exports = async function (req, res, next) {
 
 	let defpay = {
 		cropType: "ghav",
-		warehouseId: "4",
+		warehouseId: 6,
 		quantity: "2",
 		amount: "20",
 		dueDate: new Date(),
@@ -83,7 +83,7 @@ module.exports = async function (req, res, next) {
 
 	let farmer;
 	try {
-		farmer = await Farmer.find({ _id: paymentDetails.farmerId });
+		farmer = await Farmer.find({ _id: paymentDetails.customerId });
 	} catch (MonogoError) {
 		errRes.error = {
 			code: 1230,
@@ -100,7 +100,7 @@ module.exports = async function (req, res, next) {
 	}
 	let warehouse;
 	try {
-		warehouse = await Warehouse.find({ _id: paymentDetails.warehouseId });
+		warehouse = await Warehouse.find({ warehouseId: paymentDetails.warehouseId });
 	} catch (MonogoError) {
 		errRes.error = {
 			code: 1230,

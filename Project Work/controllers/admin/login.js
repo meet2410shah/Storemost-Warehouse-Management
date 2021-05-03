@@ -43,7 +43,7 @@ const LoginAdmin = async (req, res) => {
     const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) {
         return res.send({
-            status: "Fail",
+            status: false,
             data: null,
             error: { errCode: 1052, msg: "Incorrect email/username or password." },
         });
@@ -61,7 +61,7 @@ const LoginAdmin = async (req, res) => {
     res.cookie('token', token);
 
     return res.send({
-        status: "Pass",
+        status: true,
         data: user,
         error: null,
     });
