@@ -4,6 +4,7 @@ require('./database/connection');
 const cors = require('cors');
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const version = process.env.VERSION;
@@ -23,6 +24,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Routes
+app.get('/', (req, res) => {
+	const token = req.cookies.token;
+	// Check the Existance of Token
+	if (token) {
+		const { user } = jwt.verify(token, process.env.SECRET);
+		if (user) {
+			return res.redirect('/api/v1/admin/getWarehouses');
+		} else {
+			res.clearCookie('token');
+		}
+	}
+
+	return res.render('HomePage', {
+		data: {
+			URL: process.env.PRODUCTION_URL,
+		},
+	});
+});
+
 app.use(`${version}/admin`, admin);
 app.use(`${version}/supervisor`, supervisor);
 app.use(`${version}/farmer`, farmer);
@@ -79,6 +99,5 @@ app.get('/pop', (req, res) => {
 	res.render('CropPopup');
 });
 
-app.listen(PORT, () => {
-	console.log('Server Listening on PORT ' + PORT);
-});
+// Server Listening
+app.listen(PORT);

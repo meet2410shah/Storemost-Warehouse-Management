@@ -23,12 +23,13 @@ const admin = async function (req, res) {
 			data: null,
 			error: {
 				code: 1001,
-				msg: "Login again",
+				msg: 'Login again',
 			},
 		});
 	}
-	const data = jwt.verify(token, process.env.SECRET);
-	const userEmail = data.userEmail;
+	let { user } = jwt.verify(token, process.env.SECRET);
+	if (!user) return res.send('ERROR');
+	const userEmail = user.email;
 	if (!userEmail) {
 		errRes.error = {
 			code: 1100,
@@ -37,11 +38,9 @@ const admin = async function (req, res) {
 		return res.send(errRes);
 	}
 
-
-
 	const filter = { email: userEmail };
 	// console.log(userEmail);
-	const user = await Admin.findOne(filter);
+	user = await Admin.findOne(filter);
 	if (!user) {
 		errRes.error = {
 			code: 1101,
@@ -89,6 +88,18 @@ const admin = async function (req, res) {
 	let profile = await Admin.findOneAndUpdate(filter, update);
 
 	profile = await Admin.findOne(filter);
+
+	const updatedToken = jwt.sign(
+		{
+			user: profile,
+		},
+		process.env.SECRET
+	);
+
+	res.clearCookie('token');
+	res.cookie('token', updatedToken);
+
+	return res.redirect('/api/v1/admin/getProfile');
 
 	res.send(
 		_.pick(profile, [

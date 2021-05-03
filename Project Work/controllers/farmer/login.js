@@ -20,9 +20,10 @@ module.exports = async (req, res) => {
 	}
 
 	//  Now find the user by their email address
-	let user = await Farmer.findOne({ email: req.body.userEmail });
+	const { username, password } = req.body;
+	let user = await Farmer.findOne({ email: username });
 	if (!user) {
-		user = await Farmer.findOne({ username: req.body.userEmail });
+		user = await Farmer.findOne({ username: username });
 		if (!user) {
 			return res.send({
 				success: false,
@@ -34,7 +35,7 @@ module.exports = async (req, res) => {
 
 	// Then validate the Credentials in MongoDB match
 	// those provided in the request
-	const validPassword = await bcrypt.compare(req.body.password, user.password);
+	const validPassword = await bcrypt.compare(password, user.password);
 	if (!validPassword) {
 		return res.send({
 			success: false,

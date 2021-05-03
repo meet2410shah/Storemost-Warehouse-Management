@@ -28,7 +28,6 @@ const admin = async function (req, res, error) {
 		});
 	}
 	const { user } = jwt.verify(token, process.env.SECRET);
-	console.log();
 	if (!user) return res.send('ERROR');
 
 	const userEmail = user.email;
@@ -40,32 +39,7 @@ const admin = async function (req, res, error) {
 		return res.send(errRes);
 	}
 
-	const profile = await Admin.findOne({
-		email: userEmail,
-	});
-
-	if (!profile) {
-		errRes.error = {
-			code: 1101,
-			msg: 'User not found  in database',
-		};
-		return res.send(errRes);
-	}
-	const resObj = {
-		success: true,
-		data: _.pick(profile, [
-			'_id',
-			'firstName',
-			'lastName',
-			'username',
-			'password',
-			'email',
-			'mobile',
-		]),
-		error: null,
-	};
-
-	return res.render('./Admin/ViewProfile', {
+	return res.render('./Admin/EditProfile', {
 		data: {
 			URL: process.env.PRODUCTION_URL,
 			admin: user,

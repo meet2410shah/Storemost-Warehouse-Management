@@ -5,6 +5,8 @@ const _ = require('lodash');
 const { Warehouse, Farmer } = require('../../database/models');
 const farmer = require('../../database/models/farmer');
 
+const jwt = require('jsonwebtoken');
+
 function compare(a, b) {
 	if (a.available < b.available) {
 		return -1;
@@ -16,6 +18,22 @@ function compare(a, b) {
 }
 
 const getWarehouses = async function (req, res) {
+	const token = req.cookies.token;
+	// Check the Existance of Token
+	if (!token) {
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1001,
+				msg: 'user not logged in',
+			},
+		});
+	}
+	const { user } = jwt.verify(token, process.env.SECRET);
+
+	if (!user) return res.send('ERROR');
+
 	let errRes = {
 		sucess: false,
 		data: null,
@@ -39,21 +57,46 @@ const getWarehouses = async function (req, res) {
 	const sortObj = {};
 
 	let typ = 1;
-	if (sortfilter.sort == "desc") {
+	if (sortfilter.sort == 'desc') {
 		typ = -1;
 	}
-	sortObj[sortfilter.filter] = sortfilter.sort
+	sortObj[sortfilter.filter] = sortfilter.sort;
 	// console.log(sortObj);
 	let warehouses;
-	if (sortfilter.filter == "storage")
-		warehouses = await Warehouse.find().select({ "warehouseId": 1, "name": 1, "storage": 1, "location": 1, "_id": 0 }).sort(sortObj);
+	if (sortfilter.filter == 'storage')
+		warehouses = await Warehouse.find()
+			.select({ warehouseId: 1, name: 1, storage: 1, location: 1, _id: 0 })
+			.sort(sortObj);
 	else {
 		warehouses = await Warehouse.aggregate([
-			{ $project: { _id: 0, lname: { $toLower: "$name" }, location: 1, storage: 1, name: 1, warehouseId: 1 } },
-			{ $sort: { "lname": typ } },
-			{ $project: { _warehouseId: "$warehouseId", _name: "$name", _storage: "$storage", _location: "$location" } },
-			{ $project: { warehouseId: "$_warehouseId", name: "$_name", storage: "$_storage", location: "$_location" } }]
-		);
+			{
+				$project: {
+					_id: 0,
+					lname: { $toLower: '$name' },
+					location: 1,
+					storage: 1,
+					name: 1,
+					warehouseId: 1,
+				},
+			},
+			{ $sort: { lname: typ } },
+			{
+				$project: {
+					_warehouseId: '$warehouseId',
+					_name: '$name',
+					_storage: '$storage',
+					_location: '$location',
+				},
+			},
+			{
+				$project: {
+					warehouseId: '$_warehouseId',
+					name: '$_name',
+					storage: '$_storage',
+					location: '$_location',
+				},
+			},
+		]);
 	}
 
 	// console.log(warehouses);
@@ -88,7 +131,15 @@ const getWarehouses = async function (req, res) {
 		data: warehouses,
 		error: null,
 	};
-	res.send(resObj);
+	// res.send(resObj);
+
+	return res.render('./Admin/WarehouseList', {
+		data: {
+			URL: process.env.PRODUCTION_URL,
+			warehouses,
+			admin: user,
+		},
+	});
 };
 
 module.exports = getWarehouses;
