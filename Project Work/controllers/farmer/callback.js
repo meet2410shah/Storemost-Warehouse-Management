@@ -55,7 +55,12 @@ module.exports = async (req, res, next) => {
 				console.log('S2S Response: ', response, '\n');
 				const _result = JSON.parse(response);
 				if (_result.STATUS == 'TXN_SUCCESS') {
+
 					const paymentdata = req.cookies.paymentdata;
+					if (!paymentdata) {
+						return res.send("patment faliled");
+					}
+
 					const paymentDetails = jwt.verify(paymentdata, process.env.SECRET);
 					console.log(paymentDetails);
 					const filter = { email: paymentDetails.customerEmail };
@@ -71,10 +76,12 @@ module.exports = async (req, res, next) => {
 						paymentId: _result.TXNID,
 					}
 					let profile = await Farmer.updateOne(filter, { $push: { crops: obj } });
-
-					res.send('payment sucess ');
+					if (!profile) {
+						return res.send("payment failed");
+					}
+						return res.send('payment sucess');
 				} else {
-					res.send('payment failed');
+						return res.send('payment failed');
 				}
 			});
 		});

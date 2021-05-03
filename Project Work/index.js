@@ -30,9 +30,9 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
-// app.get('/pay', function (req, res) {
-// 	res.sendFile(__dirname + "/index.html");
-// });
+app.get('/pay', function (req, res) {
+	res.sendFile(__dirname + "/index.html");
+});
 
 app.listen(PORT, () => {
 	console.log('Server Listening on PORT ' + PORT);

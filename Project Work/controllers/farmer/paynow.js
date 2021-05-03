@@ -4,6 +4,7 @@ const { param } = require('../../routes/admin');
 const checksum_lib = require('../Paytm/checksum');
 const config = require('../Paytm/config');
 const jwt = require('jsonwebtoken');
+const { Farmer, Warehouse } = require('../../database/models');
 
 const PORT = process.env.PORT || 3000;
 const version = process.env.VERSION;
@@ -71,6 +72,7 @@ module.exports = async function (req, res, next) {
 		cropType: paymentDetails.cropType,
 		warehouseId: paymentDetails.warehouseId,
 	});
+
 	if (error) {
 		errRes.error = {
 			code: 1230,
@@ -78,6 +80,42 @@ module.exports = async function (req, res, next) {
 		};
 		return res.send(errRes);
 	}
+
+	let farmer;
+	try {
+		farmer = await Farmer.find({ _id: paymentDetails.farmerId });
+	} catch (MonogoError) {
+		errRes.error = {
+			code: 1230,
+			msg: 'No farmer found with given id',
+		}
+		return res.send(errRes);
+	}
+	if (!farmer) {
+		errRes.error = {
+			code: 1230,
+			msg: 'No farmer found with given id',
+		}
+		return res.send(errRes);
+	}
+	let warehouse;
+	try {
+		warehouse = await Warehouse.find({ _id: paymentDetails.warehouseId });
+	} catch (MonogoError) {
+		errRes.error = {
+			code: 1230,
+			msg: 'No warehouse found given id',
+		}
+		return res.send(errRes);
+	}
+	if (!farmer) {
+		errRes.error = {
+			code: 1230,
+			msg: 'No warehouse found given id',
+		}
+		return res.send(errRes);
+	}
+
 
 	const params = {};
 	params.MID = config.PaytmConfig.mid;
