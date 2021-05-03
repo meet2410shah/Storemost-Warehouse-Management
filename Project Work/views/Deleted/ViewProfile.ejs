@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/Profile.css">
+  </head>
+  <body>
+
+
+            <div class="container ml-0">
+              <h1 id="profile">
+                <b>Profile</b>
+              </h1>
+              <button
+                onClick={this.props.onClick}
+                type="button"
+                class="btn btn-outline-light btn p-2 pr-5 pl-5 js-scroll-trigger"
+                id="editbtn"
+              >
+                <i class="fas fa-pencil-alt"></i> Edit
+              </button>
+            </div>
+
+            <div class="row">
+              <div class="col-3 px-md-5" id="vline">
+                <img src="/images/image.png" alt="Avatar" class="img-thumbnail" id="img" />
+                <!-- {/* <img src={"./logo192.png"} class="img-thumbnail" /> */} -->
+              </div>
+              <div class="col">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="removeLine">
+                        <h5 class="data" id="mkt1">
+                          <b>Name</b>
+                        </h5>
+                      </td>
+
+                      <td class="dataContent removeLine">abcd</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5 class="data">
+                          <b>Mobile</b>
+                        </h5>
+                      </td>
+                      <td class="dataContent">48768971409576</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5 class="data">
+                          <b>Email</b>
+                        </h5>
+                      </td>
+                      <td class="dataContent">abcd@gmail.com</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5 class="data">
+                          <b>Address</b>
+                        </h5>
+                      </td>
+                      <td class="dataContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5 class="data">
+                          <b>DueDate</b>
+                        </h5>
+                      </td>
+                      <td class="dataContent">28/03/2001</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+
+  </body>
+</html>

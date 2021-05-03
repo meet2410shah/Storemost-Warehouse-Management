@@ -1,0 +1,507 @@
+body,html{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat';
+  /* box-sizing: content-box; */
+}
+
+
+
+
+
+
+.topBar{
+    /* font-size: 50px; */
+    /* color: #FFFFFF; */
+    background-color: #0e0e0e;
+    width: 100%;
+    height: 70px;
+    opacity: 0.7;
+    /* position: fixed; */
+    /* z-index: 1; */
+}
+
+.topBar-storeMostLogo{
+    width: 150px;
+    height: 60px;
+    margin-left: 20px;
+    padding-top: 5px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.topBar-openbtn {
+  padding-left: 15px;
+  width: 50px;
+  padding-bottom: 10px;
+  height: 40px;
+
+  /* font-size: 20px; */
+  cursor: pointer;
+  background-color: #111;
+  /* color: white; */
+  padding: 10px 15px;
+  border: none;
+}
+
+.topBar-openbtn:hover {
+  background-color: #444;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sideBar{
+    /* border: 2px  solid rgb(0, 98, 160);*/
+     /* display: flex; */
+     /* min-height: 680px; */
+     border-right: 1px solid grey;
+     /* width: 85px; */
+     width: 50px;
+     height: 100% !important;
+     padding-left: 20px;
+     padding-right: 20px;
+     background-color: #353535;
+     margin-top: 30px;
+     position: fixed;
+     /* z-index: -1; */
+ }
+
+.buttonclass{
+    height: 35px;
+    width: 35px;
+    margin-left: 5px;
+}
+
+.person-image{
+  width: 45px;
+  height: 45px;
+  margin-left: 0px;
+}
+
+.sideLogo{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+
+
+
+
+/* The sidepanel menu */
+.sidepanel {
+  height: 100%; /* Specify a height */
+  width: 0px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 50px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+  /* z-index: -1; */
+
+
+  background-color: #353535;
+  text-align: center;
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  /* padding: 8px 8px 8px 32px; */
+  text-decoration: none;
+  /* font-size: 25px; */
+  /* color: #D3B04F; */
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: #D3B04F;
+  opacity: 0.5;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.closebtn{
+  color: #B89538;
+  margin-top: 10px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+
+
+
+
+
+.sideBox{
+  width: 300px;
+  height: 100%;
+  background-color: #353535;
+  text-align: center;
+}
+
+.userLogo{
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+  width: 200px;
+  height: 190px;
+}
+
+.userName{
+  margin-bottom: 0;
+  margin-top: 10px;
+  color: #D3B04F;
+}
+
+.userDesig{
+  margin-bottom: 25px;
+  color: grey;
+}
+
+.userOptionProfile{
+  width: 45px;
+}
+
+.table td{
+  padding: 0;
+  border-top-width: 0;
+  height: 40px;
+}
+
+.rightBox{
+  text-align: left;
+  color: #fff;
+  padding-top: 15px !important;
+  /* padding-bottom: 5px !important; */
+  border-top-width: 0 !important;
+  font-weight: bold;
+}
+
+.leftBox{
+  padding-left: 30px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  border-top-width: 0 !important;
+}
+
+.table{
+  width: 965px;
+  margin: auto;
+  font-size: 16px;
+  /* font-weight: bold; */
+  margin-left: 0px;
+}
+
+.userOption{
+  height: 30px;
+  width: 30px;
+}
+
+.adjust{
+  padding-top: 0;
+}
+
+.close{
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  margin: 5px;
+}
+
+.sideLogo{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.cropAdjust1{
+  height: 50px;
+  width: 50px;
+  margin-left: 5px;
+}
+
+.cropAdjust{
+  width: 50px;
+  height: 50px;
+}
+
+
+
+
+
+
+
+
+
+.mainBody{
+  width: 100%;
+  height: 90.5%;
+  background-color: #353535;
+}
+
+.container-fluid {
+  background-color: #353535;
+  /* font-family: sans-serif; */
+  color: white;
+  height: 150px;
+  width: auto;
+}
+.navbar {
+  background-color: #353535;
+  /* margin-left: -20px;
+  margin-right: -20px; */
+  margin-bottom: 40px;
+}
+/* .first {
+  margin-top: 1px;
+}
+
+.box {
+  top: 15px;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  margin-top: 10px;
+  background-color: antiquewhite;
+  display: inline-block;
+  margin-left: 15px;
+} */
+/* #mkt1 {
+  top: 259px;
+  left: 449px;
+  width: 97px;
+  height: 39px;
+  text-align: left;
+  font: normal normal 600 32px/32px Trueno;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+} */
+#vline {
+  /* border-right: 2px solid grey; */
+  height: 280px;
+  width: 300px;
+  margin-left: 50px;
+}
+.img-thumbnail {
+  /*top: 259px; */
+  /* left: -200px; */
+  width: 210px;
+  height: 200px;
+  /* height: 228px; */
+  /* background: #d3b04f 0% 0% no-repeat padding-box; */
+  opacity: 1;
+  /* border-radius: 50%; */
+  margin-left: 40px;
+  border: 0;
+  padding: 0;
+  /* margin-left: 119px; */
+}
+.img-thumbnail::before,
+.img-thumbnail::after {
+  position: relative;
+  color: white;
+  height: 3000px;
+}
+
+.data {
+  margin: 1px;
+  position: relative;
+  display: inline-block;
+  color: white;
+}
+
+.colData {
+  border-left: 1px solid grey;
+  margin-left: -1px;
+}
+
+.dataContent {
+  color: white;
+  opacity: 0.5;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  width: 750px;
+}
+/* .mkt {
+  position: relative;
+  top: 10px;
+} */
+/* .col-2 {
+  position: relative;
+  display: block;
+  float: right;
+
+  top: 100px;
+} */
+#mkt1 {
+  margin: 0px;
+}
+#profile {
+  /* position: relative; */
+  /* margin-top: 60px; */
+  /* margin-left: -50px; */
+  width: 149px;
+  height: 87px;
+  font-weight: "90";
+
+  /* text-align: left; */
+  font: normal normal normal 45px "Montserrat";
+  /* normal normal normal 64px/32px DM Serif Text; */
+  letter-spacing: 0.64px;
+  color: #ffffff;
+  opacity: 1;
+
+
+    margin-left: 140px;
+    /* margin-right: 0px; */
+    /* padding-right: 0px; */
+    /* right: 160px; */
+    margin-top: 0px;
+    /* margin-bottom: 20px; */
+    padding-top: 60px;
+}
+#editbtn {
+  position: relative;
+  margin-top: -165px;
+  margin-left: 1000px;
+  width: 163px;
+  height: 57px;
+  border: 1px solid #d3b04f;
+  opacity: 1;
+  margin-bottom: 10px;
+
+  right: 0;
+  left: 200px;
+  top: 15px;
+  padding: 0 !important;
+}
+.table {
+  width: 90%;
+  /* border-top: 0px solid green; */
+  border: none;
+}
+
+.table td{
+    border-top: 2px solid grey;
+}
+
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.edit-profile-fix{
+  padding-bottom: 111px;
+}
+
+
+.form-group{
+  margin-bottom: 0;
+}
+
+.submitButton{
+  /* padding: 20px; */
+  text-align: center;
+  padding-top: 40px;
+  /* background-color: transparent; */
+  text-align: center;
+
+}
+
+.removeLine{
+  border-top-width: 0 !important;
+}
+
+.tableHead{
+  padding-top: 16px !important;
+  padding-bottom: 0 !important;
+}
+
+input{
+  width: 100%;
+  padding: 5px 2px;
+  padding-left: 15px;
+}
+
+.js-scroll-trigger{
+  border: 1px solid #d3b04f;
+}
+
+.row{
+  background-color: #353535;
+  margin-right: 0;
+}
+
+.col{
+  right: 30px;
+  border-left: 2px solid grey;
+  height: 230px;
+}
+
+.table td{
+  height: 40px;
+  vertical-align: middle;
+}
+
+.editCol{
+  height: 290px;
+}
+
+.tableHead{
+  vertical-align: top !important;
+}

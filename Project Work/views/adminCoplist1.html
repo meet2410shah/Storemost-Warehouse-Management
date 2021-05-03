@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="crop.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+
+    <div class = "topBar">
+        <img src = "../public/images/sort.svg" class ="topBar-openbtn" onclick="openNav()"/>
+        <img src = "../public/images/SM-Warehouse-Logo.png" class ="topBar-storeMostLogo"/>
+    </div>
+
+
+
+    <div class = "sideBar">
+            <div class = "sideLogo">
+              <img src = "../public/images/image.png" class = "buttonclass person-image" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "../public/images/inventory.svg" class = "buttonclass" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "../public/images/logout.svg" class = "buttonclass" />
+            </div>
+    </div>
+
+
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <div class="sideBox">
+        <img src="../public/images/image.png" alt="User Logo" class="userLogo">
+        <p class="userName">Abcd Efgh</p>
+        <p class="userDesig">Admin</p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="leftBox"><img src="../public/images/image.png" alt="" class="userOptionProfile"></td>
+              <td class="rightBox adjust"><p>Profile</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="../public/images/inventory.svg" alt="" class="userOption"></td>
+              <td class="rightBox"><p>Warehouses</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="../public/images/logout.svg" alt="" class="userOption"></td>
+              <td class="rightBox"><p>Logout</p></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- <div class = "mainBackground">
+
+
+
+
+
+
+      </div> -->
+
+
+
+
+
+
+
+
+      <div class = "background3">
+          <!--title-->
+          <div>
+              <h1 class = "title3">My Crops</h1>
+          </div>
+
+          <!--Crops List-->
+          <div class = "contenar">
+              <!--1-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html" target="_top" data-toggle="modal" data-target="#myModal">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--2-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--3-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--4-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--5-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--6-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--7-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--8-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--9-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--10-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--11-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--12-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--13-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--14-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--15-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--16-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--17-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--18-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+              <!--19-->
+              <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+               <!--20-->
+               <div class = "contan3">
+                  <p class = "divimg">
+                      <a href="./admin-crop-popup.html">
+                          <img src = "../public/images/crop.png" class = "crop-img"/>
+                      </a>
+                  </p>
+                  <p class = "par3" >Crop XYZ </p>
+                  <p class = "pargraph3" >121 Quintal</p>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="modal" id="myModal">
+        <div class="modal-dialog  modal-xl modal-dialog-centered ">
+          <div class="modal-content farmer-maincon" style="width: 1170px;">
+
+                   <img src="/images/closeButton.png" alt="Close Button" class="close" data-dismiss="modal">
+           
+                    <div class = "contaner">
+                    <!-- Img and name -->
+                        <div class = "img-open-div">
+                             <img src ="/images/crop.png" class ="crop-open-img"/>
+                        </div>
+           
+                        <div class = "div-img-3">
+                            <h1 class = "cropxyz">Crop XYZ</h1><br/>
+                            <!-- <p class = "divbutten">Renew</p> -->
+                            <button type="button" name="button" class="renewButton">Renew</button>
+                        </div>
+                    </div>
+           
+                    <!-- Details -->
+                    <div style="margin-top: 5px;">
+                        <br/>
+                        <div class = "farmer-divhadd">
+                            <h3 class = "farmer-hadd1">Warehouse </h3>
+                            <p class = "farmer-hadd2">Warehouse 3</p>
+                        </div>
+                        <div class = "farmer-divhadd">
+                            <h3 class = "farmer-hadd1">Amount</h3>
+                            <p class = "farmer-hadd2">21 tons</p>
+                        </div>
+                        <div class = "farmer-divhadd">
+                            <h3 class = "farmer-hadd1">Deposit Date</h3>
+                            <p class = "farmer-hadd2">21/11/2020</p>
+                        </div>
+                        <div class = "farmer-divhadd">
+                            <h3 class = "farmer-hadd1">Due Date</h3>
+                            <p class = "farmer-hadd2">01/04/2021</p>
+                        </div>
+                        <div class = "farmer-divhadd someEdit">
+                            <h3 class = "farmer-hadd1">Description</h3>
+                            <p class = "farmer-hadd2 editDescrip">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum </p>
+                        </div>
+                    </div>
+                  
+              
+      
+          </div>
+        </div>
+      </div>
+
+
+    <script src="TopSideBar.js" charset="utf-8"></script>
+
+
+  </body>
+</html>

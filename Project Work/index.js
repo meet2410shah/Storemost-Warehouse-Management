@@ -30,6 +30,48 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
+const warehouseList = require("./testData/WarehouseList")
+const AdminWarehouseList = require("./testData/AdminWarehouseList")
+const FarmerWarehouseList = require("./testData/FarmerWarehouseList")
+const StaffList = require("./testData/StaffList")
+const FarmerList = require("./testData/FarmerList")
+const CropList = require("./testData/CropList")
+const AdminName = require("./testData/AdminName")
+const FarmerName = require("./testData/Farmer")
+
+
+app.get('/view', (req, res) => {
+	res.render("./Farmer/ViewProfile",{Farmer: FarmerName});
+});
+
+app.get('/edit', (req, res) => {
+	res.render("./Farmer/Payment",{Farmer: FarmerName});
+});
+
+app.get('/ware', (req, res) => {
+	res.render("warehouseList",{warehouseList: warehouseList});
+});
+
+app.get('/login', (req, res) => {
+	res.render("Login");
+});
+
+app.get('/adminware', (req, res) => {
+	res.render("./Admin/WarehouseList",{AdminWarehouseList: AdminWarehouseList});
+});
+
+app.get('/farmerware', (req, res) => {
+	res.render("./Farmer/WarehouseList",{FarmerWarehouseList: FarmerWarehouseList});
+});
+
+app.get('/', (req, res) => {
+	res.render("./Farmer/CropList",{Farmer: FarmerName, CropList: CropList});
+});
+
+app.get('/pop', (req, res) => {
+	res.render("CropPopup");
+});
+
 app.listen(PORT, () => {
 	console.log('Server Listening on PORT ' + PORT);
 });

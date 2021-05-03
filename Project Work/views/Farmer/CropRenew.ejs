@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/Farmer/CropRenew.css">
+    <!-- <link rel="stylesheet" href="instantpayment.css"> -->
+
+    <style type="text/css">
+      *,
+      *::before,
+      *::after {
+        box-sizing: content-box !important; // 1
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <div class = "topBar">
+        <img src = "/images/sort.svg" class ="topBar-openbtn" onclick="openNav()"/>
+        <img src = "/images/SM-Warehouse-Logo.png" class ="topBar-storeMostLogo"/>
+    </div>
+
+
+
+    <div class = "sideBar">
+         <!-- <div class = "side-bar-div"> -->
+            <div class = "sideLogo">
+              <img src = "/images/image.png" class = "buttonclass person-image" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "/images/48-512.png" class = "buttonclass cropAdjust1" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "/images/inventory.svg" class = "buttonclass" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "/images/receipt-24px.svg" class = "buttonclass" />
+            </div>
+            <div class = "sideLogo">
+                <img src = "/images/logout.svg" class = "buttonclass" />
+            </div>
+    </div>
+
+
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <div class="sideBox">
+        <img src="/images/image.png" alt="User Logo" class="userLogo">
+        <p class="userName"> <%= Farmer.firstName %> <%= Farmer.lastName %> </p>
+        <p class="userDesig">Farmer</p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="leftBox anotherAdjust"><img src="/images/image.png" alt="" class="userOptionProfile"></td>
+              <td class="rightBox adjust"><p>Profile</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/48-512.png" alt="" class="userOption cropAdjust"></td>
+              <td class="rightBox"><p>My Crops</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/inventory.svg" alt="" class="userOption"></td>
+              <td class="rightBox"><p>Warehouses</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/receipt-24px.svg" alt="" class="userOption"></td>
+              <td class="rightBox"><p>Payment</p></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/logout.svg" alt="" class="userOption"></td>
+              <td class="rightBox"><p>Logout</p></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+<!-- <div class="mainBody">
+
+
+
+
+
+
+</div> -->
+
+
+
+<div class="back newheight">
+    <div class="jumbotron text-center back text-white pt-5" style="padding-bottom: 10px;">
+          <h2 class="white"> PAYMENT OPTIONS </h2>
+    </div>
+    <div class=" container-md mt-4 ">
+         <div class="row " >
+         <div class="col-sm-4 w-100">
+         <div class="card mx-auto text-center  border-top-0 border-bottom-0 border-left-0" >
+             <div class="back">
+              <img src='/images/credit_score.png' class= "img-fluid h-75 rounded-circle p-5 yup disableColor" alt="..." />
+              </div>
+             <div class="card-body   back text-white">
+             <h5 class="text-center card-title font mb-0"> Instant</h5>
+               <h5 class="text-center card-title font"> Payment</h5>
+                <p class="mx-auto text-center w-50 card-text  textcolor mt-2 mb-4">Instantly request for space to store your crop into your wareshouse</p>
+                <a type="button" class=" btn  but btn-dark but butDisable" data-toggle="modal" data-target="#myModal">Select</a>
+              </div>
+
+         </div>
+         </div>
+
+         <div class="col-sm-4 w-100 ">
+         <div class="card  text-center  border-top-0 border-bottom-0 border-left-0" >
+             <div class="back ">
+              <img src='/images/replay.png' class= " img-fluid rounded-circle h-75 p-4 yup imageAdjust" alt="..." />
+              </div>
+             <div class="card-body   back text-white">
+             <h5 class="text-center card-title font mb-0"> Crop</h5>
+               <h5 class="text-center card-title font"> Renewal</h5>
+                <h1 class="mb-0"><select class="form-control w-50 ml-3 back text but pt-1 pb-1" required >
+                    <option value="" disabled selected hidden>Select Crop</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select></h1>
+                  <br/>
+                  <h1 class="mb-0"><select class="form-control w-50 ml-5 back text but2 pt-1 pb-1" required>
+                    <option value="" disabled selected hidden>Select Due Date</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select></h1>
+                  <br/>
+
+                <div class="row mt-0">
+                    <div class="col-sm-6 pt-1 pb-1 pr-0 pl-0"><a type="button" class="btn-lg btn-dark  but text-decoration-none" data-toggle="modal" data-target="#myModal">Proceed</a></div>
+                    <div class="col-sm-5 mr-2 pt-1 pb-1 mt-2 pl-0"><a href="/" class="btn-lg btn-dark  text-decoration-none  ">Cancel</a></div>
+
+                </div>
+              </div>
+
+         </div>
+         </div>
+
+         <div class="col-sm-4 w-100 ">
+         <div class="card  text-center border-0" >
+             <div class="back ">
+              <img src='/images/card_membership.png' class= " img-fluid h-75 rounded-circle p-5 yup yup2 disableColor" alt="..." />
+              </div>
+             <div class="card-body   back text-white">
+               <h5 class="text-center card-title font mb-0"> Advance</h5>
+               <h5 class="text-center card-title font"> Payment</h5>
+                <p class="mx-auto text-center w-50 card-text textcolor mt-2 mb-4">Instantly request for space to store your crop into your wareshouse</p>
+                <a type="button" class=" btn  but btn-dark but butDisable" data-toggle="modal" data-target="#myModal1">Select</a>
+              </div>
+
+         </div>
+         </div>
+
+         </div>
+
+     </div>
+
+ </div>
+
+
+
+
+
+
+
+ <div class="container ">
+
+
+
+   <!-- The Modal -->
+   <div class="modal" id="myModal">
+     <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content back">
+
+         <!-- Modal Header -->
+         <div class="modal-header justify-content-center  mt-4 mb-0 border-0  ">
+ <i class="fa fa-exclamation-circle img-fluid btn-lg"></i>
+           <h4 class="text-center text-light instant3 font-weight-bold" >CONFIRM PAYMENT</h4>
+         </div>
+         <span class="line ml-5 mr-5"></span>
+
+         <!-- Modal body -->
+
+
+         <div class="modal-body mt-4">
+            <h5 class="text-light text-center">Are you sure you want to proceed further?</h5 >
+
+            <div class="row mt-5 mb-4 ">
+               <div class="col-sm-1" ></div>
+               <div class="col-sm-3 mt-2 "><a href="/" class="btn-lg btn-dark but text-decoration-none"  style="font-size: 20px!important;"  data-toggle="modal" data-target="#myModal2">Yes</a></div>
+                  <div class="col-sm-6 "><a type="button"  class=" ml-5 btn-lg btn-dark  text-decoration-none" style="font-size: 20px!important;"   data-dismiss="modal">Cancel</a></div>
+            </div>
+
+         </div>
+
+       </div>
+     </div>
+   </div>
+
+ </div>
+
+
+
+
+
+
+
+ <div class="container ">
+
+
+
+   <!-- The Modal -->
+   <div class="modal" id="myModal2">
+     <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content back">
+
+         <!-- Modal Header -->
+         <div class="modal-header justify-content-center  mt-4 mb-0 border-0  ">
+ <i class="fa fa-exclamation-circle img-fluid btn-lg"></i>
+           <h4 class="text-center text-light instant3 font-weight-bold" >Payment Successful</h4>
+         </div>
+         <span class="line ml-5 mr-5"></span>
+
+         <!-- Modal body -->
+
+
+         <div class="modal-body mt-4">
+            <h5 class="text-light text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elitsExce.</h5 >
+
+            <div class="row mt-5 mb-4 ">
+               <div class="col-sm-1" ></div>
+               <!-- <div class="col-sm-3 mt-2 "><a href="/" class="btn-lg btn-dark but text-decoration-none"  style="font-size: 20px!important;"  >Yes</a></div> -->
+                  <div class="col-sm-6 "><a type="button"  class=" ml-5 btn-lg btn-dark  text-decoration-none" style="font-size: 20px!important;"   data-dismiss="modal">Ok</a></div>
+            </div>
+
+         </div>
+
+       </div>
+     </div>
+   </div>
+
+ </div>
+
+
+
+
+
+    <script src="/css/TopSideBar.js" charset="utf-8"></script>
+
+
+  </body>
+</html>

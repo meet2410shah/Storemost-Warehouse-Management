@@ -1,0 +1,95 @@
+body{
+  background: #353535;
+}
+
+.storeLogo{
+  width: 160px;
+  height: 160px;
+  margin-left: 30px;
+}
+
+.colorChange{
+  color: #D3B04F;
+}
+
+.backButton{
+  height: 55px;
+  width: 55px;
+  /* display: inline-block; */
+  /* margin-bottom: 60px; */
+  padding: 10px;
+}
+
+.heading{
+  display: inline;
+  font-size: 40px;
+  margin-left: 320px;
+  position: relative;
+  top: 10px;
+  color: #fff;
+}
+
+.wareBox{
+  border: 3px solid grey;
+  border-radius: 10px;
+  width: 450px;
+  height: 320px;
+  text-align: left;
+  color: #fff;
+  width: 442px;
+  height: 310px;
+/* margin-left: 20px; */
+}
+
+.boxLeft{
+  width: 130px;
+  padding-left: 25px !important;
+  text-decoration: underline;
+  border-top-width: 0 !important;
+  color: #fff;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.addressBox{
+  /* text-overflow: ellipsis; */
+  height: 67px !important;
+  word-wrap: break-word;
+  overflow-y: hidden !important;
+  /* scrollbar-width: thin; */
+  /* box-sizing: content-box; */
+}
+
+.addressHead{
+  padding-bottom: 38px;
+}
+
+.boxHead{
+  padding-top: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+  margin: 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  /* grid-auto-rows: 100px; */
+  margin-left: 40px;
+  grid-row-gap: 50px;
+  /* grid-column-gap: 0; */
+  margin-top: 25px;
+}
+
+.table{
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.boxRight{
+  border-top-width: 0 !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
