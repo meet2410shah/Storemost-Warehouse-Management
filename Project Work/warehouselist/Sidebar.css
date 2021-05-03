@@ -1,0 +1,37 @@
+.main-slied-bar-div{
+    /* border: 2px  solid rgb(0, 98, 160);*/
+     display: flex;
+     min-height: 680px;
+
+ }
+
+.side-bar-div{
+    /* font-size: 30px; */
+    display: inline;
+   /* border-right: #707070 1px solid;*/
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #353535;
+    padding-top: 45px;
+}
+
+.buttonclass{
+    height: 35px;
+    width: 35px;
+    margin-left: 5px;
+}
+
+.sidebar-link{
+    display: inline;
+}
+
+.details-img{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.person-image{
+  width: 45px;
+  height: 45px;
+  margin-left: 0px;
+}

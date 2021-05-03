@@ -1,0 +1,140 @@
+.main-background{
+    width: 100%;
+    height: 100%;
+    /* border-left: 2px solid #707070; */
+    background: #353535 0% 0% no-repeat padding-box;
+   /* background-attachment: scroll;*/
+   display: inline;
+   float: right;
+}
+.input{
+    margin-top: 2%;
+    /*top: 1300px;*/
+    margin-left: 1.5%;
+    width: 480px;
+    height: 40px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 4.5px;
+    width: 643px;
+    height: 38px;
+}
+
+.admin-name-main-conta{
+    /* margin-left: 6%; */
+    /* margin-top: 100px; */
+    /* padding-top: 100px; */
+    margin-bottom: 40px;
+    height: 150px;
+    width: 1390px;
+   /* border: 2px  solid rgb(221, 77, 77);*/
+    border-bottom: #707070 1px solid;
+    margin-left: 25px;
+}
+
+.wareList{
+    padding-top: 80px;
+    border-left: 2px solid #707070;
+    margin-left: 85px;
+}
+
+.btnsort {
+    font-size: 16px;
+    padding: 8px 25px;
+    border: 0;
+    background-color: #D3B04F;
+    color: #fff;
+    border-radius: 3px;
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+.filterimg{
+    width: 15px;
+    height: 15px;
+    padding-left: 4px;
+}
+
+.searchdiv{
+    display: inline;
+    margin-left: 90px;
+}
+
+.buttendiv{
+    display: inline;
+    padding-left: 550px;
+    margin-right: 20px;
+}
+
+.warehouse-img{
+    display: inline;
+    height: 400px;
+    width: 400px;
+    padding-left: 150px;
+    padding-bottom: 100px;
+    padding-top: 20px;
+    margin: 10px;
+    background: #797979 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    opacity: 0.5;
+}
+
+/**/
+.admin-warehouse-details-div{
+    display: flex;
+    flex-direction: row;
+    margin-top: -50px;
+}
+
+.admin-flex-1st-div{
+    padding-left: 190px;
+    width: 450px;
+    padding-top: 0px;
+}
+
+.admin-flex-2nd-div{
+    padding-left: 150px;
+    width: 250px;
+    color: white;
+    font: normal normal normal 20px/32px Trueno;
+    letter-spacing: 0px;
+    opacity: 1;
+    padding-top: 10px;
+}
+
+.admin-link{
+    color: #D3B04F;
+    margin-top: 15px;
+    /* font: normal normal bold 35px Trueno; */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    /* letter-spacing: 0px; */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.admin-occupied{
+    /* font: normal normal normal 18px Trueno; */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-left: 0px;
+    margin-top: 70px;
+}
+
+.admin-addr{
+    font: normal normal normal 18px 'Montserrat';
+    letter-spacing: 0px;
+    color: #D3B04F;
+}
+
+.admin-addr2{
+    color: #FFFFFF;
+    font: normal normal normal 16px 'Montserrat';
+    letter-spacing: 0px;
+    opacity: 1;
+}

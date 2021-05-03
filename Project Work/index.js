@@ -28,6 +28,8 @@ app.use(`${version}/supervisor`, supervisor);
 app.use(`${version}/farmer`, farmer);
 
 const warehouseList = require("./testData/WarehouseList")
+const AdminWarehouseList = require("./testData/AdminWarehouseList")
+const FarmerWarehouseList = require("./testData/FarmerWarehouseList")
 
 app.get('/view', (req, res) => {
 	res.render("ViewProfile");
@@ -45,8 +47,16 @@ app.get('/login', (req, res) => {
 	res.render("Login");
 });
 
+app.get('/adminware', (req, res) => {
+	res.render("AdminWarehouseList",{AdminWarehouseList: AdminWarehouseList});
+});
+
+app.get('/farmerware', (req, res) => {
+	res.render("FarmerWarehouseList",{FarmerWarehouseList: FarmerWarehouseList});
+});
+
 app.get('/', (req, res) => {
-	res.render("farmer-crop-popup");
+	res.render("supervisor-staff");
 });
 
 app.listen(PORT, () => {
