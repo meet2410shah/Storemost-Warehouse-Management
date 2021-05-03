@@ -30,6 +30,10 @@ app.use(`${version}/farmer`, farmer);
 const warehouseList = require("./testData/WarehouseList")
 const AdminWarehouseList = require("./testData/AdminWarehouseList")
 const FarmerWarehouseList = require("./testData/FarmerWarehouseList")
+const StaffList = require("./testData/StaffList")
+const FarmerList = require("./testData/FarmerList")
+const CropList = require("./testData/CropList")
+const AdminName = require("./testData/AdminName")
 
 app.get('/view', (req, res) => {
 	res.render("ViewProfile");
@@ -48,7 +52,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/adminware', (req, res) => {
-	res.render("AdminWarehouseList",{AdminWarehouseList: AdminWarehouseList});
+	res.render("./Admin/WarehouseList",{AdminWarehouseList: AdminWarehouseList});
 });
 
 app.get('/farmerware', (req, res) => {
@@ -56,7 +60,11 @@ app.get('/farmerware', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-	res.render("supervisor-staff");
+	res.render("./Admin/CropList",{Admin: AdminName, CropList: CropList});
+});
+
+app.get('/pop', (req, res) => {
+	res.render("CropPopup");
 });
 
 app.listen(PORT, () => {

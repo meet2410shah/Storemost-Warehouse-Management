@@ -6,7 +6,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/AdminWarehouseList.css">
+    <link rel="stylesheet" href="/css/Admin/StaffList.css">
   </head>
   <body>
 
@@ -37,7 +37,7 @@
       >
       <div class="sideBox">
         <img src="/images/image.png" alt="User Logo" class="userLogo">
-        <p class="userName">Abcd Efgh</p>
+        <p class="userName"> <%= Admin.firstName %> <%= Admin.lastName %> </p>
         <p class="userDesig">Admin</p>
 
         <table class="table">
@@ -66,76 +66,46 @@
 
 
 
-    <div class = "mainBackground">
+<!--Staff and Farmer butten-->
+<div class = "staff-main-div">
+    <div class = "staffcustomers-div">
+        <a href="./admin-staff.html" class = "title sectionSelected">Staff</a>
+        <a href="./admin-farmerlist.html" class = "title">Farmers</a>
+    </div>
 
+      <div class = "background">
+            <br/>
+            <!--Result-->
 
-
-
-
-
-      <div class = "searchdiv">
-          <input type = "text" class = "input"/>
-      </div>
-      <div class = "buttendiv">
-          <button class = "btnsort">
-              Filter<img src = "/images/filter.svg" class ="filterimg"/>
-          </button>
-          <button class = "btnsort">
-              Sort<img src = "/images/sort.svg" class ="filterimg"/>
-          </button>
-      </div>
-
-
-      <div class="wareList">
-
-
-        <% AdminWarehouseList.forEach(function(ware) { %>
-
-
-
-        <div class = "admin-name-main-conta">
-             <div class = "warehouse-img">
+            <div class = "main-div-for-line">
+             <div class = "admin-namediv">
+                <h1 class = "admin-hade1">Name</h1>
+                <h1 class = "admin-hade2">Position</h1>
+                <h1 class = "admin-hade3">Contact</h1>
              </div>
-             <div class = "admin-warehouse-details-div">
-             <div class = "admin-flex-1st-div">
-                 <h1 class="admin-link">Warehouse <%= ware.warehouseId %></h1>
-                 <p class = "admin-occupied"> <%= ware.occupied %> occupied</p>
-            </div>
-            <div class = "admin-flex-2nd-div">
-                 <h2 class = "admin-addr"> Address: </h2>
-                 <h2 class = "admin-addr2"> <%= ware.address %> </h2>
-            </div>
-        </div>
-        </div>
+                <br/>
 
 
-        <% }); %>
+                <% StaffList.forEach(function(staff) { %>
 
 
-        <!-- <div class = "admin-name-main-conta">
-             <div class = "warehouse-img">
-             </div>
-             <div class = "admin-warehouse-details-div">
-             <div class = "admin-flex-1st-div">
-                 <h2 class="-admin-link">Warehouse</h2>
-                 <p class = "admin-occupied"> 18% occupied</p>
-            </div>
-            <div class = "admin-flex-2nd-div">
-                 <h2 class = "admin-addr"> Address: </h2>
-                 <h2 class = "admin-addr2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</h2>
+
+                <div class = "admin-main-contan">
+                    <h2 class = "admin-pargra" > <%= staff.firstName %> <%= staff.lastName %> </h2>
+                    <h2 class = "admin-pargra paradjust" > <%= staff.role %> </h2>
+                    <h2 class = "admin-pargra22" > <%= staff.mobile %> </h2>
+                </div>
+
+
+                <% }); %>
+
             </div>
         </div>
-        </div> -->
-
-
-        </div>
-
-        </div>
+    </div>
 
 
 
-
-    <script src="TopSideBar.js" charset="utf-8"></script>
+    <script src="/css/TopSideBar.js" charset="utf-8"></script>
 
 
   </body>
