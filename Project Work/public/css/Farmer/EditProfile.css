@@ -490,7 +490,7 @@ input{
 .col{
   right: 30px;
   border-left: 2px solid grey;
-  height: 230px;
+  height: auto;
 }
 
 .table td{
@@ -499,7 +499,7 @@ input{
 }
 
 .editCol{
-  height: 290px;
+  height: auto;
 }
 
 .tableHead{

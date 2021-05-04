@@ -473,7 +473,7 @@ input{
 .col{
   right: 30px;
   border-left: 2px solid grey;
-  height: 230px;
+  height: auto;
 }
 
 .table td{

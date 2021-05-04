@@ -40,45 +40,60 @@ module.exports = async (req, res) => {
 		});
 	}
 
-	// Insert the new Farmer
-	let farmer = new Farmer(
-		_.pick(req.body, [
-			'firstName',
-			'lastName',
-			'username',
-			'password',
-			'email',
-			'mobile',
+
+	// Insert the new user if they do not exist yet
+	let data = req.body;
+
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+		dd = '0' + dd;
+	}
+	if (mm < 10) {
+		mm = '0' + mm;
+	}
+	today = dd + '/' + mm + '/' + yyyy;
+	data['registerDate'] = today;
+
+	console.log(data);
+	let user = new Farmer(
+		_.pick(data, [
+			"firstName",
+			"lastName",
+			"username",
+			"password",
+			"email",
+			"mobile",
+			"registerDate"
 		])
 	);
-
-	// Encrypt the password
 	const salt = await bcrypt.genSalt(10);
-	farmer.password = await bcrypt.hash(farmer.password, salt);
+	user.password = await bcrypt.hash(user.password, salt);
+	await user.save();
 
-	// Save the Farmer in the Database
-	const response = await farmer.save();
+	const token = jwt.sign(
+		{
+			user: user,
+			role: "farmer",
+		},
+		process.env.SECRET
+	);
+	res.clearCookie('token');
+	res.cookie('token', token);
 
-	// Database Error
-	if (!response) {
-		return res.send({
-			success: false,
-			data: null,
-			error: { code: 1100, msg: 'Database Error' },
-		});
-	}
-
-	// Return Successfully
-	return res.send({
+	res.send({
 		success: true,
-		data: _.pick(farmer, [
-			'_id',
-			'firstName',
-			'lastName',
-			'username',
-			'password',
-			'email',
-			'mobile',
+		data: _.pick(user, [
+			"_id",
+			"firstName",
+			"lastName",
+			"username",
+			"password",
+			"email",
+			"mobile",
+			"registerDate"
 		]),
 		error: null,
 	});

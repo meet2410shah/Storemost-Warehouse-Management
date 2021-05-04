@@ -63,6 +63,8 @@ module.exports = async (req, res, next) => {
 
 					const paymentDetails = jwt.verify(paymentdata, process.env.SECRET);
 					console.log(paymentDetails);
+					res.clearCookie('paymenrdata');
+
 					const filter = { email: paymentDetails.customerEmail };
 					const obj = {
 						cropType: paymentDetails.cropType,
@@ -70,18 +72,18 @@ module.exports = async (req, res, next) => {
 						quantity: paymentDetails.quantity,
 						depositDate: paymentDetails.depositDate,
 						dueDate: paymentDetails.dueDate,
-						description: "",
+						description: paymentDetails.description,
 						amount: paymentDetails.amount,
 						orderId: paymentDetails.orderId,
 						paymentId: _result.TXNID,
 					}
 					let profile = await Farmer.updateOne(filter, { $push: { crops: obj } });
 					if (!profile) {
-						return res.send("payment failed");
+						return res.redirect('/api/v1/farmer/getPayment');
 					}
-						return res.send('payment sucess');
+					return res.redirect('/api/v1/farmer/getCrops');;
 				} else {
-						return res.send('payment failed');
+					return res.redirect('/api/v1/farmer/getPayment');
 				}
 			});
 		});

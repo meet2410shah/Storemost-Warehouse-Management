@@ -343,7 +343,7 @@ body,html{
 
 .buttendiv{
     display: inline;
-    padding-left: 500px;
+    padding-left: 400px;
     margin-right: 20px;
 }
 
@@ -409,7 +409,7 @@ body,html{
     /* text-transform: uppercase; */
     /* opacity: 0.5; */
     margin-left: 0px;
-    margin-top: 55px;
+    margin-top: 20px;
 }
 
 .admin-addr{
