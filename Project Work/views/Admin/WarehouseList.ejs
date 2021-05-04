@@ -75,16 +75,43 @@
 		</div>
 
 		<div class="mainBackground">
-			<div class="searchdiv">
-				<input type="text" class="input" />
-			</div>
-			<div class="buttendiv">
-				<button class="btnsort">
-					Filter<img src="/images/filter.svg" class="filterimg" />
-				</button>
-				<button class="btnsort">
-					Sort<img src="/images/sort.svg" class="filterimg" />
-				</button>
+			<div class="function-bar">
+				<div class="searchdiv">
+					<form action="" method="" style="display: flex; flex-direction: row">
+						<input
+							type="text"
+							class="input"
+							style="
+								height: 30px;
+								width: 400px;
+								margin-top: 10px;
+								margin-right: 10px;
+							"
+						/>
+						<button type="submit" class="btnsort">Search</button>
+					</form>
+				</div>
+				<div class="buttendiv">
+					<form action="/api/v1/admin/getWarehouses" method="GET">
+						<label class="btntype"
+							>Filter<img src="/images/filter.svg" class="filterimg"
+						/></label>
+						<select name="filter" class="btnsort">
+							<option value="name">Name</option>
+							<option value="storage">Storage</option>
+							<option value="available">Available</option>
+						</select>
+
+						<label class="btntype"
+							>Sort<img src="/images/sort.svg" class="filterimg"
+						/></label>
+						<select name="sort" class="btnsort">
+							<option value="asc">Ascending</option>
+							<option value="desc">Descending</option>
+						</select>
+						<button type="submit" class="btnsort">Compile</button>
+					</form>
+				</div>
 			</div>
 
 			<div class="wareList">
@@ -93,12 +120,14 @@
 					<div class="warehouse-img"></div>
 					<div class="admin-warehouse-details-div">
 						<div class="admin-flex-1st-div">
-							<h1 class="admin-link">Warehouse <%= warehouse.warehouseId %></h1>
-							<p class="admin-occupied"><%= warehouse.occupied %> occupied</p>
+							<h1 class="admin-link">
+								Warehouse <%= warehouse.warehouseId %> : <%= warehouse.name %>
+							</h1>
+							<p class="admin-occupied"><%= warehouse.available %> available</p>
 						</div>
 						<div class="admin-flex-2nd-div">
 							<h2 class="admin-addr">Address:</h2>
-							<h2 class="admin-addr2"><%= warehouse.address %></h2>
+							<h2 class="admin-addr2"><%= warehouse.location.address %></h2>
 						</div>
 					</div>
 				</div>
