@@ -4,19 +4,9 @@ const { Admin } = require('../../database/models/');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 
-// validate user
-const admin = async function (req, res, error) {
-	let errRes = {
-		sucess: false,
-		data: null,
-		error: {
-			code: 1100,
-			msg: 'Email not added in request',
-		},
-	};
-
-	const token = req.cookies.token;
+module.exports = async function (req, res, error) {
 	// Check the Existance of Token
+	const token = req.cookies.token;
 	if (!token) {
 		return res.send({
 			success: false,
@@ -27,52 +17,50 @@ const admin = async function (req, res, error) {
 			},
 		});
 	}
-	const { user } = jwt.verify(token, process.env.SECRET);
-	console.log();
-	if (!user) return res.send('ERROR');
 
+	// Generate the User
+	const { user } = jwt.verify(token, process.env.SECRET);
+	if (!user) {
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1002,
+				msg: 'User not Verified',
+			},
+		});
+	}
+
+	// Check User Email or Username
 	const userEmail = user.email;
 	if (!userEmail) {
-		errRes.error = {
-			code: 1100,
-			msg: 'login again',
-		};
-		return res.send(errRes);
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1100,
+				msg: 'Email/Username not Available',
+			},
+		});
 	}
 
-	const profile = await Admin.findOne({
-		email: userEmail,
-	});
-
+	// Get Profile
+	const profile = await Admin.findOne({ email: userEmail });
 	if (!profile) {
-		errRes.error = {
-			code: 1101,
-			msg: 'User not found  in database',
-		};
-		return res.send(errRes);
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1101,
+				msg: 'User not found in database',
+			},
+		});
 	}
-	const resObj = {
-		success: true,
-		data: _.pick(profile, [
-			'_id',
-			'firstName',
-			'lastName',
-			'username',
-			'password',
-			'email',
-			'mobile',
-		]),
-		error: null,
-	};
 
 	return res.render('./Admin/ViewProfile', {
 		data: {
 			URL: process.env.PRODUCTION_URL,
-			admin: user,
+			admin: profile,
 		},
 	});
-
-	// res.send(resObj);
 };
-
-module.exports = admin;
