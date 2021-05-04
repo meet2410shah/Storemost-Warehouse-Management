@@ -11,12 +11,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
   <link rel="stylesheet" href="/css/HomePage.css">
 </head>
 
 <body>
-
   <div class="header">
     <header>
       <nav class="navbar navbar-style">
@@ -27,24 +25,18 @@
           <ul class="nav navbar-right mr-5 text-light mb-1">
             <li class="nav-item"><a class="nav-link but" href="">Contact</a></li>
             <li class="nav-item"><a class="nav-link but" href="">About Us</a></li>
-
           </ul>
-
         </div>
       </nav>
-
       <div class="container-fluid mt-5">
         <div class="row ml-5 mr-5 mb-5 mt-0">
           <div class="col col-sm-6 extraPadding">
-
             <label for="modal-toggle"><img class="d-inline img-fluid" style="cursor: pointer;"
                 src="/images/machine.svg"></img>
               <h1 class="square"></h1>
             </label>
-
           </div>
           <div class="col col-sm-5 text-light ml-5 ">
-
             <span class="font-weight-bold d3">we<span class="square1 ml-4"></span><span
                 class="square2 ml-1"></span><span class="square4 ml-4"></span><span
                 class="square7 ml-4"></span></span><br />
@@ -53,14 +45,9 @@
             <span class="font-weight-bold d3">your<span class="square3 ml-1"></span></span>
             <br />
             <span class="font-weight-bold d3 mt-0 ml-4">resouces<span class="square6 ml-1"></span></span>
-
           </div>
-
         </div>
-
-
       </div>
-
       <div class="container-fluid ml-5 ">
         <div class="row text-center align-self-start ml-5 ">
           <div class="col-sm-2 bor">
@@ -69,7 +56,6 @@
             <div class="rt-container">
               <div class="col-rt-12">
                 <div class="Scriptcontent">
-
                   <input id="modal-toggle" type="checkbox" />
                   <label class="modal-backdrop" for="modal-toggle"></label>
                   <div class="modal-content container">
@@ -81,28 +67,28 @@
                           <center>
                             <button class="google-button">
                               <img src="/images/google.svg" style="
-                                        background-color: white;
-                                        padding: 5px;
-                                        border-radius: 100px;
-                                        margin-right: 10px;
-                                      " />Sign in with Google
+                                  background-color: white;
+                                  padding: 5px;
+                                  border-radius: 100px;
+                                  margin-right: 10px;
+                                " />Sign in with Google
                             </button>
                           </center>
                         </div>
                         <div style="text-align: center; color: white; padding-bottom: 5%">
                           <hr style="
-                                    float: left;
-                                    width: 45%;
-                                    border-color: rgb(117, 119, 117);
-                                  " />
+                              float: left;
+                              width: 45%;
+                              border-color: rgb(117, 119, 117);
+                            " />
                           or
                           <hr style="
-                                    float: right;
-                                    width: 45%;
-                                    border-color: rgb(117, 119, 117);
-                                  " />
+                              float: right;
+                              width: 45%;
+                              border-color: rgb(117, 119, 117);
+                            " />
                         </div>
-                        <form action="<%= data.URL %>/farmer/login" method="POST">
+                        <form action="<%= data.URL %>/admin/login" method="POST">
                           <label style="display: flex; float: left; color: white">Email</label>
                           <input type="text" name="email" placeholder="johndoe2gmail.com" required
                             style="background-color: #464545" />
@@ -113,25 +99,21 @@
 
                           <input type="submit" value="SIGN IN" />
                         </form>
-
                         <div style="color: white; margin: 4% 0% 2% 0%">
                           New to StoreMost?
                         </div>
                         <label for="tab-2" class="sign-up-link">Sign Up</label>
-                        <!-- <a href="#" class="sign-up-link">Sign Up</a> -->
                       </div>
-
-                      <!--  SIGN UP  -->
                       <input class="radio" id="tab-2" name="tabs-name" type="radio" />
                       <label for="tab-2" class="table"><span>SIGN UP</span></label>
                       <div class="tabs-content">
                         <form action="">
                           <label style="
-                                    display: flex;
-                                    float: left;
-                                    color: white;
-                                    margin-top: 1%;
-                                  ">Name</label>
+                              display: flex;
+                              float: left;
+                              color: white;
+                              margin-top: 1%;
+                            ">Name</label>
                           <input type="name" placeholder="John Doe" required style="background-color: #464545" />
 
                           <label style="display: flex; float: left; color: white">Email</label>
@@ -147,24 +129,19 @@
                             style="background-color: #464545; margin-bottom: 0" />
                           <input type="password" placeholder="Confirm Password" required
                             style="background-color: #464545" />
-
                           <input type="submit" value="SIGN IN" />
                         </form>
-
                         <div style="color: white; margin: 0% 0% 2% 0%">
                           Already have an Account?
                         </div>
                         <label for="tab-1" class="sign-up-link">Sign in</label>
-                        <!-- <a href="#" class="sign-up-link">Sign in </a> -->
                       </div>
                     </div>
                   </div>
-                  <!-- partial -->
                 </div>
               </div>
             </div>
           </div>
-
           <div class="col-sm-2 align-self-center bor">
             <label type="button" class="d  text-light font-weight-bold pt-1" for="modal-toggle">Log in as
               Supervisor</label>
@@ -172,8 +149,6 @@
           <div class="col-sm-6 text-center pt-2">
             <a href="www.google.com" class="text-light text-decoration-none">Actively operating over 21 warehouses</a>
           </div>
-
-
         </div>
         <div class="m-3">
           <a href="www.google.com" class=" d1 m-5">View NearBy Warehouses</a>

@@ -48,7 +48,7 @@ const admin = async function (req, res) {
 		};
 		return res.send(errRes);
 	}
-	var arr = ['firstName', 'lastName', 'username', 'email', 'mobile'];
+	var arr = ['firstName', 'lastName', 'username', 'email', 'mobile', 'address'];
 
 	let update = {};
 	for (var i = 0; i < arr.length; i++) {
@@ -60,7 +60,7 @@ const admin = async function (req, res) {
 		}
 	}
 
-	// console.log(update);
+	//  console.log(update);
 	if (req.body.password) {
 		if (req.body['password'] !== req.body['confirmPassword']) {
 			errRes.error = {
@@ -86,6 +86,8 @@ const admin = async function (req, res) {
 
 	// `doc` is the document _before_ `update` was applied
 	let profile = await Admin.findOneAndUpdate(filter, update);
+
+	console.log(profile);
 
 	profile = await Admin.findOne(filter);
 

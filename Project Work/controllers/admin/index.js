@@ -25,7 +25,3 @@ module.exports = {
 	listStaffByWarehouseId,
 	logout,
 };
-
-// error-> err
-//payment
-// farmer list in admin

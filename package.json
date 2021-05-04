@@ -1,0 +1,20 @@
+{
+	"name": "13-warehouse-management",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./'Project Work'/index.js",
+	"scripts": {
+		"start": "cd 'Project Work' && npm install && nodemon",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/meet2410shah/13-warehouse-management.git"
+	},
+	"author": "MEET",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/meet2410shah/13-warehouse-management/issues"
+	},
+	"homepage": "https://github.com/meet2410shah/13-warehouse-management#readme"
+}
