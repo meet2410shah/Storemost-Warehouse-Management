@@ -1,11 +1,24 @@
 const bcrypt = require('bcrypt');
+const _ = require('lodash');
 const { Supervisor } = require('../../database/models/');
-const { errorCustom } = require('../error/error');
-const { profileValidate } = require('./profileValidate');
+const { validate } = require('./validateRegister');
+const { validatewp } = require('./validatewp');
 const jwt = require('jsonwebtoken');
-// const { errorCustom } = require('../error/error');
 
-const editProfile = async (req, res) => {
+const editProf = async function (req, res) {
+
+
+	console.log(req.body);
+
+	
+	let errRes = {
+		sucess: false,
+		data: null,
+		error: {
+			code: 1100,
+			msg: 'Email not added in request',
+		},
+	};
 
 	const token = req.cookies.token;
 	// Check the Existance of Token
@@ -15,90 +28,97 @@ const editProfile = async (req, res) => {
 			data: null,
 			error: {
 				code: 1001,
-				msg: "User Does'nt exists",
+				msg: 'Login again',
 			},
 		});
 	}
-
-	// Check if Token is not corrupted
-	try {
-		const data = jwt.verify(token, process.env.SECRET);
-		const userId = data.userId;
-		Supervisor.findOne({ _id: userId }, (err, data) => {
-			// Check if there is an error from mongoose or not
-			if (err) {
-				return res.send({
-					success: false,
-					data: null,
-					error: {
-						code: 1003,
-						msg: 'Database Error',
-					},
-				});
-			}
-
-
-
-	const { error } = profileValidate(req.body);
-
-	if (error) {
-		console.log(error);
-		const errorBlock = errorCustom(
-			error.details[0].path[0],
-			error.details[0].type
-		);
-		return res.send({ status: 'Fail', data: null, error: errorBlock });
+	let { user } = jwt.verify(token, process.env.SECRET);
+	if (!user) return res.send('ERROR');
+	const userEmail = user.email;
+	if (!userEmail) {
+		errRes.error = {
+			code: 1100,
+			msg: 'User not logged in',
+		};
+		return res.send(errRes);
 	}
 
-	// const userName = await Supervisor.findOne({ username: req.body.username });
-	//
-	// if (userName != null) {
-	// 	return res.send({
-	// 		status: 'Fail',
-	// 		data: null,
-	// 		error: { errCode: 1021, msg: 'This username has already been taken.' },
-	// 	});
-	// }
+	const filter = { email: userEmail };
+	// console.log(userEmail);
+	user = await Supervisor.findOne(filter);
+	if (!user) {
+		errRes.error = {
+			code: 1101,
+			msg: 'User not found  in database',
+		};
+		return res.send(errRes);
+	}
+	var arr = ['firstName', 'lastName', 'username', 'email', 'mobile', 'address'];
 
-	// let user = await Supervisor.findOne({ email: req.body.email });
-	// if (user) {
-	// 	return res.send({
-	// 		status: 'Fail',
-	// 		data: null,
-	// 		error: { errCode: 1022, msg: 'User already exists' },
-	// 	});
-	// }
-
-	const salt = bcrypt.genSalt(10);
-	req.body.password = bcrypt.hash(req.body.password, salt);
-
-	const update = Supervisor.updateOne(
-		{ email: data.email },
-		{
-			$set: {
-				firstName: req.body.firstName,
-				lastName: req.body.lastName,
-				mobile: req.body.mobile,
-				warehouseId: req.body.warehouseId,
-				// email: req.body.email,
-				password: user.password,
-			},
+	let update = {};
+	for (var i = 0; i < arr.length; i++) {
+		// console.log(req.body[arr[i]]);
+		if (req.body[arr[i]]) {
+			update[arr[i]] = req.body[arr[i]];
+		} else {
+			update[arr[i]] = user[arr[i]];
 		}
+	}
+
+	//  console.log(update);
+	if (req.body.password) {
+		if (req.body['password'] !== req.body['confirmPassword']) {
+			errRes.error = {
+				code: 1102,
+				msg: 'confirm Password not match',
+			};
+			return res.send(errRes);
+		}
+		update.password = req.body['password'];
+		// console.log(update);
+		const { error } = validate(update);
+		if (error) {
+			return res.status(400).send(error.details[0].message);
+		}
+		const salt = await bcrypt.genSalt(10);
+		update.password = await bcrypt.hash(update.password, salt);
+	} else {
+		const { error } = validatewp(update);
+		if (error) {
+			return res.status(400).send(error.details[0].message);
+		}
+	}
+
+	// `doc` is the document _before_ `update` was applied
+	let profile = await Supervisor.findOneAndUpdate(filter, update);
+
+	console.log(profile);
+
+	profile = await Supervisor.findOne(filter);
+
+	const updatedToken = jwt.sign(
+		{
+			user: profile,
+		},
+		process.env.SECRET
 	);
 
-	res.send(update);
+	res.clearCookie('token');
+	res.cookie('token', updatedToken);
 
-});
-}catch (err) {
-return res.send({
-	success: false,
-	data: null,
-	error: {
-		code: 1002,
-		msg: 'Token is Corrupted',
-	},
-});
-}
+	return res.redirect('/api/v1/supervisor/getProfile');
+
+	res.send(
+		_.pick(profile, [
+			'_id',
+			'firstName',
+			'lastName',
+			'username',
+			'password',
+			'email',
+			'mobile',
+		])
+	);
 };
 
-exports.editProfile = editProfile;
+module.exports = editProf;

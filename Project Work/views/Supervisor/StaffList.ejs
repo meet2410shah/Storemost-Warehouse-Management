@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/Supervisor/StaffList.css">
+  </head>
+  <body>
+
+
+    <div class = "topBar">
+        <img src = "/images/sort.svg" class ="topBar-openbtn" onclick="openNav()"/>
+        <img src = "/images/SM-Warehouse-Logo.png" class ="topBar-storeMostLogo"/>
+    </div>
+
+
+
+    <div class = "sideBar">
+      <div class = "sideLogo">
+        <a href="<%= data.URL %>/supervisor/getProfile"
+        style="text-decoration: none; color: #fff">
+        <img src = "/images/image.png" class = "buttonclass person-image" />
+        </a>
+      </div>
+      <div class = "sideLogo">
+        <a href="<%= data.URL %>/supervisor/getFarmers"
+        style="text-decoration: none; color: #fff">
+          <img src = "/images/recent_actors-24px.svg" class = "buttonclass" />
+        </a>
+      </div>
+      <div class = "sideLogo">
+        <a href="<%= data.URL %>/supervisor/getStaff"
+        style="text-decoration: none; color: #fff">
+          <img src = "/images/groups-24px.svg" class = "buttonclass" />
+          </a>
+      </div>
+      <div class = "sideLogo">
+        <a href="<%= data.URL %>/supervisor/logout"
+        style="text-decoration: none; color: #fff">
+          <img src = "/images/logout.svg" class = "buttonclass" />
+          </a>
+      </div>
+    </div>
+
+
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <div class="sideBox">
+        <img src="/images/image.png" alt="User Logo" class="userLogo">
+        <p class="userName">
+          <% if(data) { %> <%= data.supervisor.firstName %> <%= data.supervisor.lastName
+					%> <% } %>
+        </p>
+        <p class="userDesig">Supervisor</p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="leftBox"><img src="/images/image.png" alt="" class="userOptionProfile"></td>
+              <td class="rightBox adjust">
+                <a
+									href="<%= data.URL %>/supervisor/getProfile"
+									style="text-decoration: none; color: #fff"
+									><p>Profile</p></a></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/recent_actors-24px.svg" alt="" class="userOption"></td>
+              <td class="rightBox">
+                <a
+									href="<%= data.URL %>/supervisor/getFarmers"
+									style="text-decoration: none; color: #fff"
+									><p>Farmer List</p></a></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/groups-24px.svg" alt="" class="userOption"></td>
+              <td class="rightBox">
+                <a
+									href="<%= data.URL %>/supervisor/getStaff"
+									style="text-decoration: none; color: #fff"
+									><p>Staff</p></a></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/logout.svg" alt="" class="userOption"></td>
+              <td class="rightBox">
+                <a
+									href="<%= data.URL %>/supervisor/logout"
+									style="text-decoration: none; color: #fff"
+									><p>Logout</p></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+<!--Staff and Farmer butten-->
+<div class = "staff-main-div">
+    <div class = "staffcustomers-div">
+        <a href="./admin-staff.html" class = "title sectionSelected">Staff</a>
+        <a href="./admin-farmerlist.html" class = "title">Farmers</a>
+    </div>
+
+      <div class = "background">
+            <br/>
+            <!--Result-->
+
+            <div class = "main-div-for-line">
+             <div class = "admin-namediv">
+                <h1 class = "admin-hade1">Name</h1>
+                <h1 class = "admin-hade2">Position</h1>
+                <h1 class = "admin-hade3">Contact</h1>
+             </div>
+                <br/>
+
+
+
+
+                <% if(data) { %> <% data.list.forEach(function(staff) { %>
+
+
+
+                <div class = "admin-main-contan">
+                    <h2 class = "admin-pargra" > <%= staff.firstName %> <%= staff.lastName %> </h2>
+                    <h2 class = "admin-pargra paradjust" > <%= staff.role %> </h2>
+                    <h2 class = "admin-pargra22" > <%= staff.mobile %> </h2>
+                </div>
+
+
+                <% }); %>
+                <% }; %>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="/css/TopSideBar.js" charset="utf-8"></script>
+
+
+  </body>
+</html>

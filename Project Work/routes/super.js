@@ -1,17 +1,23 @@
 const router = require('express').Router();
 
-const { registerSuper } = require('../controllers/supervisor/register');
-const { farmerList } = require('../controllers/supervisor/farmerList');
-const { getProfile } = require('../controllers/supervisor/getProfile');
-const { editProfile } = require('../controllers/supervisor/editProfile');
-const { staffList } = require('../controllers/supervisor/staffList');
-const { login } = require('../controllers/supervisor/login');
+const {
+	register,
+	login,
+	editProfile,
+	getProfile,
+  getEditProfile,
+	logout,
+  getFarmers,
+  getStaff
+} = require('../controllers/supervisor');
 
-router.post('/register', registerSuper);
+router.post('/register', register);
 router.post('/login', login);
-router.get('/farmerList', farmerList);
+router.get('/getFarmers', getFarmers);
 router.get('/getProfile', getProfile);
 router.post('/editProfile', editProfile);
-router.get('/staffList', staffList);
+router.get('/getEditProfile', getEditProfile);
+router.get('/getStaff', getStaff);
+router.get('/logout', logout);
 
 module.exports = router;

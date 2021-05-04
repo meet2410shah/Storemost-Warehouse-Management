@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+			crossorigin="anonymous"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/css/Admin/EditProfile.css" />
+
+		<style type="text/css">
+			*,
+			*::before,
+			*::after {
+				box-sizing: content-box !important; // 1
+			}
+		</style>
+	</head>
+	<body>
+		<div class="topBar">
+			<img src="/images/sort.svg" class="topBar-openbtn" onclick="openNav()" />
+			<img src="/images/SM-Warehouse-Logo.png" class="topBar-storeMostLogo" />
+		</div>
+
+		<div class="sideBar">
+			<div class = "sideLogo">
+				<a href="<%= data.URL %>/supervisor/getProfile"
+				style="text-decoration: none; color: #fff">
+				<img src = "/images/image.png" class = "buttonclass person-image" />
+				</a>
+			</div>
+			<div class = "sideLogo">
+				<a href="<%= data.URL %>/supervisor/getFarmers"
+				style="text-decoration: none; color: #fff">
+					<img src = "/images/recent_actors-24px.svg" class = "buttonclass" />
+				</a>
+			</div>
+			<div class = "sideLogo">
+				<a href="<%= data.URL %>/supervisor/getStaff"
+				style="text-decoration: none; color: #fff">
+					<img src = "/images/groups-24px.svg" class = "buttonclass" />
+					</a>
+			</div>
+			<div class = "sideLogo">
+				<a href="<%= data.URL %>/supervisor/logout"
+				style="text-decoration: none; color: #fff">
+					<img src = "/images/logout.svg" class = "buttonclass" />
+					</a>
+			</div>
+		</div>
+
+		<div id="mySidepanel" class="sidepanel">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+				>&times;</a
+			>
+			<div class="sideBox">
+				<img src="/images/image.png" alt="User Logo" class="userLogo" />
+				<p class="userName">
+					<% if(data) { %> <%= data.supervisor.firstName %> <%= data.supervisor.lastName
+					%> <% } %>
+				</p>
+				<p class="userDesig">Admin</p>
+
+				<table class="table">
+					<tbody>
+						<tr>
+							<td class="leftBox">
+								<img src="/images/image.png" alt="" class="userOptionProfile" />
+							</td>
+							<td class="rightBox adjust">
+								<a
+									href="<%= data.URL %>/supervisor/getProfile"
+									style="text-decoration: none; color: #fff"
+									><p>Profile</p></a></td>
+						</tr>
+						<tr>
+              <td class="leftBox"><img src="/images/recent_actors-24px.svg" alt="" class="userOption"></td>
+              <td class="rightBox">
+								<a
+									href="<%= data.URL %>/supervisor/getFarmers"
+									style="text-decoration: none; color: #fff"
+									><p>Farmer List</p></a></td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/groups-24px.svg" alt="" class="userOption"></td>
+              <td class="rightBox">
+								<a
+									href="<%= data.URL %>/supervisor/getStaff"
+									style="text-decoration: none; color: #fff"
+									><p>Staff</p></a></td>
+            </tr>
+						<tr>
+							<td class="leftBox">
+								<img src="/images/logout.svg" alt="" class="userOption" />
+							</td>
+							<td class="rightBox">
+									<a
+										href="<%= data.URL %>/supervisor/logout"
+										style="text-decoration: none; color: #fff"
+										><p>Logout</p></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="mainBody">
+			<div class="container-fluid ml-0">
+				<h1 id="profile" class="edit-profile-fix">
+					<b>Profile</b>
+				</h1>
+			</div>
+			<div class="row">
+				<div class="col-2 px-md-5" id="vline">
+					<img
+						src="/images/image.png"
+						alt="Avatar"
+						class="img-thumbnail"
+						id="img"
+					/>
+				</div>
+				<div class="col editCol">
+					<form action="<%= data.URL %>/supervisor/editProfile" method="POST">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td class="removeLine tableHead">
+										<h5 class="data" id="mkt1">
+											<b>First Name</b>
+										</h5>
+									</td>
+									<td class="dataContent removeLine">
+										<input
+											type="text"
+											name="firstName"
+											value=""
+											placeholder="First Name"
+										/>
+									</td>
+								</tr>
+								<tr>
+									<td class="tableHead">
+										<h5 class="data" id="mkt1">
+											<b>Last Name</b>
+										</h5>
+									</td>
+									<td class="dataContent">
+										<input
+											type="text"
+											name="lastName"
+											value=""
+											placeholder="Last Name"
+										/>
+									</td>
+								</tr>
+								<tr>
+									<td class="tableHead">
+										<h5 class="data">
+											<b>Mobile</b>
+										</h5>
+									</td>
+									<td class="dataContent">
+										<input
+											type="text"
+											name="mobile"
+											value=""
+											placeholder="Mobile"
+										/>
+									</td>
+								</tr>
+								<tr>
+									<td class="tableHead">
+										<h5 class="data">
+											<b>Address</b>
+										</h5>
+									</td>
+									<td class="dataContent">
+										<input
+											type="text"
+											name="address"
+											value=""
+											placeholder="Address"
+										/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="submitButton">
+							<button
+								class="btn btn-outline-light btn p-2 pr-5 pl-5 js-scroll-trigger"
+								type="submit"
+							>
+								Submit
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="/css/TopSideBar.js" charset="utf-8"></script>
+	</body>
+</html>

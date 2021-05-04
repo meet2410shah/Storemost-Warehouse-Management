@@ -1,11 +1,20 @@
 const getProfile = require('./getProfile');
+const editProfile = require('./editProfile');
+const getEditProfile = require('./getEditProfile');
 const register = require('./register');
 const login = require('./login');
-const validate = require('./validate');
+const getFarmers = require('./farmerList');
+const getStaff = require('./StaffList');
+const logout = require('./logout');
+// const validate = require('./validate');
 
 module.exports = {
 	getProfile,
 	register,
-	validate,
-	login
+	login,
+	getFarmers,
+	editProfile,
+	getEditProfile,
+	getStaff,
+	logout
 };

@@ -79,9 +79,9 @@ app.get('/login', (req, res) => {
 	res.render('Login');
 });
 
-app.get('/adminware', (req, res) => {
-	res.render('./Admin/WarehouseList', {
-		AdminWarehouseList: AdminWarehouseList,
+app.get('/sup', (req, res) => {
+	res.render('./Supervisor/FarmerList', {
+		FarmerList: FarmerList,
 	});
 });
 
