@@ -342,6 +342,9 @@ display:inline-block
 
 }
 
+.form-group {
+  margin-bottom: 10px;
+}
 
 
 /*    instantpayments */
@@ -354,9 +357,9 @@ height: 130px;
 
 .instant1{
  color: #D3B04F;
- font-size: 35px !important;
+ font-size: 30px !important;
  font-weight: bold;
- padding-top: 20px;
+ padding-top: 15px;
 }
 
 .instant2{

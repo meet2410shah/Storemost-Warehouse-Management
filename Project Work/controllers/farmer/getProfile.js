@@ -17,8 +17,8 @@ module.exports = async (req, res) => {
 
 	// Check if Token is not corrupted
 	try {
-		const data = jwt.verify(token, process.env.SECRET);
-		const userId = data.userId;
+		const { user } = jwt.verify(token, process.env.SECRET);
+		const userId = user._id;
 		Farmer.findOne({ _id: userId }, (err, data) => {
 			// Check if there is an error from mongoose or not
 			if (err) {
@@ -49,6 +49,13 @@ module.exports = async (req, res) => {
 				},
 				error: null,
 			};
+
+			return res.render('./Farmer/ViewProfile', {
+				data: {
+					URL: process.env.PRODUCTION_URL,
+					farmer: user,
+				},
+			});
 
 			return res.send(response);
 		});

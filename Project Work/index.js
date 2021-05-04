@@ -28,9 +28,16 @@ app.get('/', (req, res) => {
 	const token = req.cookies.token;
 	// Check the Existance of Token
 	if (token) {
-		const { user } = jwt.verify(token, process.env.SECRET);
-		if (user) {
-			return res.redirect('/api/v1/admin/getWarehouses');
+		const { role } = jwt.verify(token, process.env.SECRET);
+		if (role) {
+			if (role == 'admin')
+				return res.redirect('/api/v1/admin/getWarehouses');
+			else if (role == 'farmer') {
+				return res.redirect('/api/v1/farmer/getCrops');
+			}
+			else if (role == 'supervisor') {
+				return res.redirect('/api/v1/supervisor/getProfile')
+			}
 		} else {
 			res.clearCookie('token');
 		}

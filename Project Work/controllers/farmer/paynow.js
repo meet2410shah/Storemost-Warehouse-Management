@@ -10,32 +10,70 @@ const PORT = process.env.PORT || 3000;
 const version = process.env.VERSION;
 
 module.exports = async function (req, res, next) {
-	var nowDate = new Date();
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+		dd = '0' + dd;
+	}
+	if (mm < 10) {
+		mm = '0' + mm;
+	}
+	today = yyyy + '-' + mm + '/' + dd;
+
+	const token = req.cookies.token;
+	// Check the Existance of Token
+	if (!token) {
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1001,
+				msg: 'user not logged in',
+			},
+		});
+	}
+	const { user } = jwt.verify(token, process.env.SECRET);
+	if (!user) return res.send('ERROR');
+
+	const userEmail = user.email;
+	if (!userEmail) {
+		errRes.error = {
+			code: 1100,
+			msg: 'login again',
+		};
+		return res.send(errRes);
+	}
+	console.log(today);
+
 	let paymentDetails = {
 		cropType: req.body.cropType,
 		warehouseId: req.body.warehouseId,
 		quantity: req.body.quantity, // (in Qunital)
 		amount: req.body.amount,
 		dueDate: req.body.dueDate,
-		depositDate: req.body.depositDate | nowDate,
-		customerId: req.body.farmerId,
-		customerEmail: req.body.email,
-		customerPhone: req.body.phone,
+		depositDate: req.body.depositDate || today,
+		customerId: user._id,
+		customerEmail: user.email,
+		customerPhone: user.mobile,
+		description: req.body.description || " ",
 	};
+	console.log(paymentDetails);
 
-	let defpay = {
-		cropType: "ghav",
-		warehouseId: "4",
-		quantity: "2",
-		amount: "20",
-		dueDate: new Date(),
-		depositDate: new Date(),
-		customerId: "12412",
-		customerEmail: "12517fas@gmail.com",
-		customerPhone: "641772",
-	}
-	console.log(defpay);
-	paymentDetails = defpay;
+	// let defpay = {
+	// 	cropType: "ghav",
+	// 	warehouseId: "4",
+	// 	quantity: "2",
+	// 	amount: "20",
+	// 	dueDate: new Date(),
+	// 	depositDate: new Date(),
+	// 	customerId: "12412",
+	// 	customerEmail: "12517fas@gmail.com",
+	// 	customerPhone: "641772",
+	// }
+	// console.log(defpay);
+	// paymentDetails = defpay;
 	// amount == process.env.PRICE * quantity * (dueDate - depositeDate) (in days)
 
 	let errRes = {
@@ -55,10 +93,11 @@ module.exports = async function (req, res, next) {
 		farmerId: Joi.string().min(5).max(50).required().token(),
 		amount: Joi.number().integer().min(1).required(),
 		quantity: Joi.number().integer().min(1).required(),
-		depositDate: Joi.date().iso(),
-		dueDate: Joi.date().iso().min(Joi.ref('depositDate')),
+		depositDate: Joi.date(),
+		dueDate: Joi.date().min(Joi.ref('depositDate')),
 		warehouseId: Joi.number(),
-		cropType: Joi.string().min(2)
+		cropType: Joi.string().min(2),
+		description: Joi.string(),
 
 	});
 	let { error } = schema.validate({
@@ -71,6 +110,7 @@ module.exports = async function (req, res, next) {
 		dueDate: paymentDetails.dueDate,
 		cropType: paymentDetails.cropType,
 		warehouseId: paymentDetails.warehouseId,
+		description: paymentDetails.description,
 	});
 
 	if (error) {
@@ -100,7 +140,7 @@ module.exports = async function (req, res, next) {
 	}
 	let warehouse;
 	try {
-		warehouse = await Warehouse.find({ _id: paymentDetails.warehouseId });
+		warehouse = await Warehouse.findOne({ warehouseId: paymentDetails.warehouseId });
 	} catch (MonogoError) {
 		errRes.error = {
 			code: 1230,
@@ -108,12 +148,45 @@ module.exports = async function (req, res, next) {
 		}
 		return res.send(errRes);
 	}
-	if (!farmer) {
+	if (!warehouse) {
 		errRes.error = {
 			code: 1230,
 			msg: 'No warehouse found given id',
 		}
 		return res.send(errRes);
+	}
+	console.log(warehouse);
+
+	const warehouseStorage = parseInt(warehouse.storage);
+
+	try {
+		data = await Farmer.find();
+	} catch (err) {
+		return res.send('error');
+	}
+	farmer = await Farmer.find({});
+	let total = 0;
+	for (var f = 0; f < farmer.length; f++) {
+		for (var j = 0; j < farmer[f].crops.length; j++) {
+			if (farmer[f].crops[j].warehouseId == warehouse.warehouseId) {
+				total += parseInt(farmer[f].crops[j].quantity);
+				// console.log(total);
+			}
+		}
+	}
+
+	console.log(total + parseInt(paymentDetails.quantity));
+	console.log(warehouseStorage);
+	if (total + parseInt(paymentDetails.quantity) > warehouseStorage) {
+		return res.send({
+			success: false,
+			data: null,
+			err: {
+				code: 1008,
+				msg: 'Insufficient capacity',
+				remaning: warehouseStorage - total,
+			},
+		});
 	}
 
 

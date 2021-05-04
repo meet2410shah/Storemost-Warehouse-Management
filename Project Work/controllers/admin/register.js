@@ -8,6 +8,7 @@ const { errorCustom } = require('../error/error');
 const jwt = require('jsonwebtoken');
 
 const registerAdmin = async (req, res) => {
+  
   const { error } = validate(req.body);
   if (error) {
     const errorBlock = errorCustom(

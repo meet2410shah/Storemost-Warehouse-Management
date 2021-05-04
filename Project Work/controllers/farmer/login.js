@@ -20,10 +20,10 @@ module.exports = async (req, res) => {
 	}
 
 	//  Now find the user by their email address
-	const { username, password } = req.body;
-	let user = await Farmer.findOne({ email: username });
+	const { email, password } = req.body;
+	let user = await Farmer.findOne({ email: email });
 	if (!user) {
-		user = await Farmer.findOne({ username: username });
+		user = await Farmer.findOne({ username: email });
 		if (!user) {
 			return res.send({
 				success: false,
@@ -46,12 +46,16 @@ module.exports = async (req, res) => {
 
 	const token = jwt.sign(
 		{
-			userId: user._id,
+			user: user,
+			role: "farmer",
 		},
 		process.env.SECRET
 	);
+	res.clearCookie('token');
 
 	res.cookie('token', token);
+
+	return res.redirect('/api/v1/farmer/getCrops');
 
 	return res.send({
 		success: true,
@@ -63,6 +67,7 @@ module.exports = async (req, res) => {
 			'password',
 			'email',
 			'mobile',
+			"registerDate"
 		]),
 		error: null,
 	});

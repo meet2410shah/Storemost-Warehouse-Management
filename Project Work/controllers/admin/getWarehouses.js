@@ -117,6 +117,15 @@ const getWarehouses = async function (req, res) {
 			}
 		}
 		warehouses[i]['available'] = warehouses[i].storage - total;
+		let mnumber = null;
+		if (warehouses[i].staffDetails)
+			for (var s = 0; s < warehouses[i].staffDetails.length; i++) {
+				if (warehouses[i].staffDetails[s].role == 'superwiser') {
+					mnumber = warehouses[i].staffDetails[s].mobile;
+					break;
+				}
+			}
+		warehouses[i]['mobile'] = mnumber;
 	}
 	// console.log(warehouses);
 	if (sortfilter.filter == 'available') {
