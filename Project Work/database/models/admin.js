@@ -7,6 +7,7 @@ module.exports = require('mongoose').model(
 		password: { type: String, required: true },
 		email: { type: String, required: true },
 		mobile: { type: String, required: true },
-		address: { type: String },
+		address: { type: String, default: " " },
+		registerDate: { type: String, require: true },
 	})
 );

@@ -14,6 +14,8 @@ function validateUser(user) {
     mobile: Joi.string().min(5).max(50).required()
       .pattern(/^[0-9]+$/),
     confirmPassword: Joi.string().min(5).max(255).required(),
+    registerDate: Joi.string().min(5).max(50),
+    address: Joi.string().min(0).max(100),
   });
 
   return schema.validate(user);
