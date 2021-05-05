@@ -11,14 +11,7 @@ const { errorCustom } = require('../error/error');
 
 // Router Definition
 module.exports = async (req, res) => {
-	const { error } = validate(req.body);
-	if (error) {
-		const errorBlock = errorCustom(
-			error.details[0].path[0],
-			error.details[0].type
-		);
-		return res.send({ success: false, data: null, error: errorBlock });
-	}
+
 
 	// Check if the Farmer Already Exists (Same Username)
 	const username = await Farmer.findOne({ username: req.body.username });
@@ -56,6 +49,15 @@ module.exports = async (req, res) => {
 	}
 	today = dd + '/' + mm + '/' + yyyy;
 	data['registerDate'] = today;
+	data['address'] = data['address'] || " ";
+	const { error } = validate(data);
+	if (error) {
+		const errorBlock = errorCustom(
+			error.details[0].path[0],
+			error.details[0].type
+		);
+		return res.send({ success: false, data: null, error: errorBlock });
+	}
 
 	console.log(data);
 	let user = new Farmer(
@@ -75,7 +77,7 @@ module.exports = async (req, res) => {
 
 	const token = jwt.sign(
 		{
-			user: user,
+			farmer: user,
 			role: "farmer",
 		},
 		process.env.SECRET
@@ -83,6 +85,8 @@ module.exports = async (req, res) => {
 	res.clearCookie('token');
 	res.cookie('token', token);
 
+	return res.redirect('/api/v1/farmer/getCrops');
+	
 	res.send({
 		success: true,
 		data: _.pick(user, [

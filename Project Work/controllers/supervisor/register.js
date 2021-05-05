@@ -2,13 +2,31 @@
 
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const { Supervisor } = require('../../database/models/');
+const { Supervisor, Warehouse } = require('../../database/models/');
 const { validate } = require('./validateRegister');
 const { errorCustom } = require('../error/error');
 const jwt = require('jsonwebtoken');
 
 const registerSuper = async (req, res) => {
-  const { error } = validate(req.body);
+
+
+  let data = req.body;
+
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1;
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+  today = dd + '/' + mm + '/' + yyyy;
+  data['registerDate'] = today;
+  data['address'] = data['address'] || " ";
+
+  const { error } = validate(data);
   if (error) {
     const errorBlock = errorCustom(
       error.details[0].path[0],
@@ -16,10 +34,9 @@ const registerSuper = async (req, res) => {
     );
     return res.send({ success: false, data: null, error: errorBlock });
   }
-
   // Check if this user already exisits
 
-  const userName = await Supervisor.findOne({ username: req.body.username });
+  const userName = await Supervisor.findOne({ username: data.username });
 
   if (userName != null) {
     return res.send({
@@ -29,7 +46,7 @@ const registerSuper = async (req, res) => {
     });
   }
 
-  let user = await Supervisor.findOne({ email: req.body.email });
+  let user = await Supervisor.findOne({ email: data.email });
 
   if (user) {
     return res.send({
@@ -64,7 +81,7 @@ const registerSuper = async (req, res) => {
 
 
   user = new Supervisor(
-    _.pick(req.body, [
+    _.pick(data, [
       "firstName",
       "lastName",
       "username",
@@ -103,7 +120,9 @@ const registerSuper = async (req, res) => {
       "password",
       "email",
       "mobile",
-			"warehouseId"
+      "warehouseId",
+      "registerDate",
+      "address",
     ]),
     error: null,
   });

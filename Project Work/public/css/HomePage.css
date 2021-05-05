@@ -190,6 +190,17 @@
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
 		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.tabs > .tabs-contentsup form input {
+	padding: 2%;
+	margin: 3% 0;
+	border: none;
+	font-size: 95% !important;
+	letter-spacing: 1px;
+	transition: 0.1s;
+	color: #fff;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .tabs > .tabs-content form input:focus {
 	border-bottom: solid 1px #fff;
 	outline: none;

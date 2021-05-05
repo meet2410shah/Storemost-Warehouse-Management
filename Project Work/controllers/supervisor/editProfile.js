@@ -94,6 +94,7 @@ const editProf = async function (req, res) {
 	const updatedToken = jwt.sign(
 		{
 			user: profile,
+			role: "supervisor"
 		},
 		process.env.SECRET
 	);

@@ -94,6 +94,7 @@ const admin = async function (req, res) {
 	const updatedToken = jwt.sign(
 		{
 			user: profile,
+			role: 'admin'
 		},
 		process.env.SECRET
 	);

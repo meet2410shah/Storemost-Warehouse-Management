@@ -51,6 +51,7 @@ const LoginAdmin = async (req, res) => {
 	const token = jwt.sign(
 		{
 			user,
+			role: 'admin'
 		},
 		process.env.SECRET
 	);
