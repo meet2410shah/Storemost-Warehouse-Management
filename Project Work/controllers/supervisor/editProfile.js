@@ -10,7 +10,7 @@ const editProf = async function (req, res) {
 
 	console.log(req.body);
 
-	
+
 	let errRes = {
 		sucess: false,
 		data: null,
@@ -99,6 +99,7 @@ const editProf = async function (req, res) {
 	const updatedToken = jwt.sign(
 		{
 			user: profile,
+			role: "supervisor"
 		},
 		process.env.SECRET
 	);
