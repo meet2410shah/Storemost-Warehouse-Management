@@ -88,6 +88,7 @@ const registerSuper = async (req, res) => {
       "password",
       "email",
       "mobile",
+      "address",
 			"warehouseId",
       "registerDate"
     ])
