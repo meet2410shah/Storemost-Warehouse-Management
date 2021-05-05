@@ -49,11 +49,12 @@ const LoginSuper = async (req, res) => {
 	}
 
 
-  console.log(user);
+	console.log(user);
 
 	const token = jwt.sign(
 		{
 			user,
+			role: 'supervisor'
 		},
 		process.env.SECRET
 	);
