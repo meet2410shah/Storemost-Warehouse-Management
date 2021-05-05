@@ -49,16 +49,19 @@ const LoginSuper = async (req, res) => {
 	}
 
 
-  console.log(user);
+  // console.log(user);
 
 	const token = jwt.sign(
 		{
-			user,
+			user: user,
+			role: "supervisor",
 		},
 		process.env.SECRET
 	);
+	res.clearCookie('token');
 
 	res.cookie('token', token);
+
 
 	return res.redirect('/api/v1/supervisor/getFarmers');
 

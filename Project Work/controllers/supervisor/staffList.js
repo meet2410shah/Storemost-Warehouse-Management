@@ -69,6 +69,7 @@ const staffList = async (req, res) => {
 			URL: process.env.PRODUCTION_URL,
 			list,
 			supervisor: user,
+			role: "supervisor",
 		},
 	});
 

@@ -57,13 +57,13 @@ const farmerList = async (req, res) => {
 			});
 		}
 
-	console.log(cursor);
+	// console.log(cursor);
 
 	let list = [];
 
 	cursor.forEach(function (item) {
 
-		console.log(item);
+		// console.log(item);
 
 		let totalQuantity = 0;
 		let totalCrop = 0;
@@ -91,15 +91,12 @@ const farmerList = async (req, res) => {
 
 
 
-
-
-
-
 	return res.render('./Supervisor/FarmerList', {
 		data: {
 			URL: process.env.PRODUCTION_URL,
 			list,
 			supervisor: user,
+			role: "supervisor",
 		},
 	});
 

@@ -38,7 +38,31 @@ const registerSuper = async (req, res) => {
       error: { code: 1022, msg: "User already exists" },
     });
   }
+
+
+
   // Insert the new user if they do not exist yet
+	// let data = req.body;
+
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+		dd = '0' + dd;
+	}
+	if (mm < 10) {
+		mm = '0' + mm;
+	}
+	today = dd + '/' + mm + '/' + yyyy;
+	req.body['registerDate'] = today;
+
+
+  // console.log(req.body);
+
+
+
+
   user = new Supervisor(
     _.pick(req.body, [
       "firstName",
@@ -47,12 +71,28 @@ const registerSuper = async (req, res) => {
       "password",
       "email",
       "mobile",
-			"warehouseId"
+			"warehouseId",
+      "registerDate"
     ])
   );
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
+
+
+  const token = jwt.sign(
+		{
+			user: user,
+			role: "supervisor",
+		},
+		process.env.SECRET
+	);
+
+	res.clearCookie('token');
+	res.cookie('token', token);
+
+
+
   res.send({
     success: true,
     data: _.pick(user, [

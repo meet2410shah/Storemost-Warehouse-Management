@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 				return res.redirect('/api/v1/farmer/getCrops');
 			}
 			else if (role == 'supervisor') {
-				return res.redirect('/api/v1/supervisor/getProfile')
+				return res.redirect('/api/v1/supervisor/getFarmers')
 			}
 		} else {
 			res.clearCookie('token');

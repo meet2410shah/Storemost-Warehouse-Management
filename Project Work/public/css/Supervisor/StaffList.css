@@ -337,13 +337,13 @@ body,html{
 }
 
 .staffcustomers-div{
-    border-bottom: #707070 2px solid;
+    /* border-bottom: #707070 2px solid; */
     padding-top: 20px;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 .title{
     color: #FFFFFF;
-    margin-left: 80px;
+    margin-left: 40px;
     display: inline;
     text-align: left;
     font: normal normal normal 22px "Montserrat";
