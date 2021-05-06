@@ -30,8 +30,8 @@
 	padding: 2%;
 	left: 0;
 	right: 0;
-	height: fit-content;
-	max-height: 85%;
+	/* height: 650px; */
+	max-height: 95%;
 	width: fit-content;
 	max-width: 25%;
 	text-align: center;
@@ -390,4 +390,8 @@ input::-webkit-inner-spin-button {
 
 .extraPadding {
 	padding-top: 55px;
+}
+
+.tabs-content{
+	padding-bottom: 50px;
 }
