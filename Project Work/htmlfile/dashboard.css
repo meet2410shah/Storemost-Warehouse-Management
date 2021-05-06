@@ -1,0 +1,151 @@
+.yup{
+    background-color: #B89538;
+  }
+  
+  .but{
+    color: white!important;
+    font-family: sans-serif!important;
+  border: 2px solid #D3B04F !important;
+  font-size: 20px !important;
+  }
+  
+  .textcolor{
+    opacity: 0.5 !important;
+    letter-spacing: 0.16px !important;
+  }
+  
+  .font{
+  font-size: 32px!important;
+  line-height: 48px !important;
+  font-family: sans-serif !important;
+  letter-spacing: 0.32px!important;
+  }
+  
+  .newheight{
+  height:100%!important;
+  overflow: hidden !important;
+  }
+  
+  
+  /* for dashboard   */
+  
+  .header{
+    height:100vh !important;
+    overflow: hidden !important;
+  }
+  
+  .logo{
+    height: 250px;
+    padding: 2px 10px;
+    margin-left: -10px;
+  }
+  
+  .pad{
+    padding-left: 0px !important;
+  
+  }
+  
+  .square {
+    height: 129px;
+    width: 87px;
+    background-color: #555;
+    border: 2px solid white;
+    position: relative;
+    top: 35px;
+    right:  3rem;
+    display:inline-block
+    
+  }
+  
+  
+  .square1 {
+    height: 88px;
+    width: 80px;
+    background-color: #555;
+    border: 2px solid white;
+    position: relative;
+    
+    display:inline-block
+    
+  }
+  
+  
+  .square2 {
+    height: 143px;
+    width: 83px;
+    background-color: #555;
+    border: 2px solid white;
+    position: absolute;
+  }
+  .square3 {
+    height: 50px;
+    width: 129px;
+    background-color: #555;
+    border: 2px solid white;
+    position: relative;
+    display:inline-block
+  }
+  .square4 {
+    height: 90px;
+    width: 80px;
+    background-color: #555;
+    border: 2px solid white;
+    position: absolute;
+    left: 278px;
+    
+    
+  }
+  
+  .square5 {
+    height: 103px;
+    width: 80px;
+    background-color: #555;
+    border: 2px solid white;
+    position: absolute;
+    left: 278px;
+     
+  }
+  
+  .square6 {
+    height: 50px;
+    width: 180px;
+    background-color: #555;
+    border: 2px solid white;
+    position: relative;
+    display:inline-block
+  }
+  
+  .square7{
+    height: 196px;
+    width: 147px;
+    background-color: #555;
+    border: 2px solid white;
+    position: absolute;
+    left: 360px;
+  }
+  
+  .bor{
+    border: 2px solid #D3B04F;
+  }
+  
+  .d{
+      color: white!important;
+      font-family: sans-serif!important;
+      font-size: 20px!important;
+      height: 32px;
+  }
+  
+  .d1{
+    color: #B89538!important;
+    
+  }
+  
+  .d3{
+    font-size:70px !important;
+    line-height: 45px!important;
+    font-family: sans-serif;
+  
+    
+  }
+  
+  
