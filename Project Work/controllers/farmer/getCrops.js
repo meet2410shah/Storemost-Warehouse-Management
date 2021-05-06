@@ -43,6 +43,7 @@ module.exports = async (req, res) => {
 				error: null,
 			};
 
+			// console.log(crops);
 			return res.render('./Farmer/CropList', {
 				data: {
 					URL: process.env.PRODUCTION_URL,

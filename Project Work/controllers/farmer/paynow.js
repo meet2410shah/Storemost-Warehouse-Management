@@ -45,21 +45,19 @@ module.exports = async function (req, res, next) {
 		};
 		return res.send(errRes);
 	}
-	console.log(today);
+	// console.log(today);
 
 	var curtime = new Date(yyyy, mm, dd);
 	yyyy = req.body.dueDate.toString().substring(0, 4);
 	mm = req.body.dueDate.toString().substring(5, 7);
 	dd = req.body.dueDate.toString().substring(8, 10);
-	console.log(yyyy);
-	console.log(mm);
-	console.log(dd);
+
 	var duetime = new Date(yyyy, mm, dd)
 	var days = duetime.getTime() - curtime.getTime();
 	days = days / (86400000);
 	let payamount = String(parseInt((days + 1) * process.env.PRICE * req.body.quantity));
 
-	console.log(days);
+	// console.log(days);
 	let paymentDetails = {
 		cropType: req.body.cropType,
 		warehouseId: req.body.warehouseId,
@@ -72,22 +70,8 @@ module.exports = async function (req, res, next) {
 		customerPhone: user.mobile,
 		description: req.body.description || " ",
 	};
-	console.log(paymentDetails);
+	// console.log(paymentDetails);
 
-	// let defpay = {
-	// 	cropType: "ghav",
-	// 	warehouseId: "4",
-	// 	quantity: "2",
-	// 	amount: "20",
-	// 	dueDate: new Date(),
-	// 	depositDate: new Date(),
-	// 	customerId: "12412",
-	// 	customerEmail: "12517fas@gmail.com",
-	// 	customerPhone: "641772",
-	// }
-	// console.log(defpay);
-	// paymentDetails = defpay;
-	// amount == process.env.PRICE * quantity * (dueDate - depositeDate) (in days)
 
 	let errRes = {
 		sucess: false,
@@ -211,7 +195,7 @@ module.exports = async function (req, res, next) {
 	params.ORDER_ID = `TEST_${new Date().getTime()}`;
 	params.CUST_ID = paymentDetails.customerId;
 	params.TXN_AMOUNT = paymentDetails.amount;
-	params.CALLBACK_URL = `http://localhost:${process.env.PORT || 5000}${version}/farmer/callback`;
+	params.CALLBACK_URL = `${process.env.PRODUCTION_URL}/farmer/callback`;
 	params.EMAIL = paymentDetails.customerEmail;
 	params.MOBILE_NO = paymentDetails.customerPhone;
 	// params.quantity = paymentDetails.quantity;
@@ -220,6 +204,8 @@ module.exports = async function (req, res, next) {
 		paymentDetails,
 		process.env.SECRET
 	);
+
+	// console.log(params);
 
 	res.cookie('paymentdata', paymentdata);
 

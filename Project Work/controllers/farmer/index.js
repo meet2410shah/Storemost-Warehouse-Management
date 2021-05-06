@@ -12,6 +12,7 @@ const editProfile = require('./editProfile');
 const logout = require('./logout');
 const getPayment = require('./getPayment');
 const getCrop = require('./getCrop');
+const isAuthenticated = require('./isAuthenticated')
 module.exports = {
 	getProfile,
 	getWarehouses,
@@ -27,5 +28,5 @@ module.exports = {
 	logout,
 	getPayment,
 	getCrop,
-
+	isAuthenticated,
 };

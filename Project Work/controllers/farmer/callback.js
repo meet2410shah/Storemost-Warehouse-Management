@@ -58,29 +58,38 @@ module.exports = async (req, res, next) => {
 
 					const paymentdata = req.cookies.paymentdata;
 					if (!paymentdata) {
-						return res.send("patment faliled");
+						return res.res.redirect('/api/v1/farmer/getPayment');
 					}
 
 					const paymentDetails = jwt.verify(paymentdata, process.env.SECRET);
-					console.log(paymentDetails);
+					// console.log(paymentDetails);
 					res.clearCookie('paymenrdata');
 
 					const filter = { email: paymentDetails.customerEmail };
 					const obj = {
 						cropType: paymentDetails.cropType,
 						warehouseId: paymentDetails.warehouseId,
-						quantity: paymentDetails.quantity,
+						quantity: parseInt(paymentDetails.quantity),
 						depositDate: paymentDetails.depositDate,
 						dueDate: paymentDetails.dueDate,
 						description: paymentDetails.description,
 						amount: paymentDetails.amount,
-						orderId: paymentDetails.orderId,
+						orderId: _result.ORDERID,
 						paymentId: _result.TXNID,
 					}
-					let profile = await Farmer.updateOne(filter, { $push: { crops: obj } });
+					// console.log(obj);
+					let profile;
+					try {
+						profile = await Farmer.findOneAndUpdate(filter, { $push: { crops: obj } });
+						// console.log(profile);
+					} catch {
+						return res.res.redirect('/api/v1/farmer/getPayment');
+					}
+
 					if (!profile) {
 						return res.redirect('/api/v1/farmer/getPayment');
 					}
+					// console.log("redirect 2");
 					return res.redirect('/api/v1/farmer/getCrops');;
 				} else {
 					return res.redirect('/api/v1/farmer/getPayment');
