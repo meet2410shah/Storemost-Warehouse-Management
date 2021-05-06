@@ -19,7 +19,7 @@ const {
 router.post('/register', register);
 router.post('/login', login);
 
-// router.use(isAuthenticated);
+router.use(isAuthenticated);
 router.get('/getProfile', getProfile);
 router.get('/getEditProfile', getEditProfile);
 router.get('/getWarehouses', getWarehouses);
