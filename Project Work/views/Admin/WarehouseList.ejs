@@ -1,140 +1,144 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
 
-		<link rel="preconnect" href="https://fonts.gstatic.com" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="/css/Admin/WarehouseList.css" />
-	</head>
-	<body>
-		<div class="topBar">
-			<img src="/images/sort.svg" class="topBar-openbtn" onclick="openNav()" />
-			<img src="/images/SM-Warehouse-Logo.png" class="topBar-storeMostLogo" />
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="/css/Admin/WarehouseList.css" />
+</head>
+
+<body>
+	<div class="topBar">
+		<img src="/images/sort.svg" class="topBar-openbtn" onclick="openNav()" />
+		<img src="/images/SM-Warehouse-Logo.png" class="topBar-storeMostLogo" />
+	</div>
+
+	<div class="sideBar">
+		<div class="sideLogo">
+			<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none"><img src="/images/image.png"
+					class="buttonclass person-image" /></a>
 		</div>
-
-		<div class="sideBar">
-			<div class="sideLogo">
-				<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none"
-					><img src="/images/image.png" class="buttonclass person-image"
-				/></a>
-			</div>
-			<div class="sideLogo">
-				<img src="/images/inventory.svg" class="buttonclass" />
-			</div>
-			<div class="sideLogo">
-				<img src="/images/logout.svg" class="buttonclass" />
-			</div>
+		<div class="sideLogo">
+			<img src="/images/inventory.svg" class="buttonclass" />
 		</div>
-
-		<div id="mySidepanel" class="sidepanel">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-				>&times;</a
-			>
-			<div class="sideBox">
-				<img src="/images/image.png" alt="User Logo" class="userLogo" />
-				<p class="userName">
-					<% if(data) { %> <%= data.admin.firstName %> <%= data.admin.lastName
-					%> <% } %>
-				</p>
-				<p class="userDesig">Admin</p>
-
-				<table class="table">
-					<tbody>
-						<tr>
-							<td class="leftBox">
-								<img src="/images/image.png" alt="" class="userOptionProfile" />
-							</td>
-							<td class="rightBox adjust">
-								<a
-									href="<%= data.URL %>/admin/getProfile"
-									style="text-decoration: none"
-									><p>Profile</p></a
-								>
-							</td>
-						</tr>
-						<tr>
-							<td class="leftBox">
-								<img src="/images/inventory.svg" alt="" class="userOption" />
-							</td>
-							<td class="rightBox"><p>Warehouses</p></td>
-						</tr>
-						<tr>
-							<td class="leftBox">
-								<img src="/images/logout.svg" alt="" class="userOption" />
-							</td>
-							<td class="rightBox"><p>Logout</p></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+		<div class="sideLogo">
+			<img src="/images/logout.svg" class="buttonclass" />
 		</div>
+	</div>
 
-		<div class="mainBackground">
-			<div class="function-bar">
-				<div class="searchdiv">
-					<form action="" method="" style="display: flex; flex-direction: row">
-						<input
-							type="text"
-							class="input"
-							style="
+	<div id="mySidepanel" class="sidepanel">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div class="sideBox">
+			<img src="/images/image.png" alt="User Logo" class="userLogo" />
+			<p class="userName">
+				<% if(data) { %>
+					<%= data.admin.firstName %>
+						<%= data.admin.lastName %>
+							<% } %>
+			</p>
+			<p class="userDesig">Admin</p>
+
+			<table class="table">
+				<tbody>
+					<tr>
+						<td class="leftBox">
+							<img src="/images/image.png" alt="" class="userOptionProfile" />
+						</td>
+						<td class="rightBox adjust">
+							<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none">
+								<p>Profile</p>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="leftBox">
+							<img src="/images/inventory.svg" alt="" class="userOption" />
+						</td>
+						<td class="rightBox">
+							<p>Warehouses</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="leftBox">
+							<img src="/images/logout.svg" alt="" class="userOption" />
+						</td>
+						<td class="rightBox">
+							<p>Logout</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="mainBackground">
+		<div class="function-bar">
+			<div class="searchdiv">
+				<form action="" method="" style="display: flex; flex-direction: row">
+					<input type="text" class="input" style="
 								height: 30px;
 								width: 400px;
 								margin-top: 10px;
 								margin-right: 10px;
-							"
-						/>
-						<button type="submit" class="btnsort">Search</button>
-					</form>
-				</div>
-				<div class="buttendiv">
-					<form action="/api/v1/admin/getWarehouses" method="GET">
-						<label class="btntype"
-							>Filter<img src="/images/filter.svg" class="filterimg"
-						/></label>
-						<select name="filter" class="btnsort">
-							<option value="name">Name</option>
-							<option value="storage">Storage</option>
-							<option value="available">Available</option>
-						</select>
-
-						<label class="btntype"
-							>Sort<img src="/images/sort.svg" class="filterimg"
-						/></label>
-						<select name="sort" class="btnsort">
-							<option value="asc">Ascending</option>
-							<option value="desc">Descending</option>
-						</select>
-						<button type="submit" class="btnsort">Compile</button>
-					</form>
-				</div>
+							" />
+					<button type="submit" class="btnsort">Search</button>
+				</form>
 			</div>
+			<div class="buttendiv">
+				<form action="<%= data.URL%>/admin/getWarehouses" method="GET">
+					<label class="btntype">Filter<img src="/images/filter.svg" class="filterimg" /></label>
+					<select name="filter" class="btnsort" id="filter">
+						<option value="name">Name</option>
+						<option value="storage">Storage</option>
+						<option value="available">Available</option>
+					</select>
 
-			<div class="wareList">
-				<% if(data) { %> <% data.warehouses.forEach(function(warehouse) { %>
-				<div class="admin-name-main-conta">
-					<div class="warehouse-img"></div>
-					<div class="admin-warehouse-details-div">
-						<div class="admin-flex-1st-div">
-							<h1 class="admin-link">
-								Warehouse <%= warehouse.warehouseId %> : <%= warehouse.name %>
-							</h1>
-							<p class="admin-occupied"><%= warehouse.available %> available</p>
-						</div>
-						<div class="admin-flex-2nd-div">
-							<h2 class="admin-addr">Address:</h2>
-							<h2 class="admin-addr2"><%= warehouse.location.address %></h2>
-						</div>
-					</div>
-				</div>
-				<% }); %> <% } %>
+					<label class="btntype">Sort<img src="/images/sort.svg" class="filterimg" /></label>
+					<select name="sort" class="btnsort" id="sort">
+						<option value="asc">Ascending</option>
+						<option value="desc">Descending</option>
+					</select>
+					<button type="submit" class="btnsort">Compile</button>
+				</form>
 			</div>
 		</div>
 
-		<script src="/css/TopSideBar.js" charset="utf-8"></script>
-	</body>
+		<div class="wareList">
+			<% if(data) { %>
+				<% data.warehouses.forEach(function(warehouse) { %>
+					<div class="admin-name-main-conta">
+						<div class="warehouse-img"></div>
+						<div class="admin-warehouse-details-div">
+							<div class="admin-flex-1st-div">
+								<h1 class="admin-link">
+									Warehouse <%= warehouse.warehouseId %> : <%= warehouse.name %>
+								</h1>
+								<p class="admin-occupied">
+									<%= warehouse.available %> available
+								</p>
+							</div>
+							<div class="admin-flex-2nd-div">
+								<h2 class="admin-addr">Address:</h2>
+								<h2 class="admin-addr2">
+									<%= warehouse.location.address %>
+								</h2>
+							</div>
+						</div>
+					</div>
+					<% }); %>
+						<% } %>
+		</div>
+	</div>
+
+	<script src="/css/TopSideBar.js" charset="utf-8"></script>
+	<script>
+		document.getElementById("filter").value = "<%=data.sortp.filter%>";
+		document.getElementById("sort").value = "<%=data.sortp.sort%>";
+
+	</script>
+</body>
+
 </html>

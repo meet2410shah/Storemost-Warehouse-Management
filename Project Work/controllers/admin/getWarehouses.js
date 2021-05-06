@@ -147,6 +147,7 @@ const getWarehouses = async function (req, res) {
 			URL: process.env.PRODUCTION_URL,
 			warehouses,
 			admin: user,
+			sortp: sortfilter,
 		},
 	});
 };

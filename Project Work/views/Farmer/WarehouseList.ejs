@@ -98,33 +98,40 @@
   <div class="mainBackground">
 
 
+    <div class="function-bar">
+      <div class="searchdiv">
+        <form action="" method="" style="display: flex; flex-direction: row">
+          <input type="text" class="input" style="
+              height: 30px;
+              width: 400px;
+              margin-top: 10px;
+              margin-right: 10px;
+            " />
+          <button type="submit" class="btnsort">Search</button>
+        </form>
+      </div>
+      <div class="buttendiv">
+        <form action="<%= data.URL%>/farmer/getWarehouses" method="GET">
+          <label class="btntype">Filter<img src="/images/filter.svg" class="filterimg" /></label>
+          <select name="filter" class="btnsort" id="filter">
+            <option value="name">Name</option>
+            <option value="storage">Storage</option>
+            <option value="available">Available</option>
+          </select>
 
-
-
-
-    <div class="searchdiv">
-      <input type="text" class="input" />
+          <label class="btntype">Sort<img src="/images/sort.svg" class="filterimg" /></label>
+          <select name="sort" class="btnsort" id="sort">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+          <button type="submit" class="btnsort">Compile</button>
+        </form>
+      </div>
     </div>
-    <div class="buttendiv">
-      <% var sort="asc" ,filter="name" %>
-        <% if(data.sortp.sort=="asc" ) { %>
-          <% sort="desc" %>
-            <% } %>
-              <% if(data.sortp.filter=="name" ) { %>
-                <% filter="storage" %>
-                  <% } %>
-                    <%= sort%>
-                      <%= filter%>
 
-                        <a href="<%= data.URL %>/farmer/getWarehouses?sort=<%=data.sortp.sort%>&filter=<%=filter %>"><button
-                            class="btnsort">
-                            Filter<img src="/images/filter.svg" class="filterimg" />
-                          </button></a>
-                        <a href="<%= data.URL %>/farmer/getWarehouses?sort=<%=sort%>&filter=<%=data.sortp.filter %>"><button
-                            class="btnsort">
-                            Sort<img src="/images/sort.svg" class="filterimg" />
-                          </button></a>
-    </div>
+
+
+
 
 
     <div class="wareList">
@@ -192,7 +199,11 @@
 
 
   <script src="/css/TopSideBar.js" charset="utf-8"></script>
+  <script>
+    document.getElementById("filter").value = "<%=data.sortp.filter%>";
+    document.getElementById("sort").value = "<%=data.sortp.sort%>";
 
+  </script>
 
 </body>
 
