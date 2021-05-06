@@ -25,6 +25,7 @@ const getProfile = async (req, res) => {
     		data: {
     			URL: process.env.PRODUCTION_URL,
     			supervisor: user,
+          role: "supervisor",
     		},
     	});
 

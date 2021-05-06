@@ -1,11 +1,7 @@
 const _ = require('lodash');
 const { Warehouse } = require('../../database/models');
 
-
 const getWarehousesById = async function (req, res) {
-
-
-	console.log(req);
 	let errRes = {
 		sucess: false,
 		data: null,
@@ -21,7 +17,9 @@ const getWarehousesById = async function (req, res) {
 		};
 		return res.send(errRes);
 	}
-	const Warehouses = await Warehouse.findOne({ warehouseId: req.body.warehouseId });
+	const Warehouses = await Warehouse.findOne({
+		warehouseId: req.body.warehouseId,
+	});
 	// console.log(Warehouses);
 	if (!Warehouses) {
 		errRes.error = {

@@ -56,7 +56,30 @@ const registerSuper = async (req, res) => {
     });
   }
 
+
+
   // Insert the new user if they do not exist yet
+	// let data = req.body;
+
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+		dd = '0' + dd;
+	}
+	if (mm < 10) {
+		mm = '0' + mm;
+	}
+	today = dd + '/' + mm + '/' + yyyy;
+	req.body['registerDate'] = today;
+
+
+  // console.log(req.body);
+
+
+
+
   user = new Supervisor(
     _.pick(data, [
       "firstName",
@@ -65,26 +88,28 @@ const registerSuper = async (req, res) => {
       "password",
       "email",
       "mobile",
-      "warehouseId",
       "address",
-      "registerData",
+			"warehouseId",
+      "registerDate"
     ])
   );
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
 
-  const token = jwt.sign(
-    {
-      user: user,
-      role: "farmer",
-    },
-    process.env.SECRET
-  );
-  res.clearCookie('token');
-  res.cookie('token', token);
 
-  return res.redirect('/api/v1/supervisor/getFarmers');
+  const token = jwt.sign(
+		{
+			user: user,
+			role: "supervisor",
+		},
+		process.env.SECRET
+	);
+
+	res.clearCookie('token');
+	res.cookie('token', token);
+
+
 
   res.send({
     success: true,

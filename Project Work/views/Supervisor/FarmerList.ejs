@@ -107,8 +107,10 @@
 <!--Staff and Farmer butten-->
 <div class = "staff-main-div">
     <div class = "staffcustomers-div">
-        <a href="./admin-staff.html" class = "title">Staff</a>
-        <a href="./admin-farmerlist.html" class = "title sectionSelected">Farmers</a>
+        <!-- <a href="./admin-staff.html" class = "title">Staff</a> -->
+        <p class = "title">List of Farmers using Warehouse #<% if(data) { %>
+          <%= data.supervisor.warehouseId %>
+        <% } %> </p>
     </div>
 
 

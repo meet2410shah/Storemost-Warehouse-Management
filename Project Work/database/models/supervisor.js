@@ -9,6 +9,6 @@ module.exports = require('mongoose').model(
 		mobile: { type: String, required: true },
 		warehouseId: { type: Number, required: true },
 		address: { type: String, default: " " },
-		registerDate: { type: String, require: true },
+		registerDate: { type: String, required: true },
 	})
 );

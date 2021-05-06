@@ -5,7 +5,7 @@ const { validate } = require('./validate_login');
 const { errorCustom } = require('../error/error');
 const jwt = require('jsonwebtoken');
 
-const LoginAdmin = async (req, res) => {
+module.exports = async (req, res) => {
 	let errRes = {
 		sucess: false,
 		data: null,
@@ -51,20 +51,10 @@ const LoginAdmin = async (req, res) => {
 	const token = jwt.sign(
 		{
 			user,
-			role: 'admin'
+			role: 'admin',
 		},
 		process.env.SECRET
 	);
-
 	res.cookie('token', token);
-
 	return res.redirect('/api/v1/admin/getWarehouses');
-
-	return res.send({
-		status: 'Pass',
-		data: user,
-		error: null,
-	});
 };
-
-module.exports = LoginAdmin;

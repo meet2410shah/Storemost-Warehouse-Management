@@ -1,6 +1,4 @@
-const express = require('express');
-
-const router = express.Router();
+const router = require('express').Router();
 
 const {
 	register,
@@ -11,31 +9,25 @@ const {
 	getProfile,
 	getWarehouseById,
 	getWarehouses,
-	listFarmerByWarehouseId,
-	listStaffByWarehouseId,
+	getFarmersList,
+	getStaffList,
 	getEditProfile,
+	isAuthenticated,
 	logout,
 } = require('../controllers/admin/');
 
 router.post('/register', register);
-
 router.post('/login', login);
 
+router.use(isAuthenticated);
 router.get('/getProfile', getProfile);
-
-router.post('/editProfile', editProfile);
 router.get('/getEditProfile', getEditProfile);
-
 router.get('/getWarehouses', getWarehouses);
-
+router.post('/editProfile', editProfile);
 router.post('/getWarehouseById', getWarehouseById);
-
-router.post('/listFarmerByWarehouseId', listFarmerByWarehouseId);
-
-router.post('/listStaffByWarehouseId', listStaffByWarehouseId);
-
+router.post('/getFarmersList', getFarmersList);
+router.post('/getStaffList', getStaffList);
 router.post('/addWarehouse', addWarehouse);
-
 router.post('/addStaff', addStaff);
 router.get('/logout', logout);
 

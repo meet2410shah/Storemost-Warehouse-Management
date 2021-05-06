@@ -1,7 +1,8 @@
 const _ = require('lodash');
+const jwt = require('jsonwebtoken');
 const { Warehouse } = require('../../database/models');
 
-const ListStaff = async function (req, res) {
+module.exports = async function (req, res) {
 	let errRes = {
 		sucess: false,
 		data: null,
@@ -21,23 +22,22 @@ const ListStaff = async function (req, res) {
 	let warehouselist;
 	try {
 		warehouselist = await Warehouse.findOne({
-			warehouseId: wid
+			warehouseId: wid,
 		});
 	} catch {
 		errRes.error = {
 			code: 1111,
-			msg: "Warehouse not found in databse"
-		}
+			msg: 'Warehouse not found in databse',
+		};
 		return res.send(errRes);
 	}
 	if (!warehouselist) {
 		errRes.error = {
 			code: 1111,
-			msg: "Warehouse not found in databse"
-		}
+			msg: 'Warehouse not found in databse',
+		};
 		return res.send(errRes);
 	}
-
 
 	let StaffList;
 	try {
@@ -47,14 +47,14 @@ const ListStaff = async function (req, res) {
 	} catch {
 		errRes.error = {
 			code: 1065,
-			msg: "No staff found with given warehouse"
-		}
+			msg: 'No staff found with given warehouse',
+		};
 	}
 	if (!StaffList) {
 		errRes.error = {
 			code: 1065,
-			msg: "No staff found with given warehouse"
-		}
+			msg: 'No staff found with given warehouse',
+		};
 		return res.send(errRes);
 	}
 	const resObj = {
@@ -62,7 +62,13 @@ const ListStaff = async function (req, res) {
 		data: StaffList.staffDetails,
 		error: null,
 	};
-	res.send(resObj);
-};
 
-module.exports = ListStaff;
+	return res.render('./Admin/StaffList', {
+		data: {
+			URL: process.env.PRODUCTION_URL,
+			admin: res.locals.user,
+			wid: wid,
+			StaffList: StaffList.staffDetails,
+		},
+	});
+};

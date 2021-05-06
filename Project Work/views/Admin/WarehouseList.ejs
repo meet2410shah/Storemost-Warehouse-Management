@@ -106,15 +106,23 @@
 			</div>
 		</div>
 
-		<div class="wareList">
-			<% if(data) { %>
-				<% data.warehouses.forEach(function(warehouse) { %>
+			<div class="wareList">
+				<% if(data) { %> <% data.warehouses.forEach(function(warehouse) { %>
+				<form action="<%= data.URL %>/admin/getStaffList" method="POST">
+					<input
+						type="hidden"
+						value="<%= warehouse.warehouseId %>"
+						name="warehouseId"
+					/>
 					<div class="admin-name-main-conta">
 						<div class="warehouse-img"></div>
 						<div class="admin-warehouse-details-div">
 							<div class="admin-flex-1st-div">
 								<h1 class="admin-link">
-									Warehouse <%= warehouse.warehouseId %> : <%= warehouse.name %>
+									<button type="submit" class="warehouseButton">
+										Warehouse <%= warehouse.warehouseId %> : <%= warehouse.name
+										%>
+									</button>
 								</h1>
 								<p class="admin-occupied">
 									<%= warehouse.available %> available
@@ -122,14 +130,14 @@
 							</div>
 							<div class="admin-flex-2nd-div">
 								<h2 class="admin-addr">Address:</h2>
-								<h2 class="admin-addr2">
-									<%= warehouse.location.address %>
-								</h2>
+								<h2 class="admin-addr2"><%= warehouse.location.address %></h2>
 							</div>
 						</div>
 					</div>
-					<% }); %>
-						<% } %>
+				</form>
+
+				<% }); %> <% } %>
+			</div>
 		</div>
 	</div>
 

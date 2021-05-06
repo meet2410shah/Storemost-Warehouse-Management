@@ -6,11 +6,6 @@ const { validatewp } = require('./validatewp');
 const jwt = require('jsonwebtoken');
 
 const editProf = async function (req, res) {
-
-
-	console.log(req.body);
-
-
 	let errRes = {
 		sucess: false,
 		data: null,
@@ -92,7 +87,7 @@ const editProf = async function (req, res) {
 	// `doc` is the document _before_ `update` was applied
 	let profile = await Supervisor.findOneAndUpdate(filter, update);
 
-	console.log(profile);
+	// console.log(profile);
 
 	profile = await Supervisor.findOne(filter);
 

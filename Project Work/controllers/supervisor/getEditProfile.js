@@ -43,6 +43,7 @@ const getEdit = async function (req, res, error) {
 		data: {
 			URL: process.env.PRODUCTION_URL,
 			supervisor: user,
+			role: "supervisor",
 		},
 	});
 

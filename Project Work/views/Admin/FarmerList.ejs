@@ -37,7 +37,7 @@
       >
       <div class="sideBox">
         <img src="/images/image.png" alt="User Logo" class="userLogo">
-        <p class="userName"> <%= Admin.firstName %> <%= Admin.lastName %> </p>
+        <p class="userName"> <%= data.admin.firstName %> <%= data.admin.lastName %> </p>
         <p class="userDesig">Admin</p>
 
         <table class="table">
@@ -69,8 +69,11 @@
 <!--Staff and Farmer butten-->
 <div class = "staff-main-div">
     <div class = "staffcustomers-div">
-        <a href="./admin-staff.html" class = "title">Staff</a>
-        <a href="./admin-farmerlist.html" class = "title sectionSelected">Farmers</a>
+      <form action="<%= data.URL %>/admin/getStaffList" method="POST">
+        <input type="hidden" value="<%= data.wid %>" name="warehouseId" />
+        <button class="title">Staff</button>
+      </form>
+      <a href="#" class="title sectionSelected">Farmers</a>
     </div>
 
 
@@ -96,37 +99,22 @@
             </div>
 
             <div class="scrollWrapper">
-
-
-
-              <% FarmerList.forEach(function(farmer) { %>
-
-
-
-            <div class = "admin-contan2">
-                <input type = "checkbox" class = "admin-check2"></input>
-                <a href="./admin-crop.html" class = "admin-par20" > <%= farmer.firstName %> <%= farmer.lastName %> </a>
-                <p class = "admin-par21" > <%= farmer.deposit %> </p>
-                <p class = "admin-par22" > <%= farmer.quantity %> </p>
-                <p class = "admin-par23" > <%= farmer.mobile %> </p>
-                <p class = "admin-par24" > <%= farmer.address %> </p>
-            </div>
-
+              <% data.FarmerList.forEach(function(farmer) { %>
+                <form action="<%= data.URL %>/admin/getCropDetails">
+                <div class = "admin-contan2">
+                    <input type = "checkbox" class = "admin-check2"></input>
+                    <a href="./admin-crop.html" class = "admin-par20" > <%= farmer.firstName %> <%= farmer.lastName %> </a>
+                    <p class = "admin-par21" > <%= farmer.deposit %> </p>
+                    <p class = "admin-par22" > <%= farmer.quantity %> </p>
+                    <p class = "admin-par23" > <%= farmer.mobile %> </p>
+                    <p class = "admin-par24" > <%= farmer.address %> </p>
+                </div>
+                </form>
               <% }); %>
-
             </div>
-
-
-
-
         </div>
-        </div>
+      </div>
     </div>
-
-
-
-
-
     </div>
 
 

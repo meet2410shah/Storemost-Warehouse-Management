@@ -73,9 +73,10 @@ body,html{
      padding-left: 20px;
      padding-right: 20px;
      background-color: #353535;
-     margin-top: 30px;
+     margin-top: 20px;
      position: fixed;
      /* z-index: -1; */
+     padding-top: 20px;
  }
 
 .buttonclass{
