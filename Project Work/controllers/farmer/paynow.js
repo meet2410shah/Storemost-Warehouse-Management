@@ -20,7 +20,7 @@ module.exports = async function (req, res, next) {
 	if (mm < 10) {
 		mm = '0' + mm;
 	}
-	today = yyyy + '-' + mm + '/' + dd;
+	today = yyyy + '-' + mm + '-' + dd;
 
 	const token = req.cookies.token;
 	// Check the Existance of Token
@@ -47,11 +47,24 @@ module.exports = async function (req, res, next) {
 	}
 	console.log(today);
 
+	var curtime = new Date(yyyy, mm, dd);
+	yyyy = req.body.dueDate.toString().substring(0, 4);
+	mm = req.body.dueDate.toString().substring(5, 7);
+	dd = req.body.dueDate.toString().substring(8, 10);
+	console.log(yyyy);
+	console.log(mm);
+	console.log(dd);
+	var duetime = new Date(yyyy, mm, dd)
+	var days = duetime.getTime() - curtime.getTime();
+	days = days / (86400000);
+	let payamount = String(parseInt((days + 1) * process.env.PRICE * req.body.quantity));
+
+	console.log(days);
 	let paymentDetails = {
 		cropType: req.body.cropType,
 		warehouseId: req.body.warehouseId,
 		quantity: req.body.quantity, // (in Qunital)
-		amount: req.body.amount,
+		amount: payamount,
 		dueDate: req.body.dueDate,
 		depositDate: req.body.depositDate || today,
 		customerId: user._id,
@@ -98,8 +111,8 @@ module.exports = async function (req, res, next) {
 		warehouseId: Joi.number(),
 		cropType: Joi.string().min(2),
 		description: Joi.string(),
-
 	});
+
 	let { error } = schema.validate({
 		email: paymentDetails.customerEmail,
 		mobile: paymentDetails.customerPhone,
@@ -155,7 +168,7 @@ module.exports = async function (req, res, next) {
 		}
 		return res.send(errRes);
 	}
-	console.log(warehouse);
+	// console.log(warehouse);
 
 	const warehouseStorage = parseInt(warehouse.storage);
 
@@ -175,8 +188,8 @@ module.exports = async function (req, res, next) {
 		}
 	}
 
-	console.log(total + parseInt(paymentDetails.quantity));
-	console.log(warehouseStorage);
+	// console.log(total + parseInt(paymentDetails.quantity));
+	// console.log(warehouseStorage);
 	if (total + parseInt(paymentDetails.quantity) > warehouseStorage) {
 		return res.send({
 			success: false,
