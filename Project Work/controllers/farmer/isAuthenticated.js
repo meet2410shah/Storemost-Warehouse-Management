@@ -14,15 +14,15 @@ module.exports = async (req, res, next) => {
 		if (role != 'farmer') {
 			return res.redirect('/');
 		}
-		let farmer;
-		try {
-			farmer = await Farmer.findOne({ _id: user._id });
-		} catch {
-			return res.redirect('/');
-		}
-		if (!farmer) {
-			return res.redirect('/');
-		}
+		// let farmer;
+		// try {
+		// 	farmer = await Farmer.findOne({ _id: user._id });
+		// } catch {
+		// 	return res.redirect('/');
+		// }
+		// if (!farmer) {
+		// 	return res.redirect('/');
+		// }
 		res.locals.user = user;
 		res.locals.role = role;
 	} catch {

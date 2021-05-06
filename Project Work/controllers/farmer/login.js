@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
 			});
 		}
 	}
-
+	// console.log(req.body);
 	// Then validate the Credentials in MongoDB match
 	// those provided in the request
 	const validPassword = await bcrypt.compare(password, user.password);
@@ -53,6 +53,7 @@ module.exports = async (req, res) => {
 	);
 	res.clearCookie('token');
 
+	// console.log(token);
 	res.cookie('token', token);
 
 	return res.redirect('/api/v1/farmer/getCrops');

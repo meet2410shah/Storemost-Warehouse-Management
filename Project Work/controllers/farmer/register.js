@@ -1,7 +1,7 @@
 // Required Modules
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-
+const jwt = require('jsonwebtoken')
 // Database Model
 const { Farmer } = require('../../database/models/');
 
@@ -86,7 +86,7 @@ module.exports = async (req, res) => {
 	res.cookie('token', token);
 
 	return res.redirect('/api/v1/farmer/getCrops');
-	
+
 	res.send({
 		success: true,
 		data: _.pick(user, [

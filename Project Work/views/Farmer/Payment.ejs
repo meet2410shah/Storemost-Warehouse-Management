@@ -27,7 +27,7 @@
     *,
     *::before,
     *::after {
-      box-sizing: content-box !important; // 1
+      box-sizing: content-box !important; 
     }
   </style>
 </head>
@@ -58,7 +58,7 @@
     <div class="sideLogo">
       <a href="<%= data.URL %>/farmer/logout"> <img src="/images/logout.svg" class="buttonclass" /></a>
     </div>
-  </div>
+  </div> 
 
 
   <div id="mySidepanel" class="sidepanel">
@@ -78,31 +78,35 @@
           <tr>
             <td class="leftBox anotherAdjust"><img src="/images/image.png" alt="" class="userOptionProfile"></td>
             <td class="rightBox adjust">
-              <p><a href="<%= data.URL %>/farmer/getProfile"> Profile </a></p>
+              <p><a href="<%= data.URL %>/farmer/getProfile" style="text-decoration: none;color: white;"> Profile </a>
+              </p>
             </td>
           </tr>
           <tr>
             <td class="leftBox"><img src="/images/48-512.png" alt="" class="userOption cropAdjust"></td>
             <td class="rightBox">
-              <p><a href="<%= data.URL %>/farmer/getCrops"> My Crops </a></p>
+              <p><a href="<%= data.URL %>/farmer/getCrops" style="text-decoration: none;color: white;"> My Crops </a>
+              </p>
             </td>
           </tr>
           <tr>
             <td class="leftBox"><img src="/images/inventory.svg" alt="" class="userOption"></td>
             <td class="rightBox">
-              <p><a href="<%= data.URL %>/farmer/getWarehouses"> Warehouses </a></p>
+              <p><a href="<%= data.URL %>/farmer/getWarehouses" style="text-decoration: none;color: white;"> Warehouses
+                </a></p>
             </td>
           </tr>
           <tr>
             <td class="leftBox"><img src="/images/receipt-24px.svg" alt="" class="userOption"></td>
             <td class="rightBox">
-              <p><a href="<%= data.URL %>/farmer/getPayment"> Payment </a></p>
+              <p><a href="<%= data.URL %>/farmer/getPayment" style="text-decoration: none;color: white;"> Payment </a>
+              </p>
             </td>
           </tr>
           <tr>
             <td class="leftBox"><img src="/images/logout.svg" alt="" class="userOption"></td>
             <td class="rightBox">
-              <p><a href="<%= data.URL %>/farmer/logout"> Logout </a></p>
+              <p><a href="<%= data.URL %>/farmer/logout" style="text-decoration: none;color: white;"> Logout </a></p>
             </td>
           </tr>
         </tbody>
@@ -153,8 +157,8 @@
             <div class="card-body   back text-white">
               <h5 class="text-center card-title font mb-0"> Crop</h5>
               <h5 class="text-center card-title font"> Renewal</h5>
-              <p class="mx-auto text-center w-50 card-text  textcolor mt-2 mb-4">Instantly request for space to store
-                your crop into your wareshouse</p>
+              <p class="mx-auto text-center w-50 card-text  textcolor mt-2 mb-4">Instantly request for crop renewal in
+                wareshouse</p>
               <a type="button" class=" btn  but btn-dark but" data-toggle="modal" data-target="#myModal2">Select</a>
             </div>
 
@@ -170,8 +174,8 @@
             <div class="card-body   back text-white">
               <h5 class="text-center card-title font mb-0"> Advance</h5>
               <h5 class="text-center card-title font"> Payment</h5>
-              <p class="mx-auto text-center w-50 card-text textcolor mt-2 mb-4">Instantly request for space to store
-                your crop into your wareshouse</p>
+              <p class="mx-auto text-center w-50 card-text textcolor mt-2 mb-4">Request for space to store
+                your crop into your wareshouse in Advance</p>
               <a type="button" class=" btn  but btn-dark but" data-toggle="modal" data-target="#myModal3">Select</a>
             </div>
 
@@ -301,8 +305,9 @@
                 src='/images/credit_score-24px.svg' alt='credit'></img></div>
             <div class="col-sm-0 box"></div>
             <div class="col-sm-8">
-              <h1 class="instant1">Instant Payment</h1>
-              <p class="text-secondary h5">Instantly request for space to store your crop into your wareshouse</p>
+              <h1 class="instant1">Crop Renewal</h1>
+              <p class="text-secondary h5">Instantly request for space to store
+                your crop into your wareshouse</p>
             </div>
             <div class="col-sm-1 ml-5 mt-0">
               <button type="button" class="close instant4 text" data-dismiss="modal">&times;</button>
@@ -399,8 +404,9 @@
                 src='/images/credit_score-24px.svg' alt='credit'></img></div>
             <div class="col-sm-0 box"></div>
             <div class="col-sm-8">
-              <h1 class="instant1">Instant Payment</h1>
-              <p class="text-secondary h5">Instantly request for space to store your crop into your wareshouse</p>
+              <h1 class="instant1">Advance Payment</h1>
+              <p class="text-secondary h5">Instantly request for space to store
+                your crop into your wareshouse</p>
             </div>
             <div class="col-sm-1 ml-5 mt-0">
               <button type="button" class="close instant4 text" data-dismiss="modal">&times;</button>
