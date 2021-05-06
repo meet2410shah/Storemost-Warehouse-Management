@@ -6,8 +6,8 @@ const editProfile = require('./editProfile');
 const getProfile = require('./getProfile');
 const getWarehouses = require('./getWarehouses');
 const getWarehouseById = require('./getWarehouseById');
-const listFarmerByWarehouseId = require('./listFarmerByWarehouseId');
-const listStaffByWarehouseId = require('./listStaffByWarehouseId');
+const getFarmersList = require('./getFarmersList');
+const getStaffList = require('./getStaffList');
 const getEditProfile = require('./getEditProfile');
 const logout = require('./logout');
 
@@ -21,7 +21,7 @@ module.exports = {
 	getProfile,
 	getWarehouseById,
 	getWarehouses,
-	listFarmerByWarehouseId,
-	listStaffByWarehouseId,
+	getFarmersList,
+	getStaffList,
 	logout,
 };

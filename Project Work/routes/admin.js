@@ -11,8 +11,8 @@ const {
 	getProfile,
 	getWarehouseById,
 	getWarehouses,
-	listFarmerByWarehouseId,
-	listStaffByWarehouseId,
+	getFarmersList,
+	getStaffList,
 	getEditProfile,
 	logout,
 } = require('../controllers/admin/');
@@ -30,9 +30,9 @@ router.get('/getWarehouses', getWarehouses);
 
 router.post('/getWarehouseById', getWarehouseById);
 
-router.post('/listFarmerByWarehouseId', listFarmerByWarehouseId);
+router.post('/getFarmersList', getFarmersList);
 
-router.post('/listStaffByWarehouseId', listStaffByWarehouseId);
+router.post('/getStaffList', getStaffList);
 
 router.post('/addWarehouse', addWarehouse);
 
