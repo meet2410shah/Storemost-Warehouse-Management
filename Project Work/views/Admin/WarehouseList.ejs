@@ -24,7 +24,12 @@
 				/></a>
 			</div>
 			<div class="sideLogo">
-				<img src="/images/inventory.svg" class="buttonclass" />
+				<a
+					href="<%= data.URL %>/admin/getWarehouses"
+					style="text-decoration: none"
+				>
+					<img src="/images/inventory.svg" class="buttonclass" />
+				</a>
 			</div>
 			<div class="sideLogo">
 				<img src="/images/logout.svg" class="buttonclass" />
@@ -127,7 +132,7 @@
 						<div class="admin-warehouse-details-div">
 							<div class="admin-flex-1st-div">
 								<h1 class="admin-link">
-									<button type="submit">
+									<button type="submit" class="warehouseButton">
 										Warehouse <%= warehouse.warehouseId %> : <%= warehouse.name
 										%>
 									</button>

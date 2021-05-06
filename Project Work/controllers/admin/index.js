@@ -10,6 +10,7 @@ const getFarmersList = require('./getFarmersList');
 const getStaffList = require('./getStaffList');
 const getEditProfile = require('./getEditProfile');
 const logout = require('./logout');
+const isAuthenticated = require('./isAuthenticated');
 
 module.exports = {
 	register,
@@ -23,5 +24,6 @@ module.exports = {
 	getWarehouses,
 	getFarmersList,
 	getStaffList,
+	isAuthenticated,
 	logout,
 };

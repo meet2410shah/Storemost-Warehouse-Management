@@ -3,30 +3,7 @@ const jwt = require('jsonwebtoken');
 const { Warehouse, Farmer } = require('../../database/models');
 
 module.exports = async function (req, res) {
-	const token = req.cookies.token;
-	if (!token) {
-		return res.send({
-			success: false,
-			data: null,
-			error: {
-				code: 1001,
-				msg: 'user not logged in',
-			},
-		});
-	}
-
-	// Generate the User
-	const { user } = jwt.verify(token, process.env.SECRET);
-	if (!user) {
-		return res.send({
-			success: false,
-			data: null,
-			error: {
-				code: 1002,
-				msg: 'User not Verified',
-			},
-		});
-	}
+	const user = res.locals.user;
 
 	// console.log(req);
 	let errRes = {
@@ -85,7 +62,7 @@ module.exports = async function (req, res) {
 
 	if (!FarmersList) {
 		errRes.error = {
-			code: 1064,
+			code: 1065,
 			msg: 'No Farmer found in given warehouse',
 		};
 		return res.send(errRes);
@@ -93,14 +70,19 @@ module.exports = async function (req, res) {
 	// console.log(FarmersList);
 
 	var farmers = [];
+	console.log(wid);
 	for (var f = 0; f < FarmersList.length; f++) {
 		var flag = 0;
 		for (var c = 0; c < FarmersList[f].crops.length; c++) {
+			console.log(FarmersList[f].crops[c]);
 			if (FarmersList[f].crops[c].warehouseId == wid) {
+				console.log('Hello');
 				flag = 1;
+				break;
 			}
 		}
-		if (flag) {
+		if (flag == 1) {
+			console.log(FarmersList[f]);
 			farmers.push(
 				_.pick(FarmersList[f], [
 					'firstName',
@@ -112,13 +94,14 @@ module.exports = async function (req, res) {
 			);
 		}
 	}
-	if (farmers.length == 0) {
-		errRes.error = {
-			code: 1064,
-			msg: 'No Farmer found in given warehouse',
-		};
-		return res.send(errRes);
-	}
+	// console.log(farmers);
+	// if (farmers.length == 0) {
+	// 	errRes.error = {
+	// 		code: 1066,
+	// 		msg: 'No Farmer found in given warehouse',
+	// 	};
+	// 	return res.send(errRes);
+	// }
 	// console.log(farmers);
 	const resObj = {
 		success: true,

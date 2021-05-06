@@ -3,31 +3,6 @@ const jwt = require('jsonwebtoken');
 const { Warehouse } = require('../../database/models');
 
 module.exports = async function (req, res) {
-	const token = req.cookies.token;
-	if (!token) {
-		return res.send({
-			success: false,
-			data: null,
-			error: {
-				code: 1001,
-				msg: 'user not logged in',
-			},
-		});
-	}
-
-	// Generate the User
-	const { user } = jwt.verify(token, process.env.SECRET);
-	if (!user) {
-		return res.send({
-			success: false,
-			data: null,
-			error: {
-				code: 1002,
-				msg: 'User not Verified',
-			},
-		});
-	}
-
 	let errRes = {
 		sucess: false,
 		data: null,
@@ -91,10 +66,9 @@ module.exports = async function (req, res) {
 	return res.render('./Admin/StaffList', {
 		data: {
 			URL: process.env.PRODUCTION_URL,
-			admin: user,
+			admin: res.locals.user,
 			wid: wid,
 			StaffList: StaffList.staffDetails,
 		},
 	});
-	res.send(resObj);
 };
