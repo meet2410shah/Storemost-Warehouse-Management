@@ -8,16 +8,18 @@ const {
   getEditProfile,
 	logout,
   getFarmers,
-  getStaff
+  getStaff,
+	isAuthenticated
 } = require('../controllers/supervisor');
 
+// router.use(isAuthenticated);
 router.post('/register', register);
 router.post('/login', login);
-router.get('/getFarmers', getFarmers);
-router.get('/getProfile', getProfile);
+router.get('/getFarmers', isAuthenticated, getFarmers);
+router.get('/getProfile', isAuthenticated, getProfile);
 router.post('/editProfile', editProfile);
-router.get('/getEditProfile', getEditProfile);
-router.get('/getStaff', getStaff);
+router.get('/getEditProfile', isAuthenticated, getEditProfile);
+router.get('/getStaff', isAuthenticated, getStaff);
 router.get('/logout', logout);
 
 module.exports = router;

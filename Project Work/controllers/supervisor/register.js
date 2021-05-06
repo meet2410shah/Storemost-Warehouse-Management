@@ -57,6 +57,17 @@ const registerSuper = async (req, res) => {
   }
 
 
+  let ware = await Supervisor.findOne({ warehouseId: data.warehouseId });
+
+  // console.log(ware);
+
+  if (ware) {
+    return res.send({
+      success: false,
+      data: null,
+      error: { code: 1023, msg: "Supervisor for that warehouse already exists" },
+    });
+  }
 
   // Insert the new user if they do not exist yet
 	// let data = req.body;
@@ -95,7 +106,29 @@ const registerSuper = async (req, res) => {
   );
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
+  console.log(user);
   await user.save();
+
+
+
+  Warehouse.update(
+      { "warehouseId": "user.warehouseId" },
+      {
+          $push: {
+              staffDetails: {
+                  $each: [{
+                    staffId: "",
+            				firstName: user.firstName,
+            				lastName: user.lastName,
+            				salary: "",
+            				role: "Supervisor",
+            				mobile: user.mobile,
+                  }],
+                  $position: 0
+              }
+          }
+      }
+  );
 
 
   const token = jwt.sign(

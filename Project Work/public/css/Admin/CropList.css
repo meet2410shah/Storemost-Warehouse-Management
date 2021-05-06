@@ -9,13 +9,14 @@ body,html{
 .topBar{
     /* font-size: 50px; */
     /* color: #FFFFFF; */
-    background-color: #0e0e0e;
+    /* background-color: #0e0e0e; */
     width: 100%;
     height: 70px;
-    opacity: 0.7;
+    /* opacity: 0.7; */
     /* position: fixed; */
     /* display: block; */
     /* z-index: 1; */
+    background-color: #5c5c5c;
 }
 
 .topBar-storeMostLogo{
@@ -34,7 +35,7 @@ body,html{
 
   /* font-size: 20px; */
   cursor: pointer;
-  background-color: #111;
+  background-color: #5c5c5c;
   /* color: white; */
   padding: 10px 15px;
   border: none;
@@ -282,8 +283,7 @@ body,html{
    /* background-attachment: scroll;*/
    /* border-left: solid 2px #707070; */
    padding-left: 90px;
-
-
+   height: auto;
 }
 
 .title3{
@@ -361,4 +361,11 @@ body,html{
     opacity: 1;
     font-weight: bold;
     color: #797979;
+}
+
+
+.mainBack{
+  height: 100%;
+  width: 100%;
+  background-color:#353535;
 }

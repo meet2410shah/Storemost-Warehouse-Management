@@ -5,21 +5,8 @@ const jwt = require('jsonwebtoken');
 
 const farmerList = async (req, res) => {
 
-	const token = req.cookies.token;
-	// Check the Existance of Token
-	if (!token) {
-		return res.send({
-			success: false,
-			data: null,
-			error: {
-				code: 1001,
-				msg: 'user not logged in',
-			},
-		});
-	}
-	const { user } = jwt.verify(token, process.env.SECRET);
 
-	if (!user) return res.send('ERROR');
+	const user = res.locals.user;
 
 
 		// console.log(data);

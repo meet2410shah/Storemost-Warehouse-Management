@@ -6,6 +6,7 @@ const login = require('./login');
 const getFarmers = require('./farmerList');
 const getStaff = require('./StaffList');
 const logout = require('./logout');
+const isAuthenticated = require('./isAuthenticated');
 // const validate = require('./validate');
 
 module.exports = {
@@ -16,5 +17,6 @@ module.exports = {
 	editProfile,
 	getEditProfile,
 	getStaff,
-	logout
+	logout,
+	isAuthenticated
 };

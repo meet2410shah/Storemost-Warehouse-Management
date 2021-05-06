@@ -4,24 +4,7 @@ const jwt = require('jsonwebtoken');
 const staffList = async (req, res) => {
 
 
-	const token = req.cookies.token;
-	// Check the Existance of Token
-	if (!token) {
-		return res.send({
-			success: false,
-			data: null,
-			error: {
-				code: 1001,
-				msg: 'user not logged in',
-			},
-		});
-	}
-	const { user } = jwt.verify(token, process.env.SECRET);
-
-	if (!user) return res.send('ERROR');
-
-	// console.log(user);
-
+	const user = res.locals.user;
 
   //Find the warehouse using warehouseID
 	Warehouse.find({ warehouseId: user.warehouseId }, (err,cursor) => {
@@ -37,15 +20,17 @@ const staffList = async (req, res) => {
 			});
 		}
 
+	// console.log(cursor);
+
 	let list = [];
 
 	//Adding supervisor as a staff first
-	let staffOne = new Object();
-	staffOne.firstName = user.firstName;
-	staffOne.lastName = user.lastName;
-	staffOne.mobile = user.mobile;
-	staffOne.role = "Supervisor";
-	list.push(staffOne);
+	// let staffOne = new Object();
+	// staffOne.firstName = user.firstName;
+	// staffOne.lastName = user.lastName;
+	// staffOne.mobile = user.mobile;
+	// staffOne.role = "Supervisor";
+	// list.push(staffOne);
 
 	// console.log(cursor);
 	// console.log(cursor[0].warehouseId);
