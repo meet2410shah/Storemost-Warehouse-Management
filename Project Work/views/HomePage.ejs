@@ -29,7 +29,10 @@
       <div class="container-fluid mt-5">
         <div class="row ml-5 mr-5 mb-5 mt-0">
           <div class="col col-sm-6 extraPadding">
-            <label for="modal-toggle" ><img class="d-inline img-fluid" style="cursor: pointer;" src="/images/machine.svg"></img><h1 class="square"></h1></label>
+            <label for="modal-toggle"><img id="admin" class="d-inline img-fluid nominee" style="cursor: pointer;"
+                src="/images/machine.svg"></img>
+              <h1 class="square"></h1>
+            </label>
           </div>
           <div class="col col-sm-5 text-light ml-5 ">
             <span class="font-weight-bold d3">we<span class="square1 ml-4"></span><span class="square2 ml-1"></span><span class="square4 ml-4"></span><span class="square7 ml-4"></span></span><br/>
@@ -44,7 +47,8 @@
       <div class="container-fluid ml-5 ">
         <div class="row text-center align-self-start ml-5 ">
           <div class="col-sm-2 bor">
-            <label type="button" class="d  text-light font-weight-bold pt-1" for="modal-toggle">Continue as Farmer</label>
+            <label id="farmer" type="button" class="d  text-light font-weight-bold pt-1 nominee"
+              for="modal-toggle">Continue as Farmer</label>
             <div class="rt-container">
               <div class="col-rt-12">
                 <div class="Scriptcontent">
@@ -95,17 +99,10 @@
                             "
                           />
                         </div>
-                        <form action="<%= data.URL %>/admin/login" method = "POST">
-                          <label style="display: flex; float: left; color: white"
-                            >Email</label
-                          >
-                          <input
-                            type="text"
-                            name="email"
-                            placeholder="johndoe2gmail.com"
-                            required
-                            style="background-color: #464545"
-                          />
+                        <form action="" method="POST" id="myForm">
+                          <label style="display: flex; float: left; color: white">Email</label>
+                          <input type="text" name="email" placeholder="johndoe2gmail.com" required
+                            style="background-color: #464545" />
 
                           <label style="display: flex; float: left; color: white"
                             >Password</label
@@ -135,15 +132,15 @@
                               float: left;
                               color: white;
                               margin-top: 1%;
-                            "
-                            >Name</label
-                          >
-                          <input
-                            type="name"
-                            placeholder="John Doe"
-                            required
-                            style="background-color: #464545"
-                          />
+                            ">Name</label>
+                          <input type="name" placeholder="John Doe" required style="background-color: #464545" />
+                          <label style="
+                              display: flex;
+                              float: left;
+                              color: white;
+                              margin-top: 1%;
+                            ">Name</label>
+                          <input type="name" placeholder="John Doe" required style="background-color: #464545" />
 
                           <label style="display: flex; float: left; color: white"
                             >Email</label
@@ -196,7 +193,8 @@
             </div>
           </div>
           <div class="col-sm-2 align-self-center bor">
-            <label type="button" class="d  text-light font-weight-bold pt-1" for="modal-toggle">Log in as Supervisor</label>
+            <label id="supervisor" type="button" class="d  text-light font-weight-bold pt-1 nominee"
+              for="modal-toggle">Log in as Supervisor</label>
           </div>
           <div class="col-sm-6 text-center pt-2">
             <a href="www.google.com" class="text-light text-decoration-none">Actively operating over 21 warehouses</a>
@@ -210,5 +208,33 @@
   <script src="https://use.fontawesome.com/7fcc5972f1.js"></script>
   <script src="./script.js"></script>
   </div>
+
+
+  <script type="text/javascript">
+
+
+    document.querySelectorAll('.nominee').forEach(item => {
+      item.addEventListener('click', event => {
+
+        let routeName = event.target.id;
+
+        // if(event.target.id==="supervisorId"){
+        //   routeName=event.target.id;
+        // }
+        // if(event.target.id==="farmerId"){
+        //   routeName=event.target.id;
+        // }
+        // if(event.target.id==="adminId"){
+        //   routeName=event.target.id;
+        // }
+
+        // let start = document.getElementById("myForm").action;
+        document.getElementById("myForm").action = "<%= data.URL %>/" + routeName + "/login"
+        // console.log(document.getElementById("myForm").action);
+      })
+    })
+
+
+  </script>
 </body>
 </html>

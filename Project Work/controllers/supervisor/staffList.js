@@ -5,38 +5,26 @@ const staffList = async (req, res) => {
 
 
 	const token = req.cookies.token;
-  // Check the Existance of Token
-  if (!token) {
-    return res.send({
-      success: false,
-      data: null,
-      error: {
-        code: 1001,
-        msg: "User Does'nt exists",
-      },
-    });
-  }
+	// Check the Existance of Token
+	if (!token) {
+		return res.send({
+			success: false,
+			data: null,
+			error: {
+				code: 1001,
+				msg: 'user not logged in',
+			},
+		});
+	}
+	const { user } = jwt.verify(token, process.env.SECRET);
 
-  // Check if Token is not corrupted
-  try {
-    const data = jwt.verify(token, process.env.SECRET);
-    const userId = data.userId;
-    Supervisor.findOne({ _id: userId }, (err, data) => {
-      // Check if there is an error from mongoose or not
-      if (err) {
-        return res.send({
-          success: false,
-          data: null,
-          error: {
-            code: 1003,
-            msg: 'Database Error',
-          },
-        });
-      }
+	if (!user) return res.send('ERROR');
+
+	// console.log(user);
 
 
   //Find the warehouse using warehouseID
-	Warehouse.find({ warehouseId: data.warehouseId }, (err,cursor) => {
+	Warehouse.find({ warehouseId: user.warehouseId }, (err,cursor) => {
 
 		if (err) {
 			return res.send({
@@ -53,15 +41,19 @@ const staffList = async (req, res) => {
 
 	//Adding supervisor as a staff first
 	let staffOne = new Object();
-	staffOne.firstName = data.firstName;
-	staffOne.lastName = data.lastName;
-	staffOne.mobile = data.mobile;
+	staffOne.firstName = user.firstName;
+	staffOne.lastName = user.lastName;
+	staffOne.mobile = user.mobile;
 	staffOne.role = "Supervisor";
 	list.push(staffOne);
 
+	// console.log(cursor);
+	// console.log(cursor[0].warehouseId);
+	// console.log(cursor[0].staffDetails);
+
 
   //Iterate and save up datails of the staff
-	cursor.staffDetails.forEach(function (item) {
+	cursor[0].staffDetails.forEach(function (item) {
 		let staffOne = new Object();
 
 		staffOne.firstName = item.firstName;
@@ -71,22 +63,21 @@ const staffList = async (req, res) => {
 		list.push(staffOne);
 	});
 
+
+	return res.render('./Supervisor/StaffList', {
+		data: {
+			URL: process.env.PRODUCTION_URL,
+			list,
+			supervisor: user,
+			role: "supervisor",
+		},
+	});
+
 	res.send(list);
 
 });
 
-});
-}catch (err) {
-	return res.send({
-		success: false,
-		data: null,
-		error: {
-			code: 1002,
-			msg: 'Token is Corrupted',
-		},
-	});
-}
 };
 
 
-exports.staffList = staffList;
+module.exports = staffList;

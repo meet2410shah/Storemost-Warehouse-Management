@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 				return res.redirect('/api/v1/farmer/getCrops');
 			}
 			else if (role == 'supervisor') {
-				return res.redirect('/api/v1/supervisor/getProfile')
+				return res.redirect('/api/v1/supervisor/getFarmers')
 			}
 		} else {
 			res.clearCookie('token');
@@ -86,9 +86,9 @@ app.get('/login', (req, res) => {
 	res.render('Login');
 });
 
-app.get('/adminware', (req, res) => {
-	res.render('./Admin/WarehouseList', {
-		AdminWarehouseList: AdminWarehouseList,
+app.get('/sup', (req, res) => {
+	res.render('./Supervisor/FarmerList', {
+		FarmerList: FarmerList,
 	});
 });
 
