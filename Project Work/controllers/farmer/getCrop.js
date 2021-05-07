@@ -75,7 +75,7 @@ module.exports = async (req, res) => {
                     break;
                 }
             }
-            console.log(crop);
+            // console.log(crop);
             return res.render('./Farmer/CropPopup', {
                 data: {
                     URL: process.env.PRODUCTION_URL,

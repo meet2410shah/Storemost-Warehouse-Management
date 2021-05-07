@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
 	let post_data = req.body;
 
 	// received params in callback
-	console.log('Callback Response: ', post_data, '\n');
+	// console.log('Callback Response: ', post_data, '\n');
 	// verify the checksum
 	const checksumhash = post_data.CHECKSUMHASH;
 	// delete post_data.CHECKSUMHASH;
@@ -27,7 +27,7 @@ module.exports = async (req, res, next) => {
 		config.PaytmConfig.key,
 		checksumhash
 	);
-	console.log('Checksum Result => ', result, '\n');
+	// console.log('Checksum Result => ', result, '\n');
 	// Send Server-to-Server request to verify Order Status
 	const params = { MID: config.PaytmConfig.mid, ORDERID: post_data.ORDERID };
 	checksum_lib.genchecksum(params, config.PaytmConfig.key, (err, checksum) => {
