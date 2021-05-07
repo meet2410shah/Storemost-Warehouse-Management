@@ -40,7 +40,7 @@
             <br/>
             <span class="font-weight-bold d3">your<span class="square3 ml-1"></span></span>
             <br/>
-            <span class="font-weight-bold d3 mt-0 ml-4">resouces<span class="square6 ml-1"></span></span>
+            <span class="font-weight-bold d3 mt-0 ml-4">resources<span class="square6 ml-1"></span></span>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@
                         </div>
                         <form action="" method="POST" id="myForm">
                           <label style="display: flex; float: left; color: white">Email</label>
-                          <input type="text" name="email" placeholder="johndoe2gmail.com" required
+                          <input type="text" name="email" placeholder="viratkohli2gmail.com" required
                             style="background-color: #464545" />
 
                           <label style="display: flex; float: left; color: white"
@@ -120,7 +120,7 @@
                         <div style="color: white; margin: 4% 0% 2% 0%">
                           New to StoreMost?
                         </div>
-                        <label for="tab-2" class="sign-up-link">Sign Up</label>
+                        <label for="tab-2" class="sign-up-link">SIGN UP</label>
                       </div>
                       <input class="radio" id="tab-2" name="tabs-name" type="radio" />
                       <label for="tab-2" class="table"><span>SIGN UP</span></label>
@@ -132,22 +132,22 @@
                               float: left;
                               color: white;
                               margin-top: 1%;
-                            ">Name</label>
-                          <input type="name" placeholder="Meet Doe" required style="background-color: #464545" />
+                            ">First Name</label>
+                          <input type="name" placeholder="Virat" required style="background-color: #464545" />
                           <label style="
                               display: flex;
                               float: left;
                               color: white;
                               margin-top: 1%;
-                            ">Name</label>
-                          <input type="name" placeholder="John Doe" required style="background-color: #464545" />
+                            ">Last Name</label>
+                          <input type="name" placeholder="Kohli" required style="background-color: #464545" />
 
                           <label style="display: flex; float: left; color: white"
                             >Email</label
                           >
                           <input
                             type="email"
-                            placeholder="johndoe2gmail.com"
+                            placeholder="viratkohli2gmail.com"
                             required
                             style="background-color: #464545"
                           />
@@ -179,12 +179,12 @@
                             required
                             style="background-color: #464545"
                           />
-                          <input type="submit" value="Sign Up" />
+                          <input type="submit" value="SIGN UP" />
                         </form>
                         <div style="color: white; margin: 0% 0% 2% 0%">
                           Already have an Account?
                         </div>
-                        <label for="tab-1" class="sign-up-link">SIGN UP</label>
+                        <label for="tab-1" class="sign-up-link">SIGN IN</label>
                       </div>
                     </div>
                   </div>
@@ -201,7 +201,7 @@
           </div>
         </div>
         <div class="m-3">
-          <a href="www.google.com" class=" d1 m-5">View NearBy Warehouses</a>
+          <a href="<%= data.URL %>/warehouse/list" class=" d1 m-5">View NearBy Warehouses</a>
         </div>
       </div>
   </header>
@@ -218,19 +218,7 @@
 
         let routeName = event.target.id;
 
-        // if(event.target.id==="supervisorId"){
-        //   routeName=event.target.id;
-        // }
-        // if(event.target.id==="farmerId"){
-        //   routeName=event.target.id;
-        // }
-        // if(event.target.id==="adminId"){
-        //   routeName=event.target.id;
-        // }
-
-        // let start = document.getElementById("myForm").action;
         document.getElementById("myForm").action = "<%= data.URL %>/" + routeName + "/login"
-        // console.log(document.getElementById("myForm").action);
       })
     })
 

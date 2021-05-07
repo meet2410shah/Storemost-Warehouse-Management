@@ -18,6 +18,7 @@ app.use(cors());
 const admin = require('./routes/admin');
 const supervisor = require('./routes/super');
 const farmer = require('./routes/farmer');
+const homeWarehouse = require('./routes/homeWarehouse');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -53,6 +54,8 @@ app.get('/', (req, res) => {
 app.use(`${version}/admin`, admin);
 app.use(`${version}/supervisor`, supervisor);
 app.use(`${version}/farmer`, farmer);
+app.use(`${version}/warehouse`, homeWarehouse);
+
 app.get('/', (req, res) => {
 	res.render('index');
 });

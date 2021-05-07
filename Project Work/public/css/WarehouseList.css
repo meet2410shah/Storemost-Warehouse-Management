@@ -17,7 +17,7 @@ body{
   width: 55px;
   /* display: inline-block; */
   /* margin-bottom: 60px; */
-  padding: 10px;
+  padding: 10px 0 10px 20px;
 }
 
 .heading{
@@ -27,6 +27,7 @@ body{
   position: relative;
   top: 10px;
   color: #fff;
+  font-weight: bold;
 }
 
 .wareBox{
@@ -37,7 +38,7 @@ body{
   text-align: left;
   color: #fff;
   width: 442px;
-  height: 310px;
+  height: 305px;
 /* margin-left: 20px; */
 }
 
@@ -49,15 +50,17 @@ body{
   color: #fff;
   padding-top: 5px !important;
   padding-bottom: 5px !important;
+  font-size: 18px;
 }
 
 .addressBox{
   /* text-overflow: ellipsis; */
-  height: 67px !important;
+  height: 59px !important;
   word-wrap: break-word;
   overflow-y: hidden !important;
   /* scrollbar-width: thin; */
   /* box-sizing: content-box; */
+  margin-bottom: 0;
 }
 
 .addressHead{
@@ -69,6 +72,7 @@ body{
   padding-bottom: 10px;
   text-align: center;
   margin: 0;
+  font-weight: bold;
 }
 
 .wrapper {
@@ -92,4 +96,5 @@ body{
   border-top-width: 0 !important;
   padding-top: 5px !important;
   padding-bottom: 5px !important;
+  font-size: 18px;
 }
