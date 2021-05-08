@@ -25,6 +25,10 @@ const registerSuper = async (req, res) => {
   today = dd + '/' + mm + '/' + yyyy;
   data['registerDate'] = today;
   data['address'] = data['address'] || " ";
+  var usern = data.firstName + data.lastName;
+  data['username'] = usern.toLowerCase();
+  data['warehouseId'] = Math.floor(Math.random() * 10) + 1;
+
 
   const { error } = validate(data);
   if (error) {
@@ -71,24 +75,6 @@ const registerSuper = async (req, res) => {
 
   // Insert the new user if they do not exist yet
   // let data = req.body;
-
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth() + 1;
-  var yyyy = today.getFullYear();
-  if (dd < 10) {
-    dd = '0' + dd;
-  }
-  if (mm < 10) {
-    mm = '0' + mm;
-  }
-  today = dd + '/' + mm + '/' + yyyy;
-  req.body['registerDate'] = today;
-
-
-  // console.log(req.body);
-
-
 
 
   user = new Supervisor(
