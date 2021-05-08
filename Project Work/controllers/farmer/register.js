@@ -78,7 +78,7 @@ module.exports = async (req, res) => {
 
 	const token = jwt.sign(
 		{
-			farmer: user,
+			user,
 			role: "farmer",
 		},
 		process.env.SECRET

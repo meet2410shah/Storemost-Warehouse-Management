@@ -8,7 +8,7 @@ function validateUser(user) {
     lastName: Joi.string().min(3).max(50).required(),
     username: Joi.string().min(5).max(50).required().token(),
     password: Joi.string().min(6).max(255).required(),
-    confirmPassword: Joi.string().min(6).max(255).required(),
+    confirmPassword: Joi.string().min(6).max(255),
     email: Joi.string().min(5).max(255).required().email(),
     mobile: Joi.string().min(5).max(50).required().pattern(/^[0-9]+$/),
     registerDate: Joi.string().min(5).max(50),
