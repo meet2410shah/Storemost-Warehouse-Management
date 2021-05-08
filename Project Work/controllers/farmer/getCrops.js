@@ -5,7 +5,6 @@ module.exports = async (req, res) => {
 	const token = req.cookies.token;
 	// Check the Existance of Token
 	if (!token) {
-		return res.redirect('./');
 		return res.send({
 			success: false,
 			data: null,

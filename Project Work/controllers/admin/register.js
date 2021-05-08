@@ -51,9 +51,9 @@ const registerAdmin = async (req, res) => {
 	today = dd + '/' + mm + '/' + yyyy;
 	data['registerDate'] = today;
 	data['address'] = data['address'] || ' ';
-	
+
 	var usern = data.firstName + data.lastName;
-	data['username'] = usern.toLowerCase();
+	data['username'] = data['usename'] || usern.toLowerCase();
 
 	const { error } = validate(data);
 	if (error) {
