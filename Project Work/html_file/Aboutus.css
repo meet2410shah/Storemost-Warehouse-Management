@@ -1,0 +1,39 @@
+.header{
+    height: 100vh!important;
+    overflow: hidden!important;
+    
+    
+  }
+
+.bor{
+    border-right: 2px solid #707070 !important;
+    height: 338px!important;
+}
+
+.texts{
+    font:normal normal 300 16px/32px Trueno;
+    line-height: 1.6!important;
+    letter-spacing: 0.2px !important;
+}
+
+.back{
+    background-color: #353535!important;
+}
+
+.back1{
+    background-color:#797979!important;
+}
+
+.text1
+{
+    font: normal normal normal 45px/32px DM Serif Text;
+    height: 60px!important;
+}
+
+.but{
+    color: white!important;
+    font-family: sans-serif!important;
+  border: 2px solid #D3B04F !important;
+  font-size: 20px !important;
+  
+  }
