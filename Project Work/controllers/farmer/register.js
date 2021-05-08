@@ -68,6 +68,7 @@ module.exports = async (req, res) => {
 	// console.log(data);
 	let user = new Farmer(
 		_.pick(data, [
+			"_id",
 			"firstName",
 			"lastName",
 			"username",
@@ -84,7 +85,7 @@ module.exports = async (req, res) => {
 	// console.log(user);;
 	const token = jwt.sign(
 		{
-			farmer: user,
+			user,
 			role: "farmer",
 		},
 		process.env.SECRET
