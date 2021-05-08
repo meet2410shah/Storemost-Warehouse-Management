@@ -1,0 +1,100 @@
+{
+    "firstName": "Soham",
+  "lastName": "Vagani",
+  "username": "sohamvagani",
+  "password": "sdvsvhbc",
+  "email": "sohamvagani12@gmail.com",
+  "mobile":"9426982466",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "1"
+},
+{
+    "firstName": "Achal",
+  "lastName": "Shroff",
+  "username": "achalshroff",
+  "password": "sdvsvhbc",
+  "email": "achal13shroff@gmail.com",
+  "mobile":"6354821699",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "2"
+},
+{
+    "firstName": "Swapanil",
+  "lastName": "Mehta",
+  "username": "mehta2031",
+  "password": "sdvsvhbc",
+  "email": "mehataswapanil@gmail.com",
+  "mobile":"6354936542",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "3"
+},
+{
+    "firstName": "Chirag",
+  "lastName": "Bhimani",
+  "username": "chiragbhimani43",
+  "password": "sdvsvhbc",
+  "email": "chirag32bhimani@gmail.com",
+  "mobile":"9998700622",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "4"
+},
+{
+    "firstName": "Dishant",
+  "lastName": "Dhola",
+  "username": "dishantdhola",
+  "password": "sdvsvhbc",
+  "email": "dishantdhola@gmail.com",
+  "mobile":"9115355522",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "5"
+},
+{
+    "firstName": "Dishant",
+  "lastName": "Mishra",
+  "username": "dishantmishara",
+  "password": "sdvsvhbc",
+  "email": "dishant34mishra@gmail.com",
+  "mobile":"9987006252",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "6"
+},
+{
+    "firstName": "Rohit Bhatt",
+  "lastName": "Bhatt",
+  "username": "bhattji",
+  "password": "sdvsvhbc",
+  "email": "rohitbhatt@gmail.com",
+  "mobile":"6353812362",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "7"
+},
+{
+    "firstName": "Rohit",
+  "lastName": "Tejani",
+  "username": "TejaniR",
+  "password": "sdvsvhbc",
+  "email": "rohit321tejani@gmail.com",
+  "mobile":"6353654362",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "8"
+},
+{
+    "firstName": "Shyam",
+  "lastName": "Shrama",
+  "username": "shyam32sharma",
+  "password": "sdvsvhbc",
+  "email": "shyam32shram@gmail.com",
+  "mobile":"9753654362",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "9"
+},
+{
+    "firstName": "Vatshal",
+  "lastName": "Vaghela",
+  "username": "vaghelavatsal",
+  "password": "sdvsvhbc",
+  "email": "vaghelavatsal32@gmail.com",
+  "mobile":"9426670697",
+  "confirmPassword": "sdvsvhbc",
+  "warehouseId": "10"
+}

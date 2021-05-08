@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/Admin/CropList.css">
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/Admin/CropList.css">
+</head>
+
+<body>
 
 
-    <div class="mainBack">
+  <div class="mainBack">
 
 
-    <div class = "topBar">
-        <img src = "/images/sort.svg" class ="topBar-openbtn" onclick="openNav()"/>
-        <img src = "/images/SM-Warehouse-Logo.png" class ="topBar-storeMostLogo"/>
+    <div class="topBar">
+      <img src="/images/sort.svg" class="topBar-openbtn" onclick="openNav()" />
+      <img src="/images/SM-Warehouse-Logo.png" class="topBar-storeMostLogo" />
     </div>
 
 
@@ -38,12 +40,13 @@
 
 
     <div id="mySidepanel" class="sidepanel">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="sideBox">
         <img src="/images/image.png" alt="User Logo" class="userLogo">
-        <p class="userName"> <%= Admin.firstName %> <%= Admin.lastName %> </p>
+        <p class="userName">
+          <%= Admin.firstName %>
+            <%= Admin.lastName %>
+        </p>
         <p class="userDesig">Admin</p>
 
         <table class="table">
@@ -104,41 +107,46 @@
 
 
 
-      <div class = "background3">
-          <!--title-->
-          <div>
-              <h1 class = "title3">My Crops</h1>
-          </div>
-
-          <!--Crops List-->
-          <div class = "contenar">
-
-
-
-            <% CropList.forEach(function(crop) { %>
-
-
-                <!--1-->
-              <div class = "contan3">
-                  <p class = "divimg">
-                      <a href="./admin-crop-popup.html" target="_top">
-                          <img src = "/images/crop.png" class = "crop-img"/>
-                      </a>
-                  </p>
-                  <p class = "par3" > <%= crop.cropType %> </p>
-                  <p class = "pargraph3" > <%= crop.amount %> Quintal</p>
-              </div>
-
-            <% }); %>
-
-
-          </div>
+    <div class="background3">
+      <!--title-->
+      <div>
+        <h1 class="title3">My Crops</h1>
       </div>
 
+      <!--Crops List-->
+      <div class="contenar">
+
+
+
+        <% CropList.forEach(function(crop) { %>
+
+
+          <!--1-->
+          <div class="contan3">
+            <p class="divimg">
+              <a href="./admin-crop-popup.html" target="_top">
+                <img src="/images/crop.png" class="crop-img" />
+              </a>
+            </p>
+            <p class="par3">
+              <%= crop.cropType %>
+            </p>
+            <p class="pargraph3">
+              <%= crop.amount %> Quintal
+            </p>
+          </div>
+
+          <% }); %>
+
+
+      </div>
     </div>
 
-    <script src="/css/TopSideBar.js" charset="utf-8"></script>
+  </div>
+
+  <script src="/css/TopSideBar.js" charset="utf-8"></script>
 
 
-  </body>
+</body>
+
 </html>

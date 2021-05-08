@@ -16,80 +16,84 @@
 
 
 
-  <div class="topBar">
-    <img src="/images/sort.svg" class="topBar-openbtn" onclick="openNav()" />
-    <img src="/images/SM-Warehouse-Logo.png" class="topBar-storeMostLogo" />
-  </div>
-
-
-
-  <div class="sideBar">
-    <div class="sideLogo">
-      <a href="<%= data.URL %>/farmer/getProfile"><img src="/images/image.png" class="buttonclass person-image" /></a>
+    <div class="topBar">
+      <img src="/images/sort.svg" class="topBar-openbtn" onclick="openNav()" />
+      <img src="/images/SM-Warehouse-Logo.png" class="topBar-storeMostLogo" />
     </div>
-    <div class="sideLogo">
-      <a href="<%= data.URL %>/farmer/getCrops"><img src="/images/48-512.png" class="buttonclass cropAdjust1" /></a>
+
+
+
+    <div class="sideBar">
+      <div class="sideLogo">
+        <a href="<%= data.URL %>/farmer/getProfile"><img src="/images/image.png" class="buttonclass person-image" /></a>
+      </div>
+      <div class="sideLogo">
+        <a href="<%= data.URL %>/farmer/getCrops"><img src="/images/48-512.png" class="buttonclass cropAdjust1" /></a>
+      </div>
+      <div class="sideLogo">
+        <a href="<%= data.URL %>/farmer/getWarehouses"><img src="/images/inventory.svg" class="buttonclass" /></a>
+      </div>
+      <div class="sideLogo">
+        <a href="<%= data.URL %>/farmer/getPayment"> <img src="/images/receipt-24px.svg" class="buttonclass" /></a>
+      </div>
+      <div class="sideLogo">
+        <a href="<%= data.URL %>/farmer/logout"> <img src="/images/logout.svg" class="buttonclass" /></a>
+      </div>
     </div>
-    <div class="sideLogo">
-      <a href="<%= data.URL %>/farmer/getWarehouses"><img src="/images/inventory.svg" class="buttonclass" /></a>
+
+
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="sideBox">
+        <img src="/images/image.png" alt="User Logo" class="userLogo">
+        <p class="userName">
+          <% if(data) { %>
+            <%= data.farmer.firstName %>
+              <%= data.farmer.lastName %>
+                <% } %>
+        </p>
+        <p class="userDesig">Farmer</p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="leftBox"><img src="/images/image.png" alt="" class="userOptionProfile"></td>
+              <td class="rightBox adjust">
+                <p> <a href="<%= data.URL %>/farmer/getProfile" style="text-decoration: none;color: white;"> Profile
+                  </a></p>
+              </td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/48-512.png" alt="" class="userOption cropAdjust"></td>
+              <td class="rightBox">
+                <p><a href="<%= data.URL %>/farmer/getCrops" style="text-decoration: none;color: white;"> My Crops </a>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/inventory.svg" alt="" class="userOption"></td>
+              <td class="rightBox">
+                <p><a href="<%= data.URL %>/farmer/getWarehouses" style="text-decoration: none;color: white;">
+                    Warehouses </a></p>
+              </td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/receipt-24px.svg" alt="" class="userOption"></td>
+              <td class="rightBox">
+                <p><a href="<%= data.URL %>/farmer/getPayment" style="text-decoration: none;color: white;"> Payment </a>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="leftBox"><img src="/images/logout.svg" alt="" class="userOption"></td>
+              <td class="rightBox">
+                <p><a href="<%= data.URL %>/farmer/logout" style="text-decoration: none;color: white;"> Logout </a></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="sideLogo">
-      <a href="<%= data.URL %>/farmer/getPayment"> <img src="/images/receipt-24px.svg" class="buttonclass" /></a>
-    </div>
-    <div class="sideLogo">
-      <a href="<%= data.URL %>/farmer/logout"> <img src="/images/logout.svg" class="buttonclass" /></a>
-    </div>
-  </div>
-
-
-  <div id="mySidepanel" class="sidepanel">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="sideBox">
-      <img src="/images/image.png" alt="User Logo" class="userLogo">
-      <p class="userName">
-        <% if(data) { %>
-          <%= data.farmer.firstName %>
-            <%= data.farmer.lastName %>
-              <% } %>
-      </p>
-      <p class="userDesig">Farmer</p>
-
-      <table class="table">
-        <tbody>
-          <tr>
-            <td class="leftBox"><img src="/images/image.png" alt="" class="userOptionProfile"></td>
-            <td class="rightBox adjust">
-              <p> <a href="<%= data.URL %>/farmer/getProfile" style="text-decoration: none;color: white;"> Profile </a></p>
-            </td>
-          </tr>
-          <tr>
-            <td class="leftBox"><img src="/images/48-512.png" alt="" class="userOption cropAdjust"></td>
-            <td class="rightBox">
-              <p><a href="<%= data.URL %>/farmer/getCrops" style="text-decoration: none;color: white;"> My Crops </a></p>
-            </td>
-          </tr>
-          <tr>
-            <td class="leftBox"><img src="/images/inventory.svg" alt="" class="userOption"></td>
-            <td class="rightBox">
-              <p><a href="<%= data.URL %>/farmer/getWarehouses" style="text-decoration: none;color: white;"> Warehouses </a></p>
-            </td>
-          </tr>
-          <tr>
-            <td class="leftBox"><img src="/images/receipt-24px.svg" alt="" class="userOption"></td>
-            <td class="rightBox">
-              <p><a href="<%= data.URL %>/farmer/getPayment" style="text-decoration: none;color: white;"> Payment </a></p>
-            </td>
-          </tr>
-          <tr>
-            <td class="leftBox"><img src="/images/logout.svg" alt="" class="userOption"></td>
-            <td class="rightBox">
-              <p><a href="<%= data.URL %>/farmer/logout" style="text-decoration: none;color: white;"> Logout </a></p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 
 
 
@@ -98,7 +102,7 @@
 
 
 
-  <!-- <div class = "mainBackground">
+    <!-- <div class = "mainBackground">
 
 
 
@@ -114,18 +118,18 @@
 
 
 
-  <div class="background3">
-    <!--title-->
-    <div>
-      <h1 class="title3">My Crops</h1>
-    </div>
+    <div class="background3">
+      <!--title-->
+      <div>
+        <h1 class="title3">My Crops</h1>
+      </div>
 
-    <!--Crops List-->
-    <div class="contenar">
+      <!--Crops List-->
+      <div class="contenar">
 
 
 
-      <% data.crops.forEach(function(crop) { %>
+        <% data.crops.forEach(function(crop) { %>
 
 
         <!--1-->
@@ -146,13 +150,13 @@
           </p>
         </div>
 
-        <% }); %>
+          <% }); %>
 
 
+      </div>
     </div>
-  </div>
 
-</div>
+  </div>
 
   <script src="/css/TopSideBar.js" charset="utf-8"></script>
 

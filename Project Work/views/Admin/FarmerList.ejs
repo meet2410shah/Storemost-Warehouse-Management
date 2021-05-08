@@ -1,82 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/Admin/FarmerList.css">
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/Admin/FarmerList.css">
+</head>
+
+<body>
 
 
-    <div class = "topBar">
-        <img src = "/images/sort.svg" class ="topBar-openbtn" onclick="openNav()"/>
-        <img src = "/images/SM-Warehouse-Logo.png" class ="topBar-storeMostLogo"/>
+  <div class="topBar">
+    <img src="/images/sort.svg" class="topBar-openbtn" onclick="openNav()" />
+    <img src="/images/SM-Warehouse-Logo.png" class="topBar-storeMostLogo" />
+  </div>
+
+
+  <div class="sideBar">
+    <div class="sideLogo">
+      <a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none;color: white;"><img
+          src="/images/image.png" class="buttonclass person-image" /></a>
     </div>
-
-
-
-    <div class = "sideBar">
-      <div class="sideLogo">
-        <a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none; color: #fff;"><img src="/images/image.png"
-            class="buttonclass person-image" /></a>
-      </div>
-      <div class="sideLogo">
-        <a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none; color: #fff;">
-        <img src="/images/inventory.svg" class="buttonclass" /></a>
-      </div>
-      <div class="sideLogo">
-        <a href="<%= data.URL %>/admin/logout" style="text-decoration: none; color: #fff;">
-        <img src="/images/logout.svg" class="buttonclass" /></a>
-      </div>
+    <div class="sideLogo">
+      <a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none;color: white;"><img
+          src="/images/inventory.svg" class="buttonclass" /></a>
     </div>
-
-
-    <div id="mySidepanel" class="sidepanel">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
-      <div class="sideBox">
-        <img src="/images/image.png" alt="User Logo" class="userLogo">
-        <p class="userName"> <%= data.admin.firstName %> <%= data.admin.lastName %> </p>
-        <p class="userDesig">Admin</p>
-
-        <table class="table">
-          <tbody>
-  					<tr>
-  						<td class="leftBox">
-  							<img src="/images/image.png" alt="" class="userOptionProfile" />
-  						</td>
-  						<td class="rightBox adjust">
-  							<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none; color: #fff;">
-  								<p>Profile</p>
-  							</a>
-  						</td>
-  					</tr>
-  					<tr>
-  						<td class="leftBox">
-  							<img src="/images/inventory.svg" alt="" class="userOption" />
-  						</td>
-  						<td class="rightBox">
-  							<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none; color: #fff;">
-  							<p>Warehouses</p></a>
-  						</td>
-  					</tr>
-  					<tr>
-  						<td class="leftBox">
-  							<img src="/images/logout.svg" alt="" class="userOption" />
-  						</td>
-  						<td class="rightBox">
-  							<a href="<%= data.URL %>/admin/logout" style="text-decoration: none; color: #fff;">
-  							<p>Logout</p></a>
-  						</td>
-  					</tr>
-  				</tbody>
-        </table>
-      </div>
+    <div class="sideLogo">
+      <a href="<%= data.URL %>/admin/logout" style="text-decoration: none;color: white;"><img src="/images/logout.svg"
+          class="buttonclass" /></a>
     </div>
+  </div>
+
+
+  <div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="sideBox">
+      <img src="/images/image.png" alt="User Logo" class="userLogo">
+      <p class="userName">
+        <%= data.admin.firstName %>
+          <%= data.admin.lastName %>
+      </p>
+      <p class="userDesig">Admin</p>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="leftBox">
+              <img src="/images/image.png" alt="" class="userOptionProfile" />
+            </td>
+            <td class="rightBox adjust">
+              <a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none;color: white;">
+                <p>Profile</p>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="leftBox">
+              <img src="/images/inventory.svg" alt="" class="userOption" />
+            </td>
+            <td class="rightBox">
+              <a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none;color: white;">
+                <p>Warehouses</p>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="leftBox">
+              <img src="/images/logout.svg" alt="" class="userOption" />
+            </td>
+            <td class="rightBox">
+              <a href="<%= data.URL %>/admin/logout" style="text-decoration: none;color: white;">
+                <p>Logout</p>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 
 
@@ -85,9 +89,9 @@
 
 
 
-<!--Staff and Farmer butten-->
-<div class = "staff-main-div">
-    <div class = "staffcustomers-div">
+  <!--Staff and Farmer butten-->
+  <div class="staff-main-div">
+    <div class="staffcustomers-div">
       <form action="<%= data.URL %>/admin/getStaffList" method="POST">
         <input type="hidden" value="<%= data.wid %>" name="warehouseId" />
         <button class="title">Staff</button>
@@ -101,45 +105,57 @@
 
 
 
-    <div class = "background2">
-        <br/>
+    <div class="background2">
+      <br />
 
-        <!-- Farmer List -->
-        <br/> <br/>
-        <div class = "namemaindiv">
-           <div class = "name-2nd-main-div">
-             <div class = "admin-name-3rd-main-div">
-                <input type = "checkbox" class = "admin-check"></input>
-                <h1 class = "admin-hader20" >Name</h1>
-                <h1 class = "admin-hader21">Deposit</h1>
-                <h1 class = "admin-hader22">No. of Crops</h1>
-                <h1 class = "admin-hader22 headerAdjust">Contact</h1>
-                <h1 class = "admin-hader23">Address</h1>
-            </div>
+      <!-- Farmer List -->
+      <br /> <br />
+      <div class="namemaindiv">
+        <div class="name-2nd-main-div">
+          <div class="admin-name-3rd-main-div">
+            <input type="checkbox" class="admin-check"></input>
+            <h1 class="admin-hader20">Name</h1>
+            <h1 class="admin-hader21">Deposit</h1>
+            <h1 class="admin-hader22">No. of Crops</h1>
+            <h1 class="admin-hader22 headerAdjust">Contact</h1>
+            <h1 class="admin-hader23">Address</h1>
+          </div>
 
-            <div class="scrollWrapper">
-              <% data.FarmerList.forEach(function(farmer) { %>
-                <form action="<%= data.URL %>/admin/getCropDetails">
-                <div class = "admin-contan2">
-                    <input type = "checkbox" class = "admin-check2"></input>
-                    <p class = "admin-par20" > <%= farmer.firstName %> <%= farmer.lastName %> </p>
-                    <p class = "admin-par21" > <%= farmer.deposit %> </p>
-                    <p class = "admin-par22" > <%= farmer.quantity %> </p>
-                    <p class = "admin-par23" > <%= farmer.mobile %> </p>
-                    <p class = "admin-par24" > <%= farmer.address %> </p>
+          <div class="scrollWrapper">
+            <% data.FarmerList.forEach(function(farmer) { %>
+              <form action="<%= data.URL %>/admin/getCropDetails">
+                <div class="admin-contan2">
+                  <input type="checkbox" class="admin-check2"></input>
+                  <a href="./admin-crop.html" class="admin-par20">
+                    <%= farmer.firstName %>
+                      <%= farmer.lastName %>
+                  </a>
+                  <p class="admin-par21">
+                    <%= farmer.deposit %>
+                  </p>
+                  <p class="admin-par22">
+                    <%= farmer.quantity %>
+                  </p>
+                  <p class="admin-par23">
+                    <%= farmer.mobile %>
+                  </p>
+                  <p class="admin-par24">
+                    <%= farmer.address %>
+                  </p>
                 </div>
-                </form>
+              </form>
               <% }); %>
-            </div>
+          </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
 
 
-    <script src="/css/TopSideBar.js" charset="utf-8"></script>
+  <script src="/css/TopSideBar.js" charset="utf-8"></script>
 
 
-  </body>
+</body>
+
 </html>

@@ -1,0 +1,50 @@
+{
+    "name":"Ram Warehouse",
+    "storage": 24000,
+    "address":"Ghantakarna Temple, 150 Feet Ring Rd, opp. Rajkot, Tirupati Nagar, Rajkot, Gujarat 360005"
+},
+{
+    "name":"Mayur Vihar",
+    "storage": 20000,
+    "address":"Jawahar Rd, Opp. Pathikashram, Jubilee Garden, Rajkot, Gujarat 360001"
+},
+{
+    "name":"Shree Shubham",
+    "storage": 21000,
+    "address":"Railway Station Rd, opp omkar chember surat next to hotel alankar 3 th floor, Railway Station Cir,Surat, Gujarat 395003"
+},
+{
+    "name":"Maruti Warehouse",
+    "storage": 6000,
+    "address":"Una Pani road C/o old amisha hotel, opp. railway station, near State Bank of india, Surat, Gujarat 395003"
+},
+{
+    "name":"Agrawal Warehouse",
+    "storage": 36000,
+    "address":"Jashonath Chowk, opposite Pill Garden, Shilpi Nagar, Bhavnagar, Gujarat 364001"
+},
+{
+    "name":"Patel Warehouse",
+    "storage": 81000,
+    "address":"Hotel Royal Treat, Suthar Faliya cinema road, Station Rd, Near Delhi Gate, Surat, Gujarat 395003"
+},
+{
+    "name":"Star Warehouse",
+    "storage": 21000,
+    "address":"15 Street Opp To Railway Reservation Office, Junction Plot, Rajkot, Gujarat 360001"
+},
+{
+    "name":"Balaji Warehouse",
+    "storage": 11000,
+    "address":"Krishna Arcade, Press Road, Near Phulchhab Chowk, Sadar Bazar, Sadar, Rajkot, Gujarat 360001"
+},
+{
+    "name":"Trilok Warehouse",
+    "storage": 19000,
+    "address":"Bus Stand, Opposite Railway Station Besides S.T, Surat, Gujarat 395003"
+},
+{
+    "name":"Darshan Warehouse",
+    "storage": 39000,
+    "address":"Kalubha Rd, Kalanala, Takhteshwar Plots, Bhavnagar, Gujarat 364002"
+}
