@@ -44,6 +44,10 @@ const registerAdmin = async (req, res) => {
 	today = dd + '/' + mm + '/' + yyyy;
 	data['registerDate'] = today;
 	data['address'] = data['address'] || ' ';
+	
+	var usern = data.firstName + data.lastName;
+	data['username'] = usern.toLowerCase();
+
 	const { error } = validate(data);
 	if (error) {
 		const errorBlock = errorCustom(
