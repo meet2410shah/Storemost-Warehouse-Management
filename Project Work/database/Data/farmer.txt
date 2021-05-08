@@ -1,0 +1,91 @@
+
+{
+    "firstName": "Anand",
+    "lastName": "Dhola",
+    "username": "anand_Dhola",
+    "password": "farmer123",
+    "email": "ananddhola2@gmail.com",
+    "mobile": "6354396021",
+    "confirmPassword": "farmer123"
+},
+{
+    "firstName": "Kunj",
+    "lastName": "Makavana",
+    "username": "kunjmakvana",
+    "password": "farmer123",
+    "email": "kunjmakvana22@gmail.com",
+    "mobile": "9154822665",
+    "confirmPassword": "farmer123"
+},
+{
+    "firstName": "Rohit",
+    "lastName": "Teja",
+    "username": "rohitteja",
+    "password": "farmer123",
+    "email": "rohitteja@gmail.com",
+    "mobile": "6354936542",
+    "confirmPassword": "farmer123"
+},
+{
+    "firstName": "Sanjay",
+    "lastName": "Raja",
+    "username": "Sanjay_raja",
+    "password": "farmer123",
+    "email": "rajasanjay@gmail.com",
+    "mobile": "9154822665",
+    "confirmPassword": "farmer123"
+},
+{
+    "firstName": "Harsh",
+    "lastName": "Jasani",
+    "username": "jasaniharsh",
+    "password": "farmer123",
+    "email": "jasaniharsh@gmail.com",
+    "mobile": "9912345678",
+    "confirmPassword": "farmer123"
+},
+{
+    "firstName": "Hardik",
+    "lastName": "Lakhani",
+    "username": "hardik_435",
+    "password": "farmer123",
+    "email": "hardik435@gmail.com",
+    "mobile": "9115355522",
+    "confirmPassword": "farmer123"
+},
+{
+    "firstName": "Deval",
+    "lastName": "Kohli",
+    "username": "devalk45",
+    "password": "farmer123",
+    "email": "devalk45@gmail.com",
+    "mobile": "9154822665",
+    "confirmPassword": "farmer123"
+},
+{
+    "firstName": "Jaymin",
+    "lastName": "Sharma",
+    "username": "sharmaji345",
+    "password": "farmer123",
+    "email": "jsharma345@gmail.com",
+    "mobile": "6354396021",
+    "confirmPassword": "farmer123"
+},
+{
+    "firstName": "Paresh",
+    "lastName": "Bhut",
+    "username": "bhutparesh5",
+    "password": "farmer123",
+    "email": "bhutparesh7@gmail.com",
+    "mobile": "6354396021",
+    "confirmPassword": "farmer123"
+},
+{
+    "firstName": "Ghanshyam",
+    "lastName": "Vala",
+    "username": "valaGhanshyam56",
+    "password": "farmer123",
+    "email": "ghanshyam56@gmail.com",
+    "mobile": "6354396021",
+    "confirmPassword": "farmer123"
+}
