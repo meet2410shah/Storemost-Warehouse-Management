@@ -37,11 +37,11 @@ const addStaff = async function (req, res) {
 
 	const wid = Number(req.body.warehouseId);
 
-	console.log(wid);
+	// console.log(wid);
 	// console.log(data);
 	try {
 		warehouse = await Warehouse.findOne({ warehouseId: wid });
-		console.log(warehouse);
+		// console.log(warehouse);
 	} catch (MongoError) {
 		errRes.error = {
 			code: 1056,

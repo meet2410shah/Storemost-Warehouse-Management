@@ -18,14 +18,16 @@
 
 	<div class="sideBar">
 		<div class="sideLogo">
-			<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none"><img src="/images/image.png"
+			<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none; color: #fff;"><img src="/images/image.png"
 					class="buttonclass person-image" /></a>
 		</div>
 		<div class="sideLogo">
-			<img src="/images/inventory.svg" class="buttonclass" />
+			<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none; color: #fff;">
+			<img src="/images/inventory.svg" class="buttonclass" /></a>
 		</div>
 		<div class="sideLogo">
-			<img src="/images/logout.svg" class="buttonclass" />
+			<a href="<%= data.URL %>/admin/logout" style="text-decoration: none; color: #fff;">
+			<img src="/images/logout.svg" class="buttonclass" /></a>
 		</div>
 	</div>
 
@@ -48,7 +50,7 @@
 							<img src="/images/image.png" alt="" class="userOptionProfile" />
 						</td>
 						<td class="rightBox adjust">
-							<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none">
+							<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none; color: #fff;">
 								<p>Profile</p>
 							</a>
 						</td>
@@ -58,7 +60,8 @@
 							<img src="/images/inventory.svg" alt="" class="userOption" />
 						</td>
 						<td class="rightBox">
-							<p>Warehouses</p>
+							<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none; color: #fff;">
+							<p>Warehouses</p></a>
 						</td>
 					</tr>
 					<tr>
@@ -66,7 +69,8 @@
 							<img src="/images/logout.svg" alt="" class="userOption" />
 						</td>
 						<td class="rightBox">
-							<p>Logout</p>
+							<a href="<%= data.URL %>/admin/logout" style="text-decoration: none; color: #fff;">
+							<p>Logout</p></a>
 						</td>
 					</tr>
 				</tbody>

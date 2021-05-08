@@ -300,7 +300,7 @@ html {
 	margin-left: 80px;
 	background: transparent;
 	border: none;
-	border-bottom: 4px solid #aaa;
+	/* border-bottom: 4px solid #aaa; */
 	padding-bottom: 8px;
 	display: inline;
 	text-align: left;

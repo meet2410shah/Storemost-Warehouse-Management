@@ -33,21 +33,18 @@
 
 		<div class="sideBar">
 			<!-- <div class = "side-bar-div"> -->
-			<a href="/api/v1/admin/getProfile">
-				<div class="sideLogo">
-					<img src="/images/image.png" class="buttonclass person-image" />
-				</div>
-			</a>
-			<a href="/api/v1/admin/getWarehouses">
-				<div class="sideLogo">
-					<img src="/images/inventory.svg" class="buttonclass" />
-				</div>
-			</a>
-			<a href="/api/v1/admin/logout">
-				<div class="sideLogo">
-					<img src="/images/logout.svg" class="buttonclass" />
-				</div>
-			</a>
+			<div class="sideLogo">
+				<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none; color: #fff;"><img src="/images/image.png"
+						class="buttonclass person-image" /></a>
+			</div>
+			<div class="sideLogo">
+				<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none; color: #fff;">
+				<img src="/images/inventory.svg" class="buttonclass" /></a>
+			</div>
+			<div class="sideLogo">
+				<a href="<%= data.URL %>/admin/logout" style="text-decoration: none; color: #fff;">
+				<img src="/images/logout.svg" class="buttonclass" /></a>
+			</div>
 		</div>
 
 		<div id="mySidepanel" class="sidepanel">

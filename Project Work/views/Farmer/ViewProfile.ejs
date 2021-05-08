@@ -114,12 +114,13 @@
       <h1 id="profile">
         <b>Profile</b>
       </h1>
+      <a href="<%= data.URL %>/farmer/getEditProfile" style="text-decoration: none;color: white;">
       <button onClick={this.props.onClick} type="button"
         class="btn btn-outline-light btn p-2 pr-5 pl-5 js-scroll-trigger" id="editbtn">
         <i class="fas fa-pencil-alt"></i>
-        <a href="<%= data.URL %>/farmer/getEditProfile" style="text-decoration: none;color: white;">Edit
+        Edit
       </button> </a>
-      </button>
+      <!-- </button> -->
     </div>
 
     <div class="row">
@@ -127,21 +128,21 @@
         <img src="/images/image.png" alt="Avatar" class="img-thumbnail" id="img" />
         <!-- {/* <img src={"./logo192.png"} class="img-thumbnail" /> */} -->
       </div>
-      <div class="col">
+      <div class="col rightBoxBor">
         <table class="table">
           <tbody>
             <tr>
               <td class="removeLine">
                 <h5 class="data" id="mkt1">
-                  <b>First Name</b>
+                  <b>Name</b>
                 </h5>
               </td>
 
               <td class="dataContent removeLine">
-                <%= data.farmer.firstName%>
+                <%= data.farmer.firstName%> <%= data.farmer.lastName%>
               </td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td class="">
                 <h5 class="data" id="mkt1">
                   <b>Last Name</b>
@@ -151,9 +152,9 @@
               <td class="dataContent ">
                 <%= data.farmer.lastName%>
               </td>
-            </tr>
-            <tr>
-            <tr>
+            </tr> -->
+            <!-- <tr> -->
+            <!-- <tr>
               <td class="">
                 <h5 class="data" id="mkt1">
                   <b>UserName</b>
@@ -163,7 +164,7 @@
               <td class="dataContent ">
                 <%= data.farmer.username%>
               </td>
-            </tr>
+            </tr> -->
             <tr>
               <td>
                 <h5 class="data">

@@ -44,6 +44,7 @@ const farmer = async function (req, res) {
 		data: {
 			URL: process.env.PRODUCTION_URL,
 			farmer: user,
+			role: "farmer",
 		},
 	});
 

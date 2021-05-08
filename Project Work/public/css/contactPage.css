@@ -1,0 +1,72 @@
+body,
+html {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	font-family: 'Montserrat';
+}
+
+.topBar {
+	/* font-size: 50px; */
+	/* color: #FFFFFF; */
+	background-color: #4e4e4e;
+	width: 100%;
+	height: 70px;
+	/* opacity: 0.7; */
+	/* position: fixed; */
+	/* display: block; */
+	/* z-index: 1; */
+}
+
+.topBar-storeMostLogo {
+	width: 150px;
+	height: 60px;
+	margin-left: 20px;
+	padding-top: 5px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.topBar-openbtn {
+	padding-left: 15px;
+	width: 50px;
+	padding-bottom: 10px;
+	height: 40px;
+
+	/* font-size: 20px; */
+	cursor: pointer;
+	background-color: #111;
+	/* color: white; */
+	padding: 10px 15px;
+	border: none;
+}
+
+.topBar-openbtn:hover {
+	background-color: #444;
+}
+
+.mainBody{
+  background-color: #353535;
+  height: 100%;
+  width: 100%;
+}
+
+.logoImage{
+  background-color: #353535;
+}
+
+.form-control{
+  background-color: #4e4e4e;
+}
+
+.submitButton{
+  border: 1px solid #D3B04F;
+}
+
+.rightBox{
+  border-left: 2px solid #707070;
+}
+
+.socialRow{
+  border-top: 2px solid #707070;
+}

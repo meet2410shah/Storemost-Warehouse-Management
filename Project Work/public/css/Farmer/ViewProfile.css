@@ -492,3 +492,7 @@ input{
   height: 40px;
   vertical-align: middle;
 }
+
+.rightBoxBor{
+  height: 250px;
+}

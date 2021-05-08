@@ -32,15 +32,16 @@
 
 		<div class="sideBar">
 			<div class="sideLogo">
-				<a href="/api/v1/admin/getProfile">
-					<img src="/images/image.png" class="buttonclass person-image" />
-				</a>
+				<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none; color: #fff;"><img src="/images/image.png"
+						class="buttonclass person-image" /></a>
 			</div>
 			<div class="sideLogo">
-				<img src="/images/inventory.svg" class="buttonclass" />
+				<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none; color: #fff;">
+				<img src="/images/inventory.svg" class="buttonclass" /></a>
 			</div>
 			<div class="sideLogo">
-				<img src="/images/logout.svg" class="buttonclass" />
+				<a href="<%= data.URL %>/admin/logout" style="text-decoration: none; color: #fff;">
+				<img src="/images/logout.svg" class="buttonclass" /></a>
 			</div>
 		</div>
 
@@ -62,20 +63,28 @@
 							<td class="leftBox">
 								<img src="/images/image.png" alt="" class="userOptionProfile" />
 							</td>
-							<td class="rightBox adjust"><p>Profile</p></td>
+							<td class="rightBox adjust">
+								<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none; color: #fff;">
+									<p>Profile</p>
+								</a>
+							</td>
 						</tr>
 						<tr>
 							<td class="leftBox">
 								<img src="/images/inventory.svg" alt="" class="userOption" />
 							</td>
-							<td class="rightBox"><p>Warehouses</p></td>
+							<td class="rightBox">
+								<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none; color: #fff;">
+								<p>Warehouses</p></a>
+							</td>
 						</tr>
 						<tr>
 							<td class="leftBox">
 								<img src="/images/logout.svg" alt="" class="userOption" />
 							</td>
 							<td class="rightBox">
-								<a href="<%= data.URL %>/admin/logout"><p>Logout</p></a>
+								<a href="<%= data.URL %>/admin/logout" style="text-decoration: none; color: #fff;">
+								<p>Logout</p></a>
 							</td>
 						</tr>
 					</tbody>
@@ -175,22 +184,6 @@
 											name="address"
 											value=""
 											placeholder="Address"
-										/>
-									</td>
-								</tr>
-								<tr>
-									<td class="tableHead">
-										<h5 class="data">
-											<b>Registered Date</b>
-										</h5>
-									</td>
-									<td class="dataContent">
-										<input
-											type="text"
-											name=""
-											value=""
-											placeholder="Due Date"
-											disabled
 										/>
 									</td>
 								</tr>
