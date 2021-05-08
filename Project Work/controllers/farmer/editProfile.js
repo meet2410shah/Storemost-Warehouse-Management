@@ -102,7 +102,7 @@ const admin = async function (req, res) {
 	res.clearCookie('token');
 	res.cookie('token', updatedToken);
 
-	return res.redirect('./api/v1/farmer/getProfile');
+	return res.redirect('/api/v1/farmer/getProfile');
 
 	res.send(
 		_.pick(profile, [

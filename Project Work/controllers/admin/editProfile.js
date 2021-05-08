@@ -87,7 +87,7 @@ const admin = async function (req, res) {
 	// `doc` is the document _before_ `update` was applied
 	let profile = await Admin.findOneAndUpdate(filter, update);
 
-	console.log(profile);
+	// console.log(profile);
 
 	profile = await Admin.findOne(filter);
 

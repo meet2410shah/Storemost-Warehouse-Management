@@ -500,8 +500,14 @@ input{
 
 .editCol{
   height: auto;
+  /* border-left-width: 0;  */
 }
 
 .tableHead{
   vertical-align: top !important;
+}
+
+.sideTable{
+  border-left: 2px solid grey;
+  padding-left: 40px;
 }

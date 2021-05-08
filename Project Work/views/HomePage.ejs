@@ -21,8 +21,8 @@
             <a><img class="logo img-responsive" src="/images/SM-Warehouse-Logo@2x.png"></img></a>
           </div>
           <ul class="nav navbar-right mr-5 text-light mb-1">
-            <li class="nav-item"><a  class="nav-link but" href="">Contact</a></li>
-            <li class="nav-item"><a  class="nav-link but" href="">About Us</a></li>
+            <li class="nav-item"><a  class="nav-link but" href="<%= data.URL %>/contact">Contact</a></li>
+            <li class="nav-item"><a  class="nav-link but" href="<%= data.URL %>/about">About Us</a></li>
           </ul>
         </div>
       </nav>
@@ -125,7 +125,7 @@
                       <input class="radio" id="tab-2" name="tabs-name" type="radio" />
                       <label for="tab-2" class="table"><span>SIGN UP</span></label>
                       <div class="tabs-content">
-                        <form action="" method="POST">
+                        <form action="" method="POST" id="myFormUp">
                           <label
                             style="
                               display: flex;
@@ -133,14 +133,14 @@
                               color: white;
                               margin-top: 1%;
                             ">First Name</label>
-                          <input type="name" placeholder="Virat" required style="background-color: #464545" />
+                          <input type="name" placeholder="Virat" required style="background-color: #464545" name="firstName"/>
                           <label style="
                               display: flex;
                               float: left;
                               color: white;
                               margin-top: 1%;
                             ">Last Name</label>
-                          <input type="name" placeholder="Kohli" required style="background-color: #464545" />
+                          <input type="name" placeholder="Kohli" required style="background-color: #464545" name="lastName"/>
 
                           <label style="display: flex; float: left; color: white"
                             >Email</label
@@ -150,6 +150,7 @@
                             placeholder="viratkohli2gmail.com"
                             required
                             style="background-color: #464545"
+                            name="email"
                           />
 
                           <label style="display: flex; float: left; color: white"
@@ -162,6 +163,7 @@
                             placeholder="xxxxx xxxxx"
                             required
                             style="background-color: #464545"
+                            name="mobile"
                           />
 
                           <label style="display: flex; float: left; color: white"
@@ -172,6 +174,7 @@
                             placeholder="Enter Password"
                             required
                             style="background-color: #464545; margin-bottom: 0"
+                            name="password"
                           />
                           <input
                             type="password"
@@ -197,7 +200,7 @@
               for="modal-toggle">Log in as Supervisor</label>
           </div>
           <div class="col-sm-6 text-center pt-2">
-            <a href="www.google.com" class="text-light text-decoration-none">Actively operating over 21 warehouses</a>
+            <a href="<%= data.URL %>/warehouse/list" class="text-light text-decoration-none">Actively operating over 21 warehouses</a>
           </div>
         </div>
         <div class="m-3">
@@ -213,14 +216,22 @@
   <script type="text/javascript">
 
 
+  window.onload = (event) => {
+  // console.log('page is fully loaded');
+// document.getElementById("tafahomNameId_78ec7c44-beab-40de-9326-095f474519f4_$LookupField").value = 1;;
+
+
     document.querySelectorAll('.nominee').forEach(item => {
       item.addEventListener('click', event => {
 
         let routeName = event.target.id;
 
         document.getElementById("myForm").action = "<%= data.URL %>/" + routeName + "/login"
+        document.getElementById("myFormUp").action = "<%= data.URL %>/" + routeName + "/register"
       })
     })
+
+};
 
 
   </script>

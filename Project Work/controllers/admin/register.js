@@ -8,6 +8,8 @@ const { errorCustom } = require('../error/error');
 const jwt = require('jsonwebtoken');
 
 const registerAdmin = async (req, res) => {
+
+	console.log(req.body);
 	// Check if this user already exisits
 
 	const userName = await Admin.findOne({ username: req.body.username });
@@ -20,6 +22,8 @@ const registerAdmin = async (req, res) => {
 		});
 	}
 
+	console.log("one");
+
 	let user = await Admin.findOne({ email: req.body.email });
 
 	if (user) {
@@ -28,6 +32,9 @@ const registerAdmin = async (req, res) => {
 			data: null,
 			error: { code: 1022, msg: 'User already exists' },
 		});
+
+		console.log("two");
+
 	}
 	let data = req.body;
 
@@ -57,6 +64,8 @@ const registerAdmin = async (req, res) => {
 		return res.send({ success: false, data: null, error: errorBlock });
 	}
 
+	console.log("three");
+
 	// Insert the new user if they do not exist yet
 	user = new Admin(
 		_.pick(data, [
@@ -72,6 +81,7 @@ const registerAdmin = async (req, res) => {
 	);
 	const salt = await bcrypt.genSalt(10);
 	user.password = await bcrypt.hash(user.password, salt);
+	console.log(user);
 	await user.save();
 
 	const token = jwt.sign(

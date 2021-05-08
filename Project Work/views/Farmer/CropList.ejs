@@ -132,23 +132,23 @@
         <% data.crops.forEach(function(crop) { %>
 
 
-          <!--1-->
-          <div class="contan3">
-            <p class="divimg">
-              <a href="<%= data.URL %>/farmer/getCrop?cropid=<%= crop._id %>" target="_top">
-                <img src="/images/crop.png" class="crop-img" />
-              </a>
-            </p>
-            <p class="par3">
-              <%= crop.cropType %>
-            </p>
-            <p class="pargraph3">
-              <%= crop.quantity %> Quintal
-            </p>
-            <p class="pargraph3">
-              <%= crop.depositDate.toString().substring(4,15) %> to <%= crop.dueDate.toString().substring(4,15) %>
-            </p>
-          </div>
+        <!--1-->
+        <div class="contan3">
+          <p class="divimg">
+            <a href="<%= data.URL %>/farmer/getCrop?cropid=<%= crop._id %>" target="_top">
+              <img src="/images/crop.png" class="crop-img" />
+            </a>
+          </p>
+          <p class="par3">
+            <%= crop.cropType %>
+          </p>
+          <p class="pargraph3">
+            <%= crop.quantity %> Quintal
+          </p>
+          <p class="pargraph3">
+            <%= crop.depositDate.toString().substring(4,15) %> to <%= crop.dueDate.toString().substring(4,15) %>
+          </p>
+        </div>
 
           <% }); %>
 

@@ -1,0 +1,15 @@
+<svg id="mail-24px" xmlns="http://www.w3.org/2000/svg" width="36.618" height="36.618" viewBox="0 0 36.618 36.618">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #d3b04f;
+      }
+    </style>
+  </defs>
+  <path id="Path_233" data-name="Path 233" class="cls-1" d="M0,0H36.618V36.618H0Z"/>
+  <path id="Path_234" data-name="Path 234" class="cls-2" d="M32.515,7.051A3.06,3.06,0,0,0,29.463,4H5.051A3.06,3.06,0,0,0,2,7.051V25.36a3.06,3.06,0,0,0,3.051,3.051H29.463a3.06,3.06,0,0,0,3.051-3.051Zm-3.051,0L17.257,14.665,5.051,7.051Zm0,18.309H5.051V10.1l12.206,7.629L29.463,10.1Z" transform="translate(1.051 2.103)"/>
+</svg>

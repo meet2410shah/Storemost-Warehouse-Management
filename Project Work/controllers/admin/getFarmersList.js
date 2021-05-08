@@ -70,19 +70,19 @@ module.exports = async function (req, res) {
 	// console.log(FarmersList);
 
 	var farmers = [];
-	console.log(wid);
+	// console.log(wid);
 	for (var f = 0; f < FarmersList.length; f++) {
 		var flag = 0;
 		for (var c = 0; c < FarmersList[f].crops.length; c++) {
 			console.log(FarmersList[f].crops[c]);
 			if (FarmersList[f].crops[c].warehouseId == wid) {
-				console.log('Hello');
+				// console.log('Hello');
 				flag = 1;
 				break;
 			}
 		}
 		if (flag == 1) {
-			console.log(FarmersList[f]);
+			// console.log(FarmersList[f]);
 			farmers.push(
 				_.pick(FarmersList[f], [
 					'firstName',

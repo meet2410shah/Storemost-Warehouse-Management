@@ -1,0 +1,89 @@
+body,
+html {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	font-family: 'Montserrat';
+}
+
+.topBar {
+	/* font-size: 50px; */
+	/* color: #FFFFFF; */
+	background-color: #4e4e4e;
+	width: 100%;
+	height: 70px;
+	/* opacity: 0.7; */
+	/* position: fixed; */
+	/* display: block; */
+	/* z-index: 1; */
+}
+
+.topBar-storeMostLogo {
+	width: 150px;
+	height: 60px;
+	margin-left: 20px;
+	padding-top: 5px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.topBar-openbtn {
+	padding-left: 15px;
+	width: 50px;
+	padding-bottom: 10px;
+	height: 40px;
+
+	/* font-size: 20px; */
+	cursor: pointer;
+	background-color: #111;
+	/* color: white; */
+	padding: 10px 15px;
+	border: none;
+}
+
+.topBar-openbtn:hover {
+	background-color: #444;
+}
+
+
+
+
+.header{
+    height: 100vh!important;
+    overflow: hidden!important;
+
+
+  }
+
+.bor{
+    border-right: 2px solid #707070 !important;
+    height: 338px!important;
+}
+
+.texts{
+    font:normal normal 300 16px/32px;
+    line-height: 1.6!important;
+    letter-spacing: 0.2px !important;
+}
+
+.back{
+    background-color: #353535!important;
+}
+
+.back1{
+    background-color:#797979!important;
+}
+
+.text1
+{
+    font: normal normal normal 45px/32px;
+    height: 60px!important;
+}
+
+.but{
+    color: white!important;
+    /* font-family: sans-serif!important; */
+  border: 2px solid #D3B04F !important;
+  font-size: 20px !important;
+
+  }

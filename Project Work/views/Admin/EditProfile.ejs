@@ -10,25 +10,19 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="/css/Admin/EditProfile.css" />
 
-	<style type="text/css">
-		*,
-		*::before,
-		*::after {
-			box-sizing: content-box !important;
-		}
-	</style>
-</head>
-
-<body>
-	<div class="topBar">
-		<img src="/images/sort.svg" class="topBar-openbtn" onclick="openNav()" />
-		<img src="/images/SM-Warehouse-Logo.png" class="topBar-storeMostLogo" />
-	</div>
-
-	<div class="sideBar">
-		<div class="sideLogo">
-			<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none;color: white;"><img
-					src="/images/image.png" class="buttonclass person-image" /></a>
+		<div class="sideBar">
+			<div class="sideLogo">
+				<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none; color: #fff;"><img src="/images/image.png"
+						class="buttonclass person-image" /></a>
+			</div>
+			<div class="sideLogo">
+				<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none; color: #fff;">
+				<img src="/images/inventory.svg" class="buttonclass" /></a>
+			</div>
+			<div class="sideLogo">
+				<a href="<%= data.URL %>/admin/logout" style="text-decoration: none; color: #fff;">
+				<img src="/images/logout.svg" class="buttonclass" /></a>
+			</div>
 		</div>
 		<div class="sideLogo">
 			<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none;color: white;"><img
@@ -52,40 +46,39 @@
 			</p>
 			<p class="userDesig">Admin</p>
 
-			<table class="table">
-				<tbody>
-					<tr>
-						<td class="leftBox">
-							<img src="/images/image.png" alt="" class="userOptionProfile" />
-						</td>
-						<td class="rightBox adjust">
-							<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none;color: white;">
-								<p>Profile</p>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<td class="leftBox">
-							<img src="/images/inventory.svg" alt="" class="userOption" />
-						</td>
-						<td class="rightBox">
-							<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none;color: white;">
-								<p>Warehouses</p>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<td class="leftBox">
-							<img src="/images/logout.svg" alt="" class="userOption" />
-						</td>
-						<td class="rightBox">
-							<a href="<%= data.URL %>/admin/logout" style="text-decoration: none;color: white;">
-								<p>Logout</p>
-							</a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+				<table class="table">
+					<tbody>
+						<tr>
+							<td class="leftBox">
+								<img src="/images/image.png" alt="" class="userOptionProfile" />
+							</td>
+							<td class="rightBox adjust">
+								<a href="<%= data.URL %>/admin/getProfile" style="text-decoration: none; color: #fff;">
+									<p>Profile</p>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="leftBox">
+								<img src="/images/inventory.svg" alt="" class="userOption" />
+							</td>
+							<td class="rightBox">
+								<a href="<%= data.URL %>/admin/getWarehouses" style="text-decoration: none; color: #fff;">
+								<p>Warehouses</p></a>
+							</td>
+						</tr>
+						<tr>
+							<td class="leftBox">
+								<img src="/images/logout.svg" alt="" class="userOption" />
+							</td>
+							<td class="rightBox">
+								<a href="<%= data.URL %>/admin/logout" style="text-decoration: none; color: #fff;">
+								<p>Logout</p></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 
@@ -99,82 +92,107 @@
 			<div class="col-2 px-md-5" id="vline">
 				<img src="/images/image.png" alt="Avatar" class="img-thumbnail" id="img" />
 			</div>
-			<div class="col editCol">
-				<form action="<%= data.URL %>/admin/editProfile" method="POST">
-					<table class="table">
-						<tbody>
-							<tr>
-								<td class="removeLine tableHead">
-									<h5 class="data" id="mkt1">
-										<b>First Name</b>
-									</h5>
-								</td>
-								<td class="dataContent removeLine">
-									<input type="text" name="firstName" value=""
-										placeholder="<%=data.admin.firstName%>" />
-								</td>
-							</tr>
-							<tr>
-								<td class="tableHead">
-									<h5 class="data" id="mkt1">
-										<b>Last Name</b>
-									</h5>
-								</td>
-								<td class="dataContent">
-									<input type="text" name="lastName" value=""
-										placeholder="<%=data.admin.lastName%>" />
-								</td>
-							</tr>
-							<tr>
-								<td class="tableHead">
-									<h5 class="data">
-										<b>Mobile</b>
-									</h5>
-								</td>
-								<td class="dataContent">
-									<input type="text" name="mobile" value="" placeholder="<%=data.admin.mobile%>" />
-								</td>
-							</tr>
-							<tr>
-								<td class="tableHead">
-									<h5 class="data">
-										<b>Email</b>
-									</h5>
-								</td>
-								<td class="dataContent">
-									<input type="text" name="email" value="" placeholder="<%=data.admin.email%>"
-										disabled />
-								</td>
-							</tr>
-							<tr>
-								<td class="tableHead">
-									<h5 class="data">
-										<b>Address</b>
-									</h5>
-								</td>
-								<td class="dataContent">
-									<input type="text" name="address" value="" placeholder="<%=data.admin.address%>" />
-								</td>
-							</tr>
-							<tr>
-								<td class="tableHead">
-									<h5 class="data">
-										<b>Registered Date</b>
-									</h5>
-								</td>
-								<td class="dataContent">
-									<input type="text" name="" value="" placeholder="<%=data.admin.registerDate%>"
-										disabled />
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="submitButton">
-						<button class="btn btn-outline-light btn p-2 pr-5 pl-5 js-scroll-trigger" type="submit">
-							Submit
-						</button>
-					</div>
-				</form>
+			<div class="row">
+				<div class="col-2 px-md-5" id="vline">
+					<img
+						src="/images/image.png"
+						alt="Avatar"
+						class="img-thumbnail"
+						id="img"
+					/>
+				</div>
+				<div class="col editCol">
+					<form action="<%= data.URL %>/admin/editProfile" method="POST">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td class="removeLine tableHead">
+										<h5 class="data" id="mkt1">
+											<b>First Name</b>
+										</h5>
+									</td>
+									<td class="dataContent removeLine">
+										<input
+											type="text"
+											name="firstName"
+											value=""
+											placeholder="First Name"
+										/>
+									</td>
+								</tr>
+								<tr>
+									<td class="tableHead">
+										<h5 class="data" id="mkt1">
+											<b>Last Name</b>
+										</h5>
+									</td>
+									<td class="dataContent">
+										<input
+											type="text"
+											name="lastName"
+											value=""
+											placeholder="Last Name"
+										/>
+									</td>
+								</tr>
+								<tr>
+									<td class="tableHead">
+										<h5 class="data">
+											<b>Mobile</b>
+										</h5>
+									</td>
+									<td class="dataContent">
+										<input
+											type="text"
+											name="mobile"
+											value=""
+											placeholder="Mobile"
+										/>
+									</td>
+								</tr>
+								<tr>
+									<td class="tableHead">
+										<h5 class="data">
+											<b>Email</b>
+										</h5>
+									</td>
+									<td class="dataContent">
+										<input
+											type="text"
+											name="email"
+											value=""
+											placeholder="Email"
+											disabled
+										/>
+									</td>
+								</tr>
+								<tr>
+									<td class="tableHead">
+										<h5 class="data">
+											<b>Address</b>
+										</h5>
+									</td>
+									<td class="dataContent">
+										<input
+											type="text"
+											name="address"
+											value=""
+											placeholder="Address"
+										/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="submitButton">
+							<button
+								class="btn btn-outline-light btn p-2 pr-5 pl-5 js-scroll-trigger"
+								type="submit"
+							>
+								Submit
+							</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>

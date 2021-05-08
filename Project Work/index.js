@@ -109,5 +109,21 @@ app.get('/pop', (req, res) => {
 	res.render('CropPopup');
 });
 
+app.get(`${version}/contact`, (req, res) => {
+	res.render('contactPage',{
+		data: {
+			URL: process.env.PRODUCTION_URL,
+		},
+	});
+});
+
+app.get(`${version}/about`, (req, res) => {
+	res.render('Aboutus',{
+		data: {
+			URL: process.env.PRODUCTION_URL,
+		},
+	});
+});
+
 // Server Listening
 app.listen(PORT);
