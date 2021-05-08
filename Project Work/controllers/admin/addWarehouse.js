@@ -45,11 +45,14 @@ const addWarehouse = async function (req, res) {
 		};
 		return res.send(errRes);
 	}
-	warehouse.warehouseId = (await Warehouse.count()) + 1;
-	// console.log(warehouse);
+	warehouse.warehouseId = parseInt(await Warehouse.countDocuments()) + 1;
+
+
+	console.log(warehouse);
+
 	try {
-		warehouse = new Warehouse(warehouse);
-		await warehouse.save();
+		let warehousen = new Warehouse(warehouse);
+		await warehousen.save();
 	} catch (MongoError) {
 		errRes.error = {
 			code: 1063,

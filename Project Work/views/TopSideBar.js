@@ -17,6 +17,7 @@ function openNav() {
   // document.getElementById("mySidepanel").style.zIndex = "1";
 }
 
+
 /* Set the width of the sidebar to 0 (hide it) */
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0px";
@@ -33,3 +34,5 @@ function closeNav() {
   // document.querySelector(".table").style.height = "200px";
   // document.querySelector(".userLogo").style.marginRight = "0px";
 }
+
+
