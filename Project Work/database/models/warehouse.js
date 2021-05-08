@@ -1,7 +1,7 @@
 module.exports = require('mongoose').model(
 	'Warehouse',
-	require('mongoose').Schema({
-		warehouseId: { type: Number, unique: true, required: true },
+	 require('mongoose').Schema({
+		warehouseId: { type: Number, unique: true, required: true, dropDups: true },
 		name: { type: String, required: true },
 		location: {
 			address: { type: String, required: true },
@@ -11,7 +11,7 @@ module.exports = require('mongoose').model(
 		storage: { type: Number, required: true },
 		staffDetails: [
 			{
-				staffId: { type: Number, required: true },
+				staffId: { type: Number, unique: true, required: true, dropDups: true },
 				firstName: { type: String, required: true },
 				lastName: { type: String, required: true },
 				salary: { type: Number, required: true },

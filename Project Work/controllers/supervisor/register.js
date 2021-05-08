@@ -25,10 +25,6 @@ const registerSuper = async (req, res) => {
   today = dd + '/' + mm + '/' + yyyy;
   data['registerDate'] = today;
   data['address'] = data['address'] || " ";
-  var usern = data.firstName + data.lastName;
-  data['username'] = data['usename'] || usern.toLowerCase();
-  data['warehouseId'] = Math.floor(Math.random() * 10) + 1;
-
 
   const { error } = validate(data);
   if (error) {
@@ -74,7 +70,25 @@ const registerSuper = async (req, res) => {
   }
 
   // Insert the new user if they do not exist yet
-  // let data = req.body;
+	// let data = req.body;
+
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+		dd = '0' + dd;
+	}
+	if (mm < 10) {
+		mm = '0' + mm;
+	}
+	today = dd + '/' + mm + '/' + yyyy;
+	req.body['registerDate'] = today;
+
+
+  // console.log(req.body);
+
+
 
 
   user = new Supervisor(
@@ -86,7 +100,7 @@ const registerSuper = async (req, res) => {
       "email",
       "mobile",
       "address",
-      "warehouseId",
+			"warehouseId",
       "registerDate"
     ])
   );
@@ -98,35 +112,35 @@ const registerSuper = async (req, res) => {
 
 
   Warehouse.update(
-    { "warehouseId": "user.warehouseId" },
-    {
-      $push: {
-        staffDetails: {
-          $each: [{
-            staffId: "",
-            firstName: user.firstName,
-            lastName: user.lastName,
-            salary: 0,
-            role: "supervisor",
-            mobile: user.mobile,
-          }],
-          $position: 0
-        }
+      { "warehouseId": "user.warehouseId" },
+      {
+          $push: {
+              staffDetails: {
+                  $each: [{
+                    staffId: "",
+            				firstName: user.firstName,
+            				lastName: user.lastName,
+            				salary: "",
+            				role: "Supervisor",
+            				mobile: user.mobile,
+                  }],
+                  $position: 0
+              }
+          }
       }
-    }
   );
 
 
   const token = jwt.sign(
-    {
-      user: user,
-      role: "supervisor",
-    },
-    process.env.SECRET
-  );
+		{
+			user: user,
+			role: "supervisor",
+		},
+		process.env.SECRET
+	);
 
-  res.clearCookie('token');
-  res.cookie('token', token);
+	res.clearCookie('token');
+	res.cookie('token', token);
 
 
 

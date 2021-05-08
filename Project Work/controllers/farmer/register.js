@@ -51,11 +51,6 @@ module.exports = async (req, res) => {
 	today = dd + '/' + mm + '/' + yyyy;
 	data['registerDate'] = today;
 	data['address'] = data['address'] || " ";
-
-	var usern = data.firstName + data.lastName;
-	data['username'] = data['username'] || usern.toLowerCase();
-
-
 	const { error } = validate(data);
 	if (error) {
 		const errorBlock = errorCustom(
@@ -65,10 +60,9 @@ module.exports = async (req, res) => {
 		return res.send({ success: false, data: null, error: errorBlock });
 	}
 
-	// console.log(data);
+	console.log(data);
 	let user = new Farmer(
 		_.pick(data, [
-			"_id",
 			"firstName",
 			"lastName",
 			"username",
@@ -82,15 +76,14 @@ module.exports = async (req, res) => {
 	user.password = await bcrypt.hash(user.password, salt);
 	await user.save();
 
-	// console.log(user);;
 	const token = jwt.sign(
 		{
-			user,
+			farmer: user,
 			role: "farmer",
 		},
 		process.env.SECRET
 	);
-
+	res.clearCookie('token');
 	res.cookie('token', token);
 
 	return res.redirect('/api/v1/farmer/getCrops');

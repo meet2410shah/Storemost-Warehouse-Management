@@ -21,80 +21,72 @@ const addStaff = async function (req, res) {
 		'role',
 		'mobile',
 	];
-	const users = req.body.users;
-	// console.log(users);
+	const data = req.body;
+	// console.log(data);
 
-	let wid1;
-	users.forEach(async (data) => {
-		for (var i = 0; i < arr.length; i++) {
-			// console.log(arr[i] in data);
-			if (!(arr[i] in data)) {
-				errRes.error = {
-					code: 1055 + i,
-					msg: arr[i] + ' require to add staff',
-				};
-				return res.send(errRes);
-			}
-		}
-
-		const wid = Number(data.warehouseId);
-		wid1 = wid
-
-		// console.log(wid);
-		// console.log(data);
-		try {
-			warehouse = await Warehouse.findOne({ warehouseId: wid });
-			// console.log(warehouse);
-		} catch (MongoError) {
+	for (var i = 0; i < arr.length; i++) {
+		// console.log(arr[i] in data);
+		if (!(arr[i] in data)) {
 			errRes.error = {
-				code: 1056,
-				msg: 'warehouse not found with given warehouseId',
+				code: 1055 + i,
+				msg: arr[i] + ' require to add staff',
 			};
 			return res.send(errRes);
 		}
-		if (!warehouse) {
-			errRes.error = {
-				code: 1056,
-				msg: 'warehouse not found with given warehouseId',
-			};
-			return res.send(errRes);
-		}
+	}
 
-		const staff = {
-			firstName: data.firstName,
-			lastName: data.lastName,
-			role: data.role,
-			mobile: data.mobile,
-			salary: data.salary,
-			staffId: new Date().getTime(),
+	const wid = Number(req.body.warehouseId);
+
+	// console.log(wid);
+	// console.log(data);
+	try {
+		warehouse = await Warehouse.findOne({ warehouseId: wid });
+		// console.log(warehouse);
+	} catch (MongoError) {
+		errRes.error = {
+			code: 1056,
+			msg: 'warehouse not found with given warehouseId',
 		};
+		return res.send(errRes);
+	}
+	if (!warehouse) {
+		errRes.error = {
+			code: 1056,
+			msg: 'warehouse not found with given warehouseId',
+		};
+		return res.send(errRes);
+	}
 
-		const { error } = await validate(staff);
-		if (error) {
-			errRes.error = {
-				code: 400,
-				msg: error.details[0].message,
-			};
-			return res.send(errRes);
-		}
+	const staff = {
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
+		role: req.body.role,
+		mobile: req.body.mobile,
+		salary: req.body.salary,
+		staffId: warehouse.staffDetails.length + 1,
+	};
 
-		const check = await Warehouse.findOneAndUpdate(
-			{ warehouseId: wid },
-			{ $push: { staffDetails: staff } }
-		);
+	const { error } = await validate(staff);
+	if (error) {
+		errRes.error = {
+			code: 400,
+			msg: error.details[0].message,
+		};
+		return res.send(errRes);
+	}
 
-		if (!check) {
-			errRes.error = {
-				code: 1062,
-				msg: 'cannot add staff member to warehouse',
-			};
-		}
-	});
+	const check = await Warehouse.findOneAndUpdate(
+		{ warehouseId: wid },
+		{ $push: { staffDetails: staff } }
+	);
 
-
-
-
-	const warehousestaff = await Warehouse.findOne({ warehouseId: wid1 });
+	if (!check) {
+		errRes.error = {
+			code: 1062,
+			msg: 'cannot add staff member to warehouse',
+		};
+	}
+	const warehousestaff = await Warehouse.findOne({ warehouseId: wid });
 	// console.log(warehousestaff);
 	const resObj = {
 		success: true,
@@ -102,7 +94,6 @@ const addStaff = async function (req, res) {
 		error: null,
 	};
 	res.send(resObj);
-	// return res.send("go");
 };
 
 module.exports = addStaff;

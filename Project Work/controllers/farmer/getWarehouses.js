@@ -118,16 +118,13 @@ const getWarehouses = async function (req, res) {
 		}
 		warehouses[i]['available'] = warehouses[i].storage - total;
 		let mnumber = null;
-		let warehouseswid = await Warehouse.findOne({ warehouseId: warehouses[i].warehouseId });
-		if (warehouseswid.staffDetails) {
-			// console.log(warehouseswid.staffDetails);
-			for (var s = 0; s < warehouseswid.staffDetails.length; i++) {
-				if (warehouseswid.staffDetails[s].role == 'supervisor') {
-					mnumber = warehouseswid.staffDetails[s].mobile;
+		if (warehouses[i].staffDetails)
+			for (var s = 0; s < warehouses[i].staffDetails.length; i++) {
+				if (warehouses[i].staffDetails[s].role == 'superwiser') {
+					mnumber = warehouses[i].staffDetails[s].mobile;
 					break;
 				}
 			}
-		}
 		warehouses[i]['mobile'] = mnumber;
 	}
 	// console.log(warehouses);
