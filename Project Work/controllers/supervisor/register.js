@@ -26,7 +26,7 @@ const registerSuper = async (req, res) => {
   data['registerDate'] = today;
   data['address'] = data['address'] || " ";
   var usern = data.firstName + data.lastName;
-  data['username'] = usern.toLowerCase();
+  data['username'] = data['usename'] || usern.toLowerCase();
   data['warehouseId'] = Math.floor(Math.random() * 10) + 1;
 
 
