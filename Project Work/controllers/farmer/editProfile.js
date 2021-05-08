@@ -84,13 +84,13 @@ const admin = async function (req, res) {
 		}
 	}
 
-	console.log(update);
+	// console.log(update);
 	// `doc` is the document _before_ `update` was applied
 	let profile = await Farmer.findOneAndUpdate(filter, update);
 
 	profile = await Farmer.findOne(filter);
 
-	console.log(profile);
+	// console.log(profile);
 	const updatedToken = jwt.sign(
 		{
 			user: profile,
