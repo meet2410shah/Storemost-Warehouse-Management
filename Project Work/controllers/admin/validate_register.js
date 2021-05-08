@@ -13,7 +13,7 @@ function validateUser(user) {
       .email(),
     mobile: Joi.string().min(5).max(50).required()
       .pattern(/^[0-9]+$/),
-    confirmPassword: Joi.string().min(5).max(255).required(),
+    confirmPassword: Joi.string().min(5).max(255),
     registerDate: Joi.string().min(5).max(50),
     address: Joi.string().min(0).max(100),
   });
